@@ -1,0 +1,70 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Energy Diagnostics */
+#undef ENERGY_DIAGNOSTICS
+
+/* Number of POINTS in the element (Default value is 6) */
+#undef NP
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Basic PIO */
+#undef PIO
+
+/* PIO with interpolation */
+#undef PIO_INTERP
+
+/* Number of POINTS in the element (Default value is 1) */
+#undef PLEV
+
+/* SPHEREW */
+#undef SPHEREW
+
+/* TIMING */
+#undef TIMING
+
+/* Version number of package */
+#undef VERSION
+
+/* BGL system */
+#undef _BGL
+
+/* Darwin System */
+#undef _Darwin
+
+/* Linux System */
+#undef _Linux
+
+/* Using MPI */
+#undef _MPI
+
+/* NOTRACE */
+#undef _NOTRACE
+
+/* _NO_OMP_THREADS */
+#undef _NO_OMP_THREADS
+
+/* Using PRESTART */
+#undef _PRESTART
+
+/* _SWDG */
+#undef _SWDG
+
+/* _WK_GRAD */
+#undef _WK_GRAD

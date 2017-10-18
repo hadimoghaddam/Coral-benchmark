@@ -1,0 +1,11 @@
+baroclinic_inst_mod.o: kinds.o
+baroclinic_inst_mod.o: physical_constants.o
+baroclinic_inst_mod.o: dimensions_mod.o
+baroclinic_inst_mod.o: quadrature_mod.o
+baroclinic_inst_mod.o: element_mod.o
+baroclinic_inst_mod.o: global_norms_mod.o
+baroclinic_inst_mod.o: hybrid_mod.o
+baroclinic_inst_mod.o: control_mod.o
+baroclinic_inst_mod.o: hybvcoord_mod.o
+baroclinic_inst_mod.o: coordinate_systems_mod.o
+baroclinic_inst_mod.o: viscosity_mod.o

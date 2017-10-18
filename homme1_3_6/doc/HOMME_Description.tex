@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage[dvips]{graphicx}
+\usepackage{times}
+\usepackage{natbib,rotating}
+\usepackage{mystylefile}
+\usepackage{amsmath}
+
+\usepackage{verbatim}
+\usepackage{layout}
+\usepackage{calc}
+
+\newcommand{\figs}{./figs}
+\newcommand{\lfigs}{./figs}
+
+\def\lmpref#1 {\noindent #1 \vspace*{.15in}}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\markboth{}{}
+\topmargin -.25 in
+\headheight 0.5in
+\headsep 0.1in
+\textwidth 6.3in
+\textheight 9.0in
+\footskip .3in
+\jot 3mm
+\renewcommand{\baselinestretch}{1.15}
+
+\numberwithin{equation}{section}
+\pagestyle{empty}
+
+\begin{document}
+\pagenumbering{roman}
+\setcounter{page}{2}
+{\raggedleft \hfill\today}
+\sloppy
+
+\vspace{4cm}
+
+\begin{center}
+   {\bf {\LARGE  High Order Multiscale Modeling Environment (HOMME): Numerical Description}}
+
+\vspace{2cm}
+R. D. Loft$\;^1$\\
+S. Thomas$\;^1$\\
+J. M. Dennis$\;^1$\\
+Amik St Cyr$\;^1$
+
+\vspace{2cm}
+
+{\it NCAR Technical Note}, June, 2003
+
+\vspace{4cm}
+
+{\small $^1\,$Computational Science Section, National Center for Atmospheric
+  Research, Boulder, Colorado}
+\end{center}
+
+\newpage
+\pagestyle{plain}
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Introduction}
+
+This document provides a detailed Numerical Description of the High Order Multiscale Modeling Environment, (HOMME). HOMME is designed to solve two and three dimensional atmospheric problems on a spherical domain. In particular,  the 2-d shallow water equations and  the hydrostatic primitive equations in $/sigma$ and hybrid $/eta$ and coordinates are supported. For each system of equations this document provides a detailed description of the numerical implementation using spectral elements on the cube-sphere.
+
+Finally, we have included information describing how to obtain, compile and run the code, post-process data and interpret test case results in the companion HOMME User's Guide document. There we provide information regarding how to file problem reports with the HOMME core group at NCAR.
+
+
+\section{High Order Element Discretization Theory }
+
+\subsection{Building PDE's with Spectral Elements}
+\subsubsection{Spectral Elements Overview}
+\subsubsection{Basis Functions}
+\subsubsection{Cardinal Functions}
+\subsubsection{The Global Assembly Procedure}
+\subsubsection{Filtering}
+
+\subsection{Building PDE's with Discontinuous Galerkin Methods}
+
+\section{Continuous Systems of Equations}
+
+\subsection{Shallow Water Equations}
+\subsubsection{Standard Form}
+\subsubsection{Flux Form}
+
+\subsection{Primitive Equations}
+\subsubsection{Dry Primitive Equations}
+\subsubsection{Moist Primitive Equations}
+
+\section{Horizontal Discretization: The Cube-Sphere}
+\subsection{Cube Labeling Conventions}
+\subsection{Gnomonic Projections}
+\subsection{Derivation of the Metric Tensor}
+\subsection{Construction Covariant and Contravariant vectors on the Cube Sphere}
+\subsection{Div,Grad, Curl and all That}
+\subsection{Global Assembly on the Cube Sphere: Rotation Matrices}
+
+\section{Vertical Discretization: Sigma and Hybrid Coordinates}
+
+\section{Discretized Systems of Equations}
+
+\subsection{Notes on Timestep Discretization}
+\subsection{ Discretized Explicit Shallow Water Equations}
+\subsection{Discretized Semi-Implicit Shallow Water Equations}
+\subsection{Discretized Explicit, Dry Primitive Equations}
+\subsection{Discretized Explicit, Moist Primitive Equations}
+\subsection{Discretized Semi-Implicit, Moist Primitive Equations}
+\subsection{Hyperdiffusion}
+
+
+\clearpage
+%\newpage
+\pagenumbering{roman}
+\setcounter{page}{27}
+\section*{Acknowledgements}
+
+\addcontentsline{toc}{section}{Acknowledgements}
+
+The HOMME model was written by scientists in the Computational Science Section of the Scientific Computing Division at the National Center for Atmospheric Research, in collaboration with scientists and researchers at many other institutions. The authors gratefully acknowledge financial support received by NCAR through the Department of Energy Climate Change Prediction Program, and the NSF Mathematics Directorate to perform this work. 
+
+\clearpage
+
+\newpage
+
+\section*{References} 
+
+\addcontentsline{toc}{section}{References}
+
+\lmpref{Held, I. H., and Suarez, M. J., 1994:
+A proposal for the intercomparison of the dynamical cores of
+atmospheric general circulation models.
+{\it Bull. Amer. Meteor. Soc.,} {\bf 75,} 1825--1830.}
+
+\lmpref{Polvani, L. M. and Scott, R. K., 2002:
+An initial-value problem for testing the dynamical core of atmospheric
+general circulation models.
+{\it Mon. Weather Rev.}, Submitted.}
+
+\lmpref{Williamson, D. L., Drake, J. B, Hack, J. J., Jakob, R., and 
+Swarztrauber, P. N., 1992:
+A standard test set for numerical approximations to the shallow water
+equations in spherical geometry.
+{\it J. Comput. Phys.,} {\bf 102,} 211--224.}
+
+\newpage
+
+\newpage
+\section*{Appendix A -- ???}
+\addcontentsline{toc}{section}{Appendix A -- ???}
+
+
+
+\end{document}
+

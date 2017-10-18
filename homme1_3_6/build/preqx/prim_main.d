@@ -1,0 +1,17 @@
+prim_main.o: prim_driver_mod.o
+prim_main.o: hybvcoord_mod.o
+prim_main.o: parallel_mod.o
+prim_main.o: hybrid_mod.o
+prim_main.o: thread_mod.o
+prim_main.o: time_mod.o
+prim_main.o: dimensions_mod.o
+prim_main.o: control_mod.o
+prim_main.o: domain_mod.o
+prim_main.o: element_mod.o
+prim_main.o: cslam_control_volume_mod.o
+prim_main.o: common_io_mod.o
+prim_main.o: interp_movie_mod.o
+prim_main.o: interpolate_driver_mod.o
+prim_main.o: common_movie_mod.o
+prim_main.o: restart_io_mod.o
+prim_main.o: hybrid_mod.o

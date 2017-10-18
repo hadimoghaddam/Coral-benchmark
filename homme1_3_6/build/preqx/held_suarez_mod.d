@@ -1,0 +1,10 @@
+held_suarez_mod.o: kinds.o
+held_suarez_mod.o: physical_constants.o
+held_suarez_mod.o: element_mod.o
+held_suarez_mod.o: time_mod.o
+held_suarez_mod.o: coordinate_systems_mod.o
+held_suarez_mod.o: hybvcoord_mod.o
+held_suarez_mod.o: time_mod.o
+held_suarez_mod.o: dimensions_mod.o
+held_suarez_mod.o: physics_mod.o
+held_suarez_mod.o: control_mod.o

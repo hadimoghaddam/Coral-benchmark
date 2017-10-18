@@ -1,0 +1,13 @@
+quadrature_mod.o: kinds.o
+quadrature_mod.o: physical_constants.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: physical_constants.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o
+quadrature_mod.o: kinds.o

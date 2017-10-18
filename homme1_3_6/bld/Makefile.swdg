@@ -1,0 +1,66 @@
+##################################################
+# Makefile for HOMME 
+##################################################
+# Staggering decided at compile time in Params.inc
+.SUFFIXES: .F90 .o .a 
+ARCH =$(shell uname -s)
+include ../Params.inc
+include ../bld/Makefile.$(ARCH)
+
+EXE = swdgx
+
+
+SRC +=	dg_sweq_mod.F90 init_mod.F90 \
+        dg_tvdrk_mod.F90 dg_tests_mod.F90 \
+        state_mod.F90 dg_movie_mod.F90 restart_mod.F90\
+        dg_core_mod.F90 dg_movie_mod.F90 dg_flux_mod.F90 
+
+
+
+MAIN = dg_main.F90
+OBJ = $(filter %.o,$(SRC:.F90=.o) $(SRC:.c=.o))
+LIB = libswdg.a 
+EXEID=$(PLEV)$(NP)$(PCOLS)$(PCNST)$(PNATS)$(OBJDIRSFX)
+
+OBJDIR=objswdg.$(EXEID)
+OBJFP = $(addprefix $(OBJDIR)/,$(OBJ))
+VPATH += $(OBJDIR)
+
+FDEFS += $(DEF)$(RESTART) $(DEF)_$(ARCH) $(DEF)$(OMP) $(DEF)$(GRID_STAG) \
+        $(DEF)NP=$(NP) $(DEF)PLEV=1 $(DEF)_WK_GRAD $(DEF)TIMING $(DEF)_SWDG $(DEF)$(TRACE)
+
+CPPDEFS = $(subst $(DEF),-D, $(FDEFS))
+
+FINCS =  $(BLDPATH) $(NETCDFINC) $(TRACEINCS)
+
+SUPPORTDIRS = $(addprefix ../libs/,$(SUPPORT))
+
+
+default: $(EXE) 
+
+EXEID=$(PLEV)$(NP)$(PCOLS)$(PCNST)$(PNATS)$(OBJDIRSFX)
+
+override MFLAGS+=$(MODPATH_FLAG)./$(OBJDIR) -I./$(OBJDIR)
+
+DEPENDS = ../bld/Depends.swdg.$(OBJDIRSFX)
+
+
+$(EXE): $(MAIN) $(DEPENDS) $(OBJDIR) $(OBJ)
+	$(F90) $(FFLAGS) $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) $< -o $@ $(OBJFP) $(NETCDFLIB) $(LDFLAGS)
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
+%.o : %.F90
+	$(PRECOMP)
+	$(F90) $(FFLAGS) $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) -c $< -o $(OBJDIR)/$@
+	$(POSTCOMP)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $(OBJDIR)/$@
+
+$(DEPENDS):
+	$(MKDEPF90) $(CPPDEFS) -I "$(VPATH)" $(MAIN) $(filter %.F90,$(SRC)) > $@
+
+include ./$(DEPENDS)
+

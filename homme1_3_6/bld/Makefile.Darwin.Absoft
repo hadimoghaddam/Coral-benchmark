@@ -1,0 +1,45 @@
+ifeq ($(METIS),_USEMETIS)
+   SUPPORT = lapack linpack metis utils blas
+else
+   SUPPORT = lapack linpack utils blas
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+
+F90 = $(MP)f95
+CC = cc
+MPCC = cc
+CFLAGS += -O3 -D$(ARCH) -I.
+FREE = -f free
+FIXED = -f fixed
+DEF =-D
+MODPATH_FLAG = -p
+MODEXT=.mod
+
+LDFLAGS= -L. $(addprefix -l,$(SUPPORT)) -lU77
+FFLAGS += -I../src -O3
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifneq ($(INIT),_NEW_INIT)
+   INIT = _OLD_INIT
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=mp
+  LDFLAGS+=
+endif
+
+NETCDFLIB=-L/Users/jedwards/netcdf/absoft/lib -lnetcdf 
+NETCDFINC=-I/Users/jedwards/netcdf/absoft/include
+
+PRECOMP=$(RM) $*.mod
+POSTCOMP=mv $*.mod $(OBJDIR); ln -fs $(OBJDIR)/$*.mod .

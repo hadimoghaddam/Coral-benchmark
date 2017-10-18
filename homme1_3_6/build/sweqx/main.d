@@ -1,0 +1,11 @@
+main.o: init_mod.o
+main.o: sweq_mod.o
+main.o: parallel_mod.o
+main.o: thread_mod.o
+main.o: dimensions_mod.o
+main.o: domain_mod.o
+main.o: element_mod.o
+main.o: cslam_control_volume_mod.o
+main.o: edge_mod.o
+main.o: reduction_mod.o
+main.o: control_mod.o

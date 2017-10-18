@@ -1,0 +1,1227 @@
+using NCPU = 2
+hostname = climate
+machine = default
+jw-ne2-4t180l26-hnu0-1
+make -C ../libs/utils  BUILDDIR=/home/mataylo/codes/homme/build.Linux
+make[1]: Entering directory `/home/mataylo/codes/homme/libs/utils'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/mataylo/codes/homme/libs/utils'
+make -f ../bld/Makefile.pe 
+make[1]: Entering directory `/home/mataylo/codes/homme/build.Linux'
+mpif90 -I../src -I../src/share  -O2 -w90 -Vaxlib  -DPIO_LUSTRE_HINTS  -module ./objpe.264111NMRI -I./objpe.264111NMRI -D_MPI -DPIO_INTERP -D_PRESTART -D_Linux -D_NO_OMP_THREADS -D_NONSTAGGER -DNP=4 -DPLEV=26 -D_WK_GRAD -DSPHEREW -DENERGY_DIAGNOSTICS -D_PRIM   -I../utils/pio/pio -I/projects/ccsm/pnetcdf-intel/include  -I/projects/ccsm/netcdf-intel/include    ../src/prim_main.F90 -o preqx objpe.264111NMRI/interp_movie_mod.o objpe.264111NMRI/pio_io_mod.o objpe.264111NMRI/interpolate_mod.o objpe.264111NMRI/perf_utils.o objpe.264111NMRI/perf_mod.o objpe.264111NMRI/shr_kind_mod.o objpe.264111NMRI/shr_mpi_mod.o objpe.264111NMRI/shr_sys_mod.o objpe.264111NMRI/shr_file_mod.o objpe.264111NMRI/shr_vmath_mod.o objpe.264111NMRI/reduction_mod.o objpe.264111NMRI/edge_mod.o objpe.264111NMRI/element_mod.o objpe.264111NMRI/domain_mod.o objpe.264111NMRI/dimensions_mod.o objpe.264111NMRI/thread_mod.o objpe.264111NMRI/parallel_mod.o objpe.264111NMRI/control_mod.o objpe.264111NMRI/restart_io_mod.o objpe.264111NMRI/cg_mod.o objpe.264111NMRI/solver_mod.o objpe.264111NMRI/filter_mod.o objpe.264111NMRI/quadrature_mod.o objpe.264111NMRI/global_norms_mod.o objpe.264111NMRI/derivative_mod.o objpe.264111NMRI/time_mod.o objpe.264111NMRI/hybrid_mod.o objpe.264111NMRI/physical_constants.o objpe.264111NMRI/kinds.o objpe.264111NMRI/namelist_mod.o objpe.264111NMRI/cube_mod.o objpe.264111NMRI/spacecurve_mod.o objpe.264111NMRI/metagraph_mod.o objpe.264111NMRI/schedule_mod.o objpe.264111NMRI/mass_matrix_mod.o objpe.264111NMRI/dof_mod.o objpe.264111NMRI/bndry_mod.o objpe.264111NMRI/gridgraph_mod.o objpe.264111NMRI/perfmodel_mod.o objpe.264111NMRI/viscosity_mod.o objpe.264111NMRI/coordinate_systems_mod.o objpe.264111NMRI/ll_mod.o objpe.264111NMRI/metis_mod.o objpe.264111NMRI/params_mod.o objpe.264111NMRI/linear_algebra_mod.o objpe.264111NMRI/checksum_mod.o objpe.264111NMRI/common_movie_mod.o objpe.264111NMRI/common_io_mod.o objpe.264111NMRI/vertical_mod.o objpe.264111NMRI/hybvcoord_mod.o objpe.264111NMRI/baroclinic_inst_mod.o objpe.264111NMRI/diffusion_mod.o objpe.264111NMRI/asp_tests.o objpe.264111NMRI/prim_state_mod.o objpe.264111NMRI/prim_restart_mod.o objpe.264111NMRI/prim_advance_mod.o objpe.264111NMRI/prim_si_ref_mod.o objpe.264111NMRI/prim_si_mod.o objpe.264111NMRI/prim_driver_mod.o objpe.264111NMRI/prim_advection_mod.o objpe.264111NMRI/physics_mod.o objpe.264111NMRI/column_model_mod.o objpe.264111NMRI/convect43c.o objpe.264111NMRI/mjo_mod.o objpe.264111NMRI/forcing_mod.o objpe.264111NMRI/held_suarez_mod.o objpe.264111NMRI/aquaplanet.o objpe.264111NMRI/physics_types_mod.o objpe.264111NMRI/prim_movie_mod.o objpe.264111NMRI/aquaplanet_io_mod.o objpe.264111NMRI/physics_io_mod.o objpe.264111NMRI/surfaces_mod.o objpe.264111NMRI/gravity_wave_drag_mod.o objpe.264111NMRI/interpolate_driver_mod.o objpe.264111NMRI/gptl.o objpe.264111NMRI/GPTLget_memusage.o objpe.264111NMRI/threadutil.o objpe.264111NMRI/GPTLprint_memusage.o objpe.264111NMRI/GPTLutil.o objpe.264111NMRI/f_wrappers.o objpe.264111NMRI/gptl_papi.o objpe.264111NMRI/shr_vmath_fwrap.o -L../utils/pio/pio -lpio -L/projects/ccsm/pnetcdf-intel/lib -lpnetcdf -L/projects/ccsm/netcdf-intel/lib -lnetcdf -L../utils/pio/mct/mct -lmct -L../utils/pio/mct/mpeu -lmpeu -L. -lutils  -llapack
+make[1]: Leaving directory `/home/mataylo/codes/homme/build.Linux'
+RUNNING: mpirun -np 2 /home/mataylo/codes/homme/build.Linux/preqx
+ number of MPI processes:            2
+ (t_initf) Read in prof_inparm namelist from: input.nl
+ (t_initf) Using profile_disable= F  profile_timer=          14
+ (t_initf)  profile_depth_limit=       99999  profile_detail_limit=           1
+ (t_initf)  profile_barrier= F  profile_outpe_num=          -1
+ (t_initf)  profile_outpe_stride=           1  profile_single_file= T
+ (t_initf)  profile_global_stats= T  profile_papi_enable= F
+ reading ctl namelist...
+ reading filter namelist...
+ reading physics namelist...
+ reading vertical namelist...
+   vform =
+ ccm                                                                            
+  
+   vfile_mid=
+ vcoord/camm-26.fbin.littleendian                                               
+  
+   vfile_int=
+ vcoord/cami-26.fbin.littleendian                                               
+  
+ reading aquaplanet namelist...
+ reading analysis namelist...
+ common_movie_mod.F90         212          24 ps    geos  area  cv_latcv_lon
+ facenozeta  T     Th    u     v     ke    Q     geo   omega lat   lon   lev   
+ ilev  hyam  hybm  hyai  hybi  time  
+ done reading namelist...
+ readnl: accum         =           -1         200        1200
+ readnl: topology      = cube
+ readnl: test_case     = jw_baroclinic
+ readnl: sub_case      =            1
+ readnl: ndays         =            0
+ readnl: nmax          =         1920
+ readnl: qsize,qsize_d =            2           4
+ readnl: NThreads      =            1
+ readnl: ne,np,nv      =            2           4           4
+ readnl: partmethod    =            4
+ readnl: nmpi_per_node =            2
+ readnl: multilevel    =            1
+ readnl: useframes     =            0
+ readnl: nnodes        =            1
+ readnl: npart         =            2
+ 
+ readnl: integration   = explicit
+ readnl: LF-trapazoidal freq=            2
+ readnl: rk_stage_user   =            0
+ readnl: tracer_advection_formulation  =            1
+ readnl: tstep_type    =            1
+ readnl: tstep         =    180.000000000000     
+ readnl: qsplit        =            3
+ readnl: ftype         =            0
+ readnl: energy_fixer  =           -1
+ readnl: runtype       =            0
+ filter: smooth        =   0.000000000000000E+000
+ limiter_option        =           -1
+ weak form hyper viscsosity subcycle, tracer subcycle =            1           1
+ psurf_vis:            0
+ viscosity:  nu        =   0.000000000000000E+000
+ viscosity:  nu_s      =   0.000000000000000E+000
+ viscosity:  nu_q      =   0.000000000000000E+000
+ viscosity:  nu_p      =   0.000000000000000E+000
+ viscosity:  nu_top      =   0.000000000000000E+000
+ PHIS smoothing:             0  0.000000000000000E+000
+ cooling:  cool_ampl             =   0.000000000000000E+000
+ cooling:  cool_min              =   0.000000000000000E+000
+ cooling:  cool_max              =   0.000000000000000E+000
+ moisture: qv_flag               =            0
+ moisture: qv_pert_flag          =            0
+ moisture: qv_pert_ampl          =   0.000000000000000E+000
+ moisture: qv_pert_zmin          =   0.000000000000000E+000
+ moisture: qv_pert_zmax          =   0.000000000000000E+000
+ surface:  isrf_forc             =            0
+ surface:  h_dis                 =   0.000000000000000E+000
+ surface:  Cdrag                 =   0.000000000000000E+000
+ surface:  wstar                 =   0.000000000000000E+000
+ surface:  tsurf                 =   0.000000000000000E+000
+ surface:  qsurf                 =   0.000000000000000E+000
+ wind:     u0                    =   0.000000000000000E+000
+ absorber: zabsampl              =   0.000000000000000E+000
+ absorber: zabsmid               =   0.000000000000000E+000
+ absorber: zabsmin               =   0.000000000000000E+000
+ noise   : noisef  0 off,  >0 on =            0
+ noise   : noisef>0 indicate nr of first grid point 
+ noise   : to which noise function is applied       
+   analysis: output_prefix = 
+   analysis: io_stride =            1
+   analysis: num_io_procs =            2
+  analysis interp nlat =           48
+  analysis interp nlon =           96
+  analysis interp gridtype =            2
+  analysis interpolation type =            0
+ 
+  total simulated time =    345600.000000000     
+ 
+ 
+ ============================================
+         Testing Gaussian Quadrature...
+ 
+           points              weights
+ ============================================
+           1 -0.861136311594053       0.347854845137454     
+           2 -0.339981043584856       0.652145154862546     
+           3  0.339981043584856       0.652145154862546     
+           4  0.861136311594053       0.347854845137454     
+ ============================================
+ sum of Gaussian weights=   2.00000000000000     
+ ============================================
+ 
+ ============================================
+       Testing Gauss-Lobatto Quadrature...
+ 
+           points              weights
+ ============================================
+           1  -1.00000000000000       0.166666666666667     
+           2 -0.447213595499958       0.833333333333333     
+           3  0.447213595499958       0.833333333333333     
+           4   1.00000000000000       0.166666666666667     
+ ============================================
+ sum of Gauss-Lobatto weights=   2.00000000000000     
+ ============================================
+ creating cube topology...
+ ...done.
+ partitioning graph...
+ init shared boundary_exchange buffers
+ initializing cube elements...
+ running mass_matrix
+ Warning - this is not an task count independent result.
+ re-initializing cube elements: area correction=0.999997031003220238
+ re-running mass_matrix
+ running global_dof
+ Main:NThreads=           1
+process:  1 thread:  0 element limits:     1   12
+ end of prim_init
+ number of elements=          12
+process:  0 thread:  0 element limits:     1   12
+1 Layer Locations (*1000) 
+   1    2.1941              0.0000              2.1941
+                  3.5446              0.0000              3.5446
+   2    4.8952              0.0000              4.8952
+                  7.3888              0.0000              7.3888
+   3    9.8824              0.0000              9.8824
+                 13.9672              0.0000             13.9672
+   4   18.0520              0.0000             18.0520
+                 23.9446              0.0000             23.9446
+   5   29.8372              0.0000             29.8372
+                 37.2303              0.0000             37.2303
+   6   44.6233              0.0000             44.6233
+                 53.1146              0.0000             53.1146
+   7   61.6059              0.0000             61.6059
+                 70.0591              0.0000             70.0591
+   8   78.5124              0.0000             78.5124
+                 77.9126              7.5265             85.4391
+   9   77.3127             15.0531             92.3658
+                 76.6070             23.9077            100.5147
+  10   75.9013             32.7623            108.6636
+                 75.0711             43.1793            118.2503
+  11   74.2409             53.5962            127.8371
+                 73.2642             65.8512            139.1154
+  12   72.2874             78.1063            150.3937
+                 71.1384             92.5237            163.6620
+  13   69.9893            106.9411            176.9304
+                 68.6375            123.9024            192.5399
+  14   67.2857            140.8637            208.1494
+                 65.6954            160.8178            226.5132
+  15   64.1051            180.7720            244.8771
+                 62.2342            204.2469            266.4811
+  16   60.3632            227.7220            288.0852
+                 58.1622            255.3391            313.5013
+  17   55.9611            282.9562            338.9173
+                 53.3717            315.4463            368.8180
+  18   50.7822            347.9364            398.7186
+                 47.7359            386.1593            433.8952
+  19   44.6896            424.3822            469.0718
+                 41.1058            469.3495            510.4553
+  20   37.5219            514.3168            551.8387
+                 33.3057            567.2184            600.5241
+  21   29.0895            620.1202            649.2097
+                 24.9684            671.8278            696.7962
+  22   20.8474            723.5355            744.3829
+                 17.0959            770.6061            787.7020
+  23   13.3444            817.6768            831.0212
+                 10.2147            856.9460            867.1607
+  24    7.0850            896.2153            903.3003
+                  4.8032            924.8458            929.6490
+  25    2.5214            953.4761            955.9974
+                  1.2607            969.2941            970.5548
+  26    0.0000            985.1122            985.1122
+                  0.0000            992.5561            992.5561
+  27    0.0000           1000.0000           1000.0000
+ Primitive Equation Initialization...
+ 
+ Running Global Integral Diagnostic...
+ Area of unit sphere is   1.00000000000000     
+ Should be 1.0 to round off...
+Element area:  max/min  1.000
+Equatorial grid spacing: ave,min,max (km) =  1669.23 1384.09 2239.51 (T   8)
+gravity wave dt:  (global min_dx/pi)    /342m/s:    1186.86s
+gravity wave dt:  (equatorial min_dx/pi)/342m/s:    1288.22s
+  runtype: INITIAL primitive equations
+ initializing Jablonowski and Williamson baroclinic instability test V1
+ ...done
+ initial state:
+ nstep=           0  time=  0.000000000000000E+000  [day]
+  u     =   0.769756781732672-257  0.351846505982094E+02  0.157952860357495E+06
+  v     =   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+  omega =   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+  t     =   0.209489191032641E+03  0.309696592273572E+03  0.247497923369218E+07
+      qv=   0.523722977581602E+00  0.774241480683929E+00  0.618744808423046E+04
+      qv=   0.000000000000000E+00  0.831644210474311E+00  0.121710030421709E+04
+      ps=   0.100000000000000E+06  0.100000000000000E+06  0.384000000000000E+08
+      M =   0.101976716676049E+05 kg/m^2  0.100000000000000E+06 mb     
+Initializing   48 x   96 lat-lon interpolation grid: 
+ finished latitude            1  of           48
+Average number of interpolation points per element:    192.0
+Maximum number of interpolation points on any element:    316
+ Entering main timestepping loop
+ nstep=         120  time=  0.250000000000000       [day]
+  u     =  -0.239522897915330E+01  0.368392250977758E+02  0.156461161729461E+06
+  v     =  -0.392454093260201E+01  0.399636230251911E+01 -0.121300076458414E+02
+  omega =  -0.323241199522522E-05  0.393149277168477E-05  0.382376716854293E-02
+  t     =   0.209259202293346E+03  0.310174461471780E+03  0.247623848381095E+07
+      qv=   0.523600795665887E+00  0.774612411105947E+00  0.618710798191762E+04
+      qv=   0.000000000000000E+00  0.835101470247337E+00  0.122138941679795E+04
+      ps=   0.997611047858339E+05  0.101112348896699E+06  0.384389036474213E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999999E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.24776164999077E-16 -0.45434242666598E-17
+Tot IE dry advection horiz, vert:   -0.73805943153615E-14  0.77956861235326E-15
+Transfer:   KE->IE, KE->PE:          0.29430749120334E+00  0.14836452281775E+00
+Transfer:   IE->KE, PE->KE:         -0.29430749120333E+00 -0.14836452281775E+00
+Transfer:   IE->KE(wet only):       -0.17833652238335E+00
+KE,d/dt,diss:  0.16526417912450E+07 -0.37792525125659E+00  0.64746762764502E-01
+IE,d/dt,diss:  0.26217258923461E+10  0.25217025809818E+00 -0.42137233105153E-01
+PE,d/dt,diss:  0.80211113653061E+04  0.12573217100697E+00 -0.22632351810779E-01
+ E,dE/dt       0.26233865552487E+10 -0.22821956210666E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.3368499E-14 -0.3607585E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.1263187E-14 -0.2067029E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+ nstep=         240  time=  0.500000000000000       [day]
+  u     =  -0.104423491547874E+01  0.364684128031916E+02  0.157057844255992E+06
+  v     =  -0.843750091699328E+01  0.841107990120789E+01 -0.524000974640330E+01
+  omega =  -0.511681125827732E-05  0.323513126606724E-05 -0.128978458069407E-02
+  t     =   0.208634680029908E+03  0.310010221691931E+03  0.247596068483817E+07
+      qv=   0.523532416445993E+00  0.775157001762666E+00  0.618696683425414E+04
+      qv=   0.000000000000000E+00  0.840728625001198E+00  0.122884008408137E+04
+      ps=   0.994368440180447E+05  0.101540505780015E+06  0.384327031936563E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999998E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.55858990179738E-16 -0.70612513526536E-17
+Tot IE dry advection horiz, vert:    0.71960794574775E-13 -0.24606711730961E-14
+Transfer:   KE->IE, KE->PE:          0.66357953942537E+00  0.32876697364821E+00
+Transfer:   IE->KE, PE->KE:         -0.66357953942535E+00 -0.32876697364822E+00
+Transfer:   IE->KE(wet only):       -0.47145362359123E+00
+KE,d/dt,diss:  0.16665488100559E+07 -0.10462593231717E+01 -0.53912810098081E-01
+IE,d/dt,diss:  0.26217161850333E+10  0.70495945171074E+00  0.41379912285388E-01
+PE,d/dt,diss:  0.38216278216152E+04  0.34131501519640E+00  0.12548041548189E-01
+ E,dE/dt       0.26233865554711E+10  0.15143111900047E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.8421247E-14  0.9306065E-07
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.1684249E-14 -0.1024973E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.847979819432672E-10
+(Q-Q0)/Q0  -0.836743116456668E-15   Q1
+(Q-Q0)/Q0  -0.548106554579895E-15   Q2
+ nstep=         360  time=  0.750000000000000       [day]
+  u     =  -0.271968731160143E+01  0.366179177959074E+02  0.157439474347689E+06
+  v     =  -0.583145050289342E+01  0.583470935610442E+01 -0.571285880684877E+01
+  omega =  -0.254677099816159E-05  0.580785182370188E-05  0.371064535226349E-02
+  t     =   0.209082460423197E+03  0.309824803710455E+03  0.247492766420877E+07
+      qv=   0.523553891543267E+00  0.775832713829789E+00  0.618673317196756E+04
+      qv=   0.000000000000000E+00  0.846199880197315E+00  0.122424443333388E+04
+      ps=   0.995743283998410E+05  0.101350965702488E+06  0.384001160662263E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999997E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.20271407726518E-15  0.35142273428304E-17
+Tot IE dry advection horiz, vert:   -0.12916040051883E-13  0.31876175508152E-14
+Transfer:   KE->IE, KE->PE:         -0.27077871256261E+00  0.44442216860008E-01
+Transfer:   IE->KE, PE->KE:          0.27077871256260E+00 -0.44442216860010E-01
+Transfer:   IE->KE(wet only):        0.77091521398442E-01
+KE,d/dt,diss:  0.16571857704196E+07  0.14761604478807E+00 -0.78720450914534E-01
+IE,d/dt,diss:  0.26217234287029E+10 -0.19963025516934E+00  0.71148457393262E-01
+PE,d/dt,diss:  0.59414257027707E+04  0.52055138315417E-01  0.76129214554065E-02
+ E,dE/dt       0.26233865558990E+10  0.40927639713994E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.3368499E-14 -0.3118162E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.0000000E+00 -0.9613713E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.247887704481674E-09
+(Q-Q0)/Q0  -0.836743116456668E-15   Q1
+(Q-Q0)/Q0  -0.123323974780476E-14   Q2
+ nstep=         480  time=   1.00000000000000       [day]
+  u     =  -0.198980028888978E+01  0.367525119278209E+02  0.158108876349115E+06
+  v     =  -0.639727323964838E+01  0.634907504456564E+01 -0.848303367084577E+01
+  omega =  -0.172477229611127E-05  0.377144776891805E-05  0.222705423579631E-02
+  t     =   0.209163523401678E+03  0.309861876009289E+03  0.247585128623793E+07
+      qv=   0.523359505632824E+00  0.776484792800596E+00  0.618721364233895E+04
+      qv=   0.000000000000000E+00  0.850255178236164E+00  0.121295302936711E+04
+      ps=   0.995205643171564E+05  0.102087013426174E+06  0.384352191105707E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999997E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.15226079581251E-15  0.25261597624896E-17
+Tot IE dry advection horiz, vert:   -0.95025151810279E-13  0.18310295164609E-15
+Transfer:   KE->IE, KE->PE:         -0.25869960249937E+00  0.12780305709847E+00
+Transfer:   IE->KE, PE->KE:          0.25869960249943E+00 -0.12780305709847E+00
+Transfer:   IE->KE(wet only):        0.88741724217448E-02
+KE,d/dt,diss:  0.16702147203246E+07  0.50401086506813E-01 -0.80495458894084E-01
+IE,d/dt,diss:  0.26217130067237E+10 -0.19824297869647E+00  0.60456623802956E-01
+PE,d/dt,diss:  0.33346213638924E+04  0.14797199818961E+00  0.20168941091133E-01
+ E,dE/dt       0.26233865560653E+10  0.13010590164750E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.1684249E-14 -0.1758368E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.8421247E-15 -0.1074978E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.311303336384125E-09
+(Q-Q0)/Q0  -0.153402904683722E-14   Q1
+(Q-Q0)/Q0  -0.260350613425450E-14   Q2
+ nstep=         600  time=   1.25000000000000       [day]
+  u     =  -0.325063093210652E+01  0.364880330376437E+02  0.157290965231538E+06
+  v     =  -0.745914176610587E+01  0.749930287077700E+01  0.137828083440877E+01
+  omega =  -0.361800350794247E-05  0.540385296563284E-05 -0.165141665165063E-02
+  t     =   0.208402977286639E+03  0.309894971827125E+03  0.247546026500819E+07
+      qv=   0.523255398615376E+00  0.777299837922112E+00  0.618799539070083E+04
+      qv=   0.000000000000000E+00  0.849167110203682E+00  0.120641547582162E+04
+      ps=   0.993442315868113E+05  0.101718330787810E+06  0.384208171953338E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999996E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.21397597044658E-15 -0.11566191027522E-16
+Tot IE dry advection horiz, vert:    0.12593139050586E-12  0.21280308355547E-14
+Transfer:   KE->IE, KE->PE:         -0.12322821443339E+01 -0.56754052028563E+00
+Transfer:   IE->KE, PE->KE:          0.12322821443338E+01  0.56754052028563E+00
+Transfer:   IE->KE(wet only):        0.65714777227556E+00
+KE,d/dt,diss:  0.16538355739227E+07  0.18390439770857E+01  0.39221312466212E-01
+IE,d/dt,diss:  0.26217268360495E+10 -0.12691157190888E+01 -0.36833574754978E-01
+PE,d/dt,diss:  0.58845981715508E+04 -0.57000822368137E+00 -0.24677033957378E-02
+ E,dE/dt       0.26233865562216E+10 -0.79965591430664E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.0000000E+00  0.2001813E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.0000000E+00 -0.8633850E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.370864299749915E-09
+(Q-Q0)/Q0  -0.153402904683722E-14   Q1
+(Q-Q0)/Q0  -0.274053277289947E-14   Q2
+ nstep=         720  time=   1.50000000000000       [day]
+  u     =  -0.208367996661271E+01  0.370515949693072E+02  0.159221099220457E+06
+  v     =  -0.401598927681828E+01  0.400996340138211E+01  0.281091926785247E+01
+  omega =  -0.291167410093862E-05  0.743020291619199E-05  0.257077125456076E-02
+  t     =   0.208676641164370E+03  0.309891716464919E+03  0.247553768523728E+07
+      qv=   0.523207617585361E+00  0.777711260128992E+00  0.618934175894556E+04
+      qv=   0.000000000000000E+00  0.846382025525032E+00  0.120559262529357E+04
+      ps=   0.993764081293056E+05  0.102231133417189E+06  0.384182172656481E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999994E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.00000000000000E+00 -0.95225542360133E-17
+Tot IE dry advection horiz, vert:    0.11070891473042E-13  0.27255667375736E-14
+Transfer:   KE->IE, KE->PE:          0.43532418628264E+00  0.31761782368844E+00
+Transfer:   IE->KE, PE->KE:         -0.43532418628265E+00 -0.31761782368844E+00
+Transfer:   IE->KE(wet only):       -0.18469528376291E+00
+KE,d/dt,diss:  0.16601964989875E+07 -0.72861201270630E+00  0.24329997264779E-01
+IE,d/dt,diss:  0.26217210763758E+10  0.41268289795628E+00 -0.22641288326371E-01
+PE,d/dt,diss:  0.52836576482595E+04  0.31596400655804E+00 -0.16538171304054E-02
+ E,dE/dt       0.26233865565324E+10  0.34892117535626E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.5052748E-14  0.1870192E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.4210624E-15 -0.1159127E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.489339146744122E-09
+(Q-Q0)/Q0  -0.264968653544612E-14   Q1
+(Q-Q0)/Q0  -0.274053277289947E-14   Q2
+ nstep=         840  time=   1.75000000000000       [day]
+  u     =  -0.309895242900801E+01  0.370699126727572E+02  0.157665271797260E+06
+  v     =  -0.340574800194662E+01  0.343841483590090E+01 -0.557005927301554E+01
+  omega =  -0.355928252627699E-05  0.440724834271147E-05 -0.907748379838719E-04
+  t     =   0.208934078039219E+03  0.309792017312392E+03  0.247630443685026E+07
+      qv=   0.523056797165904E+00  0.777665611410915E+00  0.619035196827150E+04
+      qv=   0.000000000000000E+00  0.843770734751488E+00  0.121685183696317E+04
+      ps=   0.992903999438821E+05  0.101310289927084E+06  0.384243475438438E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999993E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.10180751435984E-15  0.12062452154242E-16
+Tot IE dry advection horiz, vert:    0.55354457365211E-13 -0.35017619686917E-14
+Transfer:   KE->IE, KE->PE:          0.94495661937944E-01 -0.27502982842234E+00
+Transfer:   IE->KE, PE->KE:         -0.94495661937969E-01  0.27502982842234E+00
+Transfer:   IE->KE(wet only):        0.63785033728190E-01
+KE,d/dt,diss:  0.16607902544571E+07  0.24870807838376E+00  0.68173911899367E-01
+IE,d/dt,diss:  0.26217201554047E+10  0.31110530429416E-01 -0.63385131508553E-01
+PE,d/dt,diss:  0.56109363697395E+04 -0.27990770577015E+00 -0.48778773478150E-02
+ E,dE/dt       0.26233865565955E+10 -0.89096139978479E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.5052748E-14  0.4045593E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.1263187E-14 -0.1000355E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.513401424775909E-09
+(Q-Q0)/Q0  -0.264968653544612E-14   Q1
+(Q-Q0)/Q0  -0.397377252070424E-14   Q2
+ nstep=         960  time=   2.00000000000000       [day]
+  u     =  -0.696683889687934E+01  0.357998730268338E+02  0.159266313241471E+06
+  v     =  -0.495410419746848E+01  0.501032646388316E+01  0.924590337898246E+01
+  omega =  -0.660126700585679E-05  0.108534485266743E-04 -0.732799649738387E-03
+  t     =   0.208599438245817E+03  0.310022448374620E+03  0.247583154016806E+07
+      qv=   0.523043512397803E+00  0.777436087294840E+00  0.619160642409129E+04
+      qv=   0.000000000000000E+00  0.840439876996489E+00  0.123201515936608E+04
+      ps=   0.991241110300169E+05  0.101427151249492E+06  0.384039032110693E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999993E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.26735734412641E-15 -0.35884352285649E-18
+Tot IE dry advection horiz, vert:    0.14023129199187E-12 -0.25124040890693E-14
+Transfer:   KE->IE, KE->PE:          0.13513964183563E+01  0.29040213271222E+00
+Transfer:   IE->KE, PE->KE:         -0.13513964183563E+01 -0.29040213271222E+00
+Transfer:   IE->KE(wet only):       -0.64888004230956E+00
+KE,d/dt,diss:  0.16623777760922E+07 -0.16858995851742E+01 -0.44101034105641E-01
+IE,d/dt,diss:  0.26217195033340E+10  0.13865974452760E+01  0.35201026919706E-01
+PE,d/dt,diss:  0.46760466140414E+04  0.29906444545004E+00  0.86623127378185E-02
+ E,dE/dt       0.26233865571567E+10 -0.23769449304651E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.1178975E-13  0.3811754E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.1263187E-14 -0.9536252E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.727305628387275E-09
+(Q-Q0)/Q0  -0.237077216329389E-14   Q1
+(Q-Q0)/Q0  -0.383674588205926E-14   Q2
+ nstep=        1080  time=   2.25000000000000       [day]
+  u     =  -0.375741831886884E+01  0.363095990663226E+02  0.159818553366834E+06
+  v     =  -0.686588088897829E+01  0.683514590226533E+01  0.149103620060516E+02
+  omega =  -0.701982144046551E-05  0.691839992267857E-05 -0.192022236788422E-03
+  t     =   0.209172375219589E+03  0.309999568427429E+03  0.247645984812080E+07
+      qv=   0.522954355658941E+00  0.776905026129357E+00  0.619191241527099E+04
+      qv=   0.000000000000000E+00  0.840141635747457E+00  0.124587631234046E+04
+      ps=   0.995366069139006E+05  0.102084333747178E+06  0.384097652983793E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999992E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.15147246328981E-15  0.13315830745356E-17
+Tot IE dry advection horiz, vert:    0.11670564761165E-12 -0.42300091260977E-14
+Transfer:   KE->IE, KE->PE:         -0.43520538809029E+00 -0.38173215094887E+00
+Transfer:   IE->KE, PE->KE:          0.43520538809028E+00  0.38173215094887E+00
+Transfer:   IE->KE(wet only):        0.42729854180711E+00
+KE,d/dt,diss:  0.16656970341157E+07  0.74612146420577E+00 -0.70816074833389E-01
+IE,d/dt,diss:  0.26217160723271E+10 -0.36806512408786E+00  0.67140264002420E-01
+PE,d/dt,diss:  0.47882058019463E+04 -0.37806909285909E+00  0.36630580897762E-02
+ E,dE/dt       0.26233865575670E+10 -0.12752744886610E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.3368499E-14  0.3594037E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.0000000E+00 -0.9057470E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.883714070873315E-09
+(Q-Q0)/Q0  -0.334697246582667E-14   Q1
+(Q-Q0)/Q0  -0.479593235257408E-14   Q2
+ nstep=        1200  time=   2.50000000000000       [day]
+  u     =  -0.277727886791196E+01  0.357299962061034E+02  0.155616771259931E+06
+  v     =  -0.660003811467621E+01  0.668264145238380E+01  0.104077690214147E+02
+  omega =  -0.491386468949210E-05  0.378890404381789E-05  0.164723421543352E-03
+  t     =   0.208856944010229E+03  0.309851876589489E+03  0.247648662901609E+07
+      qv=   0.522928905495560E+00  0.776509398291579E+00  0.619227470399755E+04
+      qv=   0.000000000000000E+00  0.839634506040267E+00  0.124162370865028E+04
+      ps=   0.995485461307641E+05  0.101039675390234E+06  0.384090233848058E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999990E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.24550927135449E-16  0.82484171173946E-17
+Tot IE dry advection horiz, vert:   -0.53278665214016E-13  0.27260939274087E-14
+Transfer:   KE->IE, KE->PE:          0.49322236344787E+00  0.14964612232914E+00
+Transfer:   IE->KE, PE->KE:         -0.49322236344788E+00 -0.14964612232914E+00
+Transfer:   IE->KE(wet only):       -0.22699049006464E+00
+KE,d/dt,diss:  0.16606678680701E+07 -0.65165364214788E+00 -0.87851563708760E-02
+IE,d/dt,diss:  0.26217197955808E+10  0.50850129833928E+00  0.15278934891399E-01
+PE,d/dt,diss:  0.60942193265632E+04  0.14326221173522E+00 -0.63839105939184E-02
+ E,dE/dt       0.26233865576682E+10  0.10986769640887E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.5052748E-14  0.3650007E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.4210624E-15 -0.5273907E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.922284385556167E-09
+(Q-Q0)/Q0  -0.418371558228334E-14   Q1
+(Q-Q0)/Q0  -0.493295899121905E-14   Q2
+ nstep=        1320  time=   2.75000000000000       [day]
+  u     =  -0.399153463579152E+01  0.359625707950688E+02  0.155779841722244E+06
+  v     =  -0.742150510527669E+01  0.748106537824675E+01  0.117517695327838E+02
+  omega =  -0.237059538443137E-05  0.736086761116342E-05  0.679818635152468E-03
+  t     =   0.209286689959017E+03  0.310329837397790E+03  0.247643560731092E+07
+      qv=   0.522877387502901E+00  0.776782805792456E+00  0.619190083167627E+04
+      qv=   0.000000000000000E+00  0.840349504672626E+00  0.122382653232718E+04
+      ps=   0.995318654103635E+05  0.101220455076164E+06  0.384170439624183E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999990E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.65769456179369E-16 -0.25847025157743E-16
+Tot IE dry advection horiz, vert:   -0.20873243298132E-13 -0.20938867165398E-14
+Transfer:   KE->IE, KE->PE:         -0.12953550819272E+01 -0.51039271110394E+00
+Transfer:   IE->KE, PE->KE:          0.12953550819272E+01  0.51039271110394E+00
+Transfer:   IE->KE(wet only):        0.76319971434670E+00
+KE,d/dt,diss:  0.16680680170412E+07  0.17816362216819E+01 -0.24111571349303E-01
+IE,d/dt,diss:  0.26217142198509E+10 -0.12737211607121E+01  0.21633921215140E-01
+PE,d/dt,diss:  0.42698373588039E+04 -0.50775799712661E+00  0.26347139773256E-02
+ E,dE/dt       0.26233865577053E+10  0.15706397868969E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.8421247E-14  0.1658320E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.1263187E-14 -0.4650633E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.936413262563365E-09
+(Q-Q0)/Q0  -0.390480121013112E-14   Q1
+(Q-Q0)/Q0  -0.534403890715398E-14   Q2
+ nstep=        1440  time=   3.00000000000000       [day]
+  u     =  -0.365395885008340E+01  0.366067175928420E+02  0.155022586471369E+06
+  v     =  -0.645508090277403E+01  0.638925431508124E+01  0.614655817665411E+01
+  omega =  -0.450126007925778E-05  0.353298230377836E-05 -0.144111220339041E-02
+  t     =   0.209136228826473E+03  0.310159257493181E+03  0.247598494627523E+07
+      qv=   0.522709582244025E+00  0.777551907880482E+00  0.619132477112108E+04
+      qv=   0.000000000000000E+00  0.840358893531717E+00  0.120054911480843E+04
+      ps=   0.994759458512166E+05  0.101066379710083E+06  0.384088947199971E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999989E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.35677677598671E-15  0.17172228054251E-16
+Tot IE dry advection horiz, vert:   -0.68270497417094E-13 -0.44082272583046E-14
+Transfer:   KE->IE, KE->PE:          0.51685947027763E-01  0.43710903188229E-01
+Transfer:   IE->KE, PE->KE:         -0.51685947027729E-01 -0.43710903188229E-01
+Transfer:   IE->KE(wet only):       -0.32719395051856E-01
+KE,d/dt,diss:  0.16545896368363E+07  0.73390862167192E-02  0.10273593643271E+00
+IE,d/dt,diss:  0.26217237114030E+10 -0.21667606742294E-01 -0.73353553770023E-01
+PE,d/dt,diss:  0.82568548284724E+04  0.14293527711201E-01 -0.29417375477029E-01
+ E,dE/dt       0.26233865578946E+10 -0.34993666189688E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.1178975E-13  0.2468740E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.2105312E-14  0.1727576E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.100860046018667E-08
+(Q-Q0)/Q0  -0.488100151266390E-14   Q1
+(Q-Q0)/Q0  -0.657727865495874E-14   Q2
+ nstep=        1560  time=   3.25000000000000       [day]
+  u     =  -0.381606915606286E+01  0.372221174623957E+02  0.155495680149279E+06
+  v     =  -0.578169536011093E+01  0.576559284203434E+01 -0.827748951346348E+01
+  omega =  -0.364972072514908E-05  0.475264073685666E-05  0.143460638468767E-02
+  t     =   0.208992775224501E+03  0.310092257054371E+03  0.247621769278011E+07
+      qv=   0.522680469210971E+00  0.778548238710873E+00  0.619012499379359E+04
+      qv=   0.000000000000000E+00  0.840024941411978E+00  0.117918335158761E+04
+      ps=   0.996482176661377E+05  0.100861230366899E+06  0.384159270772615E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999989E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.54057087270714E-17  0.33658384018457E-17
+Tot IE dry advection horiz, vert:    0.30444951550866E-13 -0.74487803427939E-15
+Transfer:   KE->IE, KE->PE:         -0.31185763068717E+00 -0.74226356864934E-01
+Transfer:   IE->KE, PE->KE:          0.31185763068718E+00  0.74226356864933E-01
+Transfer:   IE->KE(wet only):        0.18419090296148E+00
+KE,d/dt,diss:  0.16651987489952E+07  0.41221230439540E+00  0.26128316843296E-01
+IE,d/dt,diss:  0.26217161436900E+10 -0.32776805206581E+00 -0.15910421378639E-01
+PE,d/dt,diss:  0.52158703679180E+04 -0.84472940431304E-01 -0.10246583566371E-01
+ E,dE/dt       0.26233865583093E+10 -0.28687936288339E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.3368499E-14  0.1370431E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.2526374E-14  0.6485076E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.116668131297147E-08
+(Q-Q0)/Q0  -0.515991588481612E-14   Q1
+(Q-Q0)/Q0  -0.739943848682858E-14   Q2
+ nstep=        1680  time=   3.50000000000000       [day]
+  u     =  -0.655400218441374E+01  0.372454900678278E+02  0.156762551037916E+06
+  v     =  -0.104183460397553E+02  0.103956921169442E+02  0.140873079809990E+01
+  omega =  -0.852308864057662E-05  0.514928419135510E-05 -0.116376092771924E-03
+  t     =   0.208649473413398E+03  0.310241017947791E+03  0.247620480539725E+07
+      qv=   0.522521227989170E+00  0.779670026879538E+00  0.618837139271091E+04
+      qv=   0.000000000000000E+00  0.837411183939502E+00  0.117841956212496E+04
+      ps=   0.994637704084124E+05  0.101070732869548E+06  0.384180604374239E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999987E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.17973981517512E-15 -0.15739347542321E-17
+Tot IE dry advection horiz, vert:   -0.72883368864195E-13 -0.46583343139372E-15
+Transfer:   KE->IE, KE->PE:          0.11708280019717E+01  0.50095366223075E+00
+Transfer:   IE->KE, PE->KE:         -0.11708280019718E+01 -0.50095366223076E+00
+Transfer:   IE->KE(wet only):       -0.66790568411900E+00
+KE,d/dt,diss:  0.16549144814636E+07 -0.16233577021186E+01  0.48423962083859E-01
+IE,d/dt,diss:  0.26217230455331E+10  0.11451595120960E+01 -0.25668489875794E-01
+PE,d/dt,diss:  0.85984687530600E+04  0.47813228606485E+00 -0.22821376165903E-01
+ E,dE/dt       0.26233865584833E+10 -0.65904193454319E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.5052748E-14  0.8479434E-07
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.1263187E-14  0.7950459E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.123299953372958E-08
+(Q-Q0)/Q0  -0.543883025696834E-14   Q1
+(Q-Q0)/Q0  -0.753646512547355E-14   Q2
+ nstep=        1800  time=   3.75000000000000       [day]
+  u     =  -0.478251166282406E+01  0.385441806088308E+02  0.158086430796667E+06
+  v     =  -0.627222101492808E+01  0.627728244199325E+01  0.160395585528562E+02
+  omega =  -0.864615717913676E-05  0.421575690870969E-05 -0.572672263839433E-03
+  t     =   0.208418801849495E+03  0.309864484110985E+03  0.247561652142770E+07
+      qv=   0.522418286746737E+00  0.779968536384816E+00  0.618657071159896E+04
+      qv=   0.000000000000000E+00  0.833752157301744E+00  0.119456929303924E+04
+      ps=   0.994809574982281E+05  0.100437654218870E+06  0.383867364221102E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999986E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.20766931026499E-15  0.52616270544707E-17
+Tot IE dry advection horiz, vert:    0.23986931524925E-13 -0.10146986266576E-14
+Transfer:   KE->IE, KE->PE:          0.35418158173881E+00  0.20626865050305E+00
+Transfer:   IE->KE, PE->KE:         -0.35418158173880E+00 -0.20626865050305E+00
+Transfer:   IE->KE(wet only):       -0.27321164724618E+00
+KE,d/dt,diss:  0.16740684430624E+07 -0.67683253434694E+00 -0.11638230210508E+00
+IE,d/dt,diss:  0.26217094898384E+10  0.44703758292728E+00  0.92856001188476E-01
+PE,d/dt,diss:  0.30006930522158E+04  0.22963808170277E+00  0.23369431199721E-01
+ E,dE/dt       0.26233865589745E+10 -0.15686971169931E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.0000000E+00 -0.4093184E-07
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.2105312E-14 -0.3479081E-05
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.142024696038464E-08
+(Q-Q0)/Q0  -0.641503055950112E-14   Q1
+(Q-Q0)/Q0  -0.808457168005345E-14   Q2
+ nstep=        1920  time=   4.00000000000000       [day]
+  u     =  -0.333179091986116E+01  0.392912397012171E+02  0.159137319108269E+06
+  v     =  -0.712569369512812E+01  0.707350412620280E+01 -0.115718349346637E+02
+  omega =  -0.258928767075861E-05  0.489362133333631E-05  0.248336120249511E-02
+  t     =   0.208634239351634E+03  0.309868881300918E+03  0.247600066773106E+07
+      qv=   0.522448445395042E+00  0.779692590815162E+00  0.618411260707096E+04
+      qv=   0.000000000000000E+00  0.826890077490485E+00  0.122078083854636E+04
+      ps=   0.995359339338706E+05  0.101197031767697E+06  0.384029498461521E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999985E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.50903757179922E-15 -0.10099657120486E-17
+Tot IE dry advection horiz, vert:   -0.10148317183622E-12  0.67408987096464E-14
+Transfer:   KE->IE, KE->PE:         -0.10664685050235E+00  0.11905919354821E+00
+Transfer:   IE->KE, PE->KE:          0.10664685050237E+00 -0.11905919354821E+00
+Transfer:   IE->KE(wet only):        0.40216605152589E-01
+KE,d/dt,diss:  0.16609661731972E+07 -0.37003246709463E-01 -0.24590903663609E-01
+IE,d/dt,diss:  0.26217183999734E+10 -0.81030517154270E-01  0.25616333348102E-01
+PE,d/dt,diss:  0.71931114853467E+04  0.11806038517307E+00 -0.99880837513762E-03
+ E,dE/dt       0.26233865592580E+10  0.26621641936126E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.0000000E+00  0.1202533E-07
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.1263187E-14 -0.1186333E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.152831800119686E-08
+(Q-Q0)/Q0  -0.655448774557723E-14   Q1
+(Q-Q0)/Q0  -0.849565159598837E-14   Q2
+ Finished main timestepping loop        1920
+ exiting program...
+RUNNING: mpirun -np 2 /home/mataylo/codes/homme/build.Linux/preqx
+ number of MPI processes:            2
+ (t_initf) Read in prof_inparm namelist from: input.nl
+ (t_initf) Using profile_disable= F  profile_timer=          14
+ (t_initf)  profile_depth_limit=       99999  profile_detail_limit=           1
+ (t_initf)  profile_barrier= F  profile_outpe_num=          -1
+ (t_initf)  profile_outpe_stride=           1  profile_single_file= T
+ (t_initf)  profile_global_stats= T  profile_papi_enable= F
+ reading ctl namelist...
+ readnl: restartfile = 
+ ./restart/R000000480                                                           
+  
+ reading filter namelist...
+ reading physics namelist...
+ reading vertical namelist...
+   vform =
+ ccm                                                                            
+  
+   vfile_mid=
+ vcoord/camm-26.fbin.littleendian                                               
+  
+   vfile_int=
+ vcoord/cami-26.fbin.littleendian                                               
+  
+ reading aquaplanet namelist...
+ reading analysis namelist...
+ common_movie_mod.F90         212          24 ps    geos  area  cv_latcv_lon
+ facenozeta  T     Th    u     v     ke    Q     geo   omega lat   lon   lev   
+ ilev  hyam  hybm  hyai  hybi  time  
+ done reading namelist...
+ readnl: accum         =           -1         200        1200
+ readnl: topology      = cube
+ readnl: test_case     = jw_baroclinic
+ readnl: sub_case      =            1
+ readnl: ndays         =            0
+ readnl: nmax          =         1440
+ readnl: qsize,qsize_d =            2           4
+ readnl: NThreads      =            1
+ readnl: ne,np,nv      =            2           4           4
+ readnl: partmethod    =            4
+ readnl: nmpi_per_node =            2
+ readnl: multilevel    =            1
+ readnl: useframes     =            0
+ readnl: nnodes        =            1
+ readnl: npart         =            2
+ 
+ readnl: integration   = explicit
+ readnl: LF-trapazoidal freq=            0
+ readnl: rk_stage_user   =            0
+ readnl: tracer_advection_formulation  =            1
+ readnl: tstep_type    =            1
+ readnl: tstep         =    180.000000000000     
+ readnl: qsplit        =            3
+ readnl: ftype         =            0
+ readnl: energy_fixer  =           -1
+ readnl: runtype       =            1
+ filter: smooth        =   0.000000000000000E+000
+ limiter_option        =           -1
+ weak form hyper viscsosity subcycle, tracer subcycle =            1           1
+ psurf_vis:            0
+ viscosity:  nu        =   0.000000000000000E+000
+ viscosity:  nu_s      =   0.000000000000000E+000
+ viscosity:  nu_q      =   0.000000000000000E+000
+ viscosity:  nu_p      =   0.000000000000000E+000
+ viscosity:  nu_top      =   0.000000000000000E+000
+ PHIS smoothing:             0  0.000000000000000E+000
+ cooling:  cool_ampl             =   0.000000000000000E+000
+ cooling:  cool_min              =   0.000000000000000E+000
+ cooling:  cool_max              =   0.000000000000000E+000
+ moisture: qv_flag               =            0
+ moisture: qv_pert_flag          =            0
+ moisture: qv_pert_ampl          =   0.000000000000000E+000
+ moisture: qv_pert_zmin          =   0.000000000000000E+000
+ moisture: qv_pert_zmax          =   0.000000000000000E+000
+ surface:  isrf_forc             =            0
+ surface:  h_dis                 =   0.000000000000000E+000
+ surface:  Cdrag                 =   0.000000000000000E+000
+ surface:  wstar                 =   0.000000000000000E+000
+ surface:  tsurf                 =   0.000000000000000E+000
+ surface:  qsurf                 =   0.000000000000000E+000
+ wind:     u0                    =   0.000000000000000E+000
+ absorber: zabsampl              =   0.000000000000000E+000
+ absorber: zabsmid               =   0.000000000000000E+000
+ absorber: zabsmin               =   0.000000000000000E+000
+ noise   : noisef  0 off,  >0 on =            0
+ noise   : noisef>0 indicate nr of first grid point 
+ noise   : to which noise function is applied       
+   analysis: output_prefix = 
+   analysis: io_stride =            1
+   analysis: num_io_procs =            2
+  analysis interp nlat =           48
+  analysis interp nlon =           96
+  analysis interp gridtype =            2
+  analysis interpolation type =            0
+ 
+  total simulated time =    259200.000000000     
+ 
+ 
+ ============================================
+         Testing Gaussian Quadrature...
+ 
+           points              weights
+ ============================================
+           1 -0.861136311594053       0.347854845137454     
+           2 -0.339981043584856       0.652145154862546     
+           3  0.339981043584856       0.652145154862546     
+           4  0.861136311594053       0.347854845137454     
+ ============================================
+ sum of Gaussian weights=   2.00000000000000     
+ ============================================
+ 
+ ============================================
+       Testing Gauss-Lobatto Quadrature...
+ 
+           points              weights
+ ============================================
+           1  -1.00000000000000       0.166666666666667     
+           2 -0.447213595499958       0.833333333333333     
+           3  0.447213595499958       0.833333333333333     
+           4   1.00000000000000       0.166666666666667     
+ ============================================
+ sum of Gauss-Lobatto weights=   2.00000000000000     
+ ============================================
+ creating cube topology...
+ ...done.
+ partitioning graph...
+ init shared boundary_exchange buffers
+ initializing cube elements...
+ running mass_matrix
+ Warning - this is not an task count independent result.
+ re-initializing cube elements: area correction=0.999997031003220238
+ re-running mass_matrix
+ running global_dof
+ Main:NThreads=           1
+process:  1 thread:  0 element limits:     1   12
+ end of prim_init
+ number of elements=          12
+process:  0 thread:  0 element limits:     1   12
+1 Layer Locations (*1000) 
+   1    2.1941              0.0000              2.1941
+                  3.5446              0.0000              3.5446
+   2    4.8952              0.0000              4.8952
+                  7.3888              0.0000              7.3888
+   3    9.8824              0.0000              9.8824
+                 13.9672              0.0000             13.9672
+   4   18.0520              0.0000             18.0520
+                 23.9446              0.0000             23.9446
+   5   29.8372              0.0000             29.8372
+                 37.2303              0.0000             37.2303
+   6   44.6233              0.0000             44.6233
+                 53.1146              0.0000             53.1146
+   7   61.6059              0.0000             61.6059
+                 70.0591              0.0000             70.0591
+   8   78.5124              0.0000             78.5124
+                 77.9126              7.5265             85.4391
+   9   77.3127             15.0531             92.3658
+                 76.6070             23.9077            100.5147
+  10   75.9013             32.7623            108.6636
+                 75.0711             43.1793            118.2503
+  11   74.2409             53.5962            127.8371
+                 73.2642             65.8512            139.1154
+  12   72.2874             78.1063            150.3937
+                 71.1384             92.5237            163.6620
+  13   69.9893            106.9411            176.9304
+                 68.6375            123.9024            192.5399
+  14   67.2857            140.8637            208.1494
+                 65.6954            160.8178            226.5132
+  15   64.1051            180.7720            244.8771
+                 62.2342            204.2469            266.4811
+  16   60.3632            227.7220            288.0852
+                 58.1622            255.3391            313.5013
+  17   55.9611            282.9562            338.9173
+                 53.3717            315.4463            368.8180
+  18   50.7822            347.9364            398.7186
+                 47.7359            386.1593            433.8952
+  19   44.6896            424.3822            469.0718
+                 41.1058            469.3495            510.4553
+  20   37.5219            514.3168            551.8387
+                 33.3057            567.2184            600.5241
+  21   29.0895            620.1202            649.2097
+                 24.9684            671.8278            696.7962
+  22   20.8474            723.5355            744.3829
+                 17.0959            770.6061            787.7020
+  23   13.3444            817.6768            831.0212
+                 10.2147            856.9460            867.1607
+  24    7.0850            896.2153            903.3003
+                  4.8032            924.8458            929.6490
+  25    2.5214            953.4761            955.9974
+                  1.2607            969.2941            970.5548
+  26    0.0000            985.1122            985.1122
+                  0.0000            992.5561            992.5561
+  27    0.0000           1000.0000           1000.0000
+ Primitive Equation Initialization...
+ 
+ Running Global Integral Diagnostic...
+ Area of unit sphere is   1.00000000000000     
+ Should be 1.0 to round off...
+Element area:  max/min  1.000
+Equatorial grid spacing: ave,min,max (km) =  1669.23 1384.09 2239.51 (T   8)
+gravity wave dt:  (global min_dx/pi)    /342m/s:    1186.86s
+gravity wave dt:  (equatorial min_dx/pi)/342m/s:    1288.22s
+ runtype: RESTART of primitive equations
+ initial state from restart file:
+ nstep=         480  time=   1.00000000000000       [day]
+  u     =  -0.198980028888978E+01  0.367525119278209E+02  0.158108876349115E+06
+  v     =  -0.639727323964838E+01  0.634907504456564E+01 -0.848303367084577E+01
+  omega =   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+  t     =   0.209163523401678E+03  0.309861876009289E+03  0.247585128623793E+07
+      qv=   0.523359505632824E+00  0.776484792800596E+00  0.618721364233895E+04
+      qv=   0.000000000000000E+00  0.850255178236164E+00  0.121295302936711E+04
+      ps=   0.995205643171564E+05  0.102087013426174E+06  0.384352191105707E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999997E+05 mb     
+Initializing   48 x   96 lat-lon interpolation grid: 
+ finished latitude            1  of           48
+Average number of interpolation points per element:    192.0
+Maximum number of interpolation points on any element:    316
+ Entering main timestepping loop
+ nstep=         600  time=   1.25000000000000       [day]
+  u     =  -0.325063093210652E+01  0.364880330376437E+02  0.157290965231538E+06
+  v     =  -0.745914176610587E+01  0.749930287077700E+01  0.137828083440877E+01
+  omega =  -0.361800350794247E-05  0.540385296563284E-05 -0.165141665165063E-02
+  t     =   0.208402977286639E+03  0.309894971827125E+03  0.247546026500819E+07
+      qv=   0.523255398615376E+00  0.777299837922112E+00  0.618799539070083E+04
+      qv=   0.000000000000000E+00  0.849167110203682E+00  0.120641547582162E+04
+      ps=   0.993442315868113E+05  0.101718330787810E+06  0.384208171953338E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999996E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.21397597044658E-15 -0.11566191027522E-16
+Tot IE dry advection horiz, vert:    0.12593139050586E-12  0.21280308355547E-14
+Transfer:   KE->IE, KE->PE:         -0.12322821443339E+01 -0.56754052028563E+00
+Transfer:   IE->KE, PE->KE:          0.12322821443338E+01  0.56754052028563E+00
+Transfer:   IE->KE(wet only):        0.65714777227556E+00
+KE,d/dt,diss:  0.16538355739227E+07  0.18390439770857E+01  0.39221312466212E-01
+IE,d/dt,diss:  0.26217268360495E+10 -0.12691157190888E+01 -0.36833574754978E-01
+PE,d/dt,diss:  0.58845981715508E+04 -0.57000822368137E+00 -0.24677033957378E-02
+ E,dE/dt       0.26233865562216E+10 -0.79965591430664E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.0000000E+00  0.2001813E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.0000000E+00 -0.8633850E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+ nstep=         720  time=   1.50000000000000       [day]
+  u     =  -0.208367996661271E+01  0.370515949693072E+02  0.159221099220457E+06
+  v     =  -0.401598927681828E+01  0.400996340138211E+01  0.281091926785247E+01
+  omega =  -0.291167410093862E-05  0.743020291619199E-05  0.257077125456076E-02
+  t     =   0.208676641164370E+03  0.309891716464919E+03  0.247553768523728E+07
+      qv=   0.523207617585361E+00  0.777711260128992E+00  0.618934175894556E+04
+      qv=   0.000000000000000E+00  0.846382025525032E+00  0.120559262529357E+04
+      ps=   0.993764081293056E+05  0.102231133417189E+06  0.384182172656481E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999994E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.00000000000000E+00 -0.95225542360133E-17
+Tot IE dry advection horiz, vert:    0.11070891473042E-13  0.27255667375736E-14
+Transfer:   KE->IE, KE->PE:          0.43532418628264E+00  0.31761782368844E+00
+Transfer:   IE->KE, PE->KE:         -0.43532418628265E+00 -0.31761782368844E+00
+Transfer:   IE->KE(wet only):       -0.18469528376291E+00
+KE,d/dt,diss:  0.16601964989875E+07 -0.72861201270630E+00  0.24329997264779E-01
+IE,d/dt,diss:  0.26217210763758E+10  0.41268289795628E+00 -0.22641288326371E-01
+PE,d/dt,diss:  0.52836576482595E+04  0.31596400655804E+00 -0.16538171304054E-02
+ E,dE/dt       0.26233865565324E+10  0.34892117535626E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.5052748E-14  0.1870192E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.4210624E-15 -0.1159127E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.118474846950268E-09
+(Q-Q0)/Q0  -0.111565748860889E-14   Q1
+(Q-Q0)/Q0   0.000000000000000E+00   Q2
+ nstep=         840  time=   1.75000000000000       [day]
+  u     =  -0.309895242900801E+01  0.370699126727572E+02  0.157665271797260E+06
+  v     =  -0.340574800194662E+01  0.343841483590090E+01 -0.557005927301554E+01
+  omega =  -0.355928252627699E-05  0.440724834271147E-05 -0.907748379838719E-04
+  t     =   0.208934078039219E+03  0.309792017312392E+03  0.247630443685026E+07
+      qv=   0.523056797165904E+00  0.777665611410915E+00  0.619035196827150E+04
+      qv=   0.000000000000000E+00  0.843770734751488E+00  0.121685183696317E+04
+      ps=   0.992903999438821E+05  0.101310289927084E+06  0.384243475438438E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999993E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.10180751435984E-15  0.12062452154242E-16
+Tot IE dry advection horiz, vert:    0.55354457365211E-13 -0.35017619686917E-14
+Transfer:   KE->IE, KE->PE:          0.94495661937944E-01 -0.27502982842234E+00
+Transfer:   IE->KE, PE->KE:         -0.94495661937969E-01  0.27502982842234E+00
+Transfer:   IE->KE(wet only):        0.63785033728190E-01
+KE,d/dt,diss:  0.16607902544571E+07  0.24870807838376E+00  0.68173911899367E-01
+IE,d/dt,diss:  0.26217201554047E+10  0.31110530429416E-01 -0.63385131508553E-01
+PE,d/dt,diss:  0.56109363697395E+04 -0.27990770577015E+00 -0.48778773478150E-02
+ E,dE/dt       0.26233865565955E+10 -0.89096139978479E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.5052748E-14  0.4045593E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.1263187E-14 -0.1000355E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.142537124973132E-09
+(Q-Q0)/Q0  -0.111565748860889E-14   Q1
+(Q-Q0)/Q0  -0.123323974780477E-14   Q2
+ nstep=         960  time=   2.00000000000000       [day]
+  u     =  -0.696683889687934E+01  0.357998730268338E+02  0.159266313241471E+06
+  v     =  -0.495410419746848E+01  0.501032646388316E+01  0.924590337898246E+01
+  omega =  -0.660126700585679E-05  0.108534485266743E-04 -0.732799649738387E-03
+  t     =   0.208599438245817E+03  0.310022448374620E+03  0.247583154016806E+07
+      qv=   0.523043512397803E+00  0.777436087294840E+00  0.619160642409129E+04
+      qv=   0.000000000000000E+00  0.840439876996489E+00  0.123201515936608E+04
+      ps=   0.991241110300169E+05  0.101427151249492E+06  0.384039032110693E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999993E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.26735734412641E-15 -0.35884352285649E-18
+Tot IE dry advection horiz, vert:    0.14023129199187E-12 -0.25124040890693E-14
+Transfer:   KE->IE, KE->PE:          0.13513964183563E+01  0.29040213271222E+00
+Transfer:   IE->KE, PE->KE:         -0.13513964183563E+01 -0.29040213271222E+00
+Transfer:   IE->KE(wet only):       -0.64888004230956E+00
+KE,d/dt,diss:  0.16623777760922E+07 -0.16858995851742E+01 -0.44101034105641E-01
+IE,d/dt,diss:  0.26217195033340E+10  0.13865974452760E+01  0.35201026919706E-01
+PE,d/dt,diss:  0.46760466140414E+04  0.29906444545004E+00  0.86623127378185E-02
+ E,dE/dt       0.26233865571567E+10 -0.23769449304651E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.1178975E-13  0.3811754E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.1263187E-14 -0.9536252E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.356441328505169E-09
+(Q-Q0)/Q0  -0.836743116456669E-15   Q1
+(Q-Q0)/Q0  -0.109621310915979E-14   Q2
+ nstep=        1080  time=   2.25000000000000       [day]
+  u     =  -0.375741831886884E+01  0.363095990663226E+02  0.159818553366834E+06
+  v     =  -0.686588088897829E+01  0.683514590226533E+01  0.149103620060516E+02
+  omega =  -0.701982144046551E-05  0.691839992267857E-05 -0.192022236788422E-03
+  t     =   0.209172375219589E+03  0.309999568427429E+03  0.247645984812080E+07
+      qv=   0.522954355658941E+00  0.776905026129357E+00  0.619191241527099E+04
+      qv=   0.000000000000000E+00  0.840141635747457E+00  0.124587631234046E+04
+      ps=   0.995366069139006E+05  0.102084333747178E+06  0.384097652983793E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999992E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.15147246328981E-15  0.13315830745356E-17
+Tot IE dry advection horiz, vert:    0.11670564761165E-12 -0.42300091260977E-14
+Transfer:   KE->IE, KE->PE:         -0.43520538809029E+00 -0.38173215094887E+00
+Transfer:   IE->KE, PE->KE:          0.43520538809028E+00  0.38173215094887E+00
+Transfer:   IE->KE(wet only):        0.42729854180711E+00
+KE,d/dt,diss:  0.16656970341157E+07  0.74612146420577E+00 -0.70816074833389E-01
+IE,d/dt,diss:  0.26217160723271E+10 -0.36806512408786E+00  0.67140264002420E-01
+PE,d/dt,diss:  0.47882058019463E+04 -0.37806909285909E+00  0.36630580897762E-02
+ E,dE/dt       0.26233865575670E+10 -0.12752744886610E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.3368499E-14  0.3594037E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.0000000E+00 -0.9057470E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.512849770933202E-09
+(Q-Q0)/Q0  -0.181294341898945E-14   Q1
+(Q-Q0)/Q0  -0.205539957967461E-14   Q2
+ nstep=        1200  time=   2.50000000000000       [day]
+  u     =  -0.277727886791196E+01  0.357299962061034E+02  0.155616771259931E+06
+  v     =  -0.660003811467621E+01  0.668264145238380E+01  0.104077690214147E+02
+  omega =  -0.491386468949210E-05  0.378890404381789E-05  0.164723421543352E-03
+  t     =   0.208856944010229E+03  0.309851876589489E+03  0.247648662901609E+07
+      qv=   0.522928905495560E+00  0.776509398291579E+00  0.619227470399755E+04
+      qv=   0.000000000000000E+00  0.839634506040267E+00  0.124162370865028E+04
+      ps=   0.995485461307641E+05  0.101039675390234E+06  0.384090233848058E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999990E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.24550927135449E-16  0.82484171173946E-17
+Tot IE dry advection horiz, vert:   -0.53278665214016E-13  0.27260939274087E-14
+Transfer:   KE->IE, KE->PE:          0.49322236344787E+00  0.14964612232914E+00
+Transfer:   IE->KE, PE->KE:         -0.49322236344788E+00 -0.14964612232914E+00
+Transfer:   IE->KE(wet only):       -0.22699049006464E+00
+KE,d/dt,diss:  0.16606678680701E+07 -0.65165364214788E+00 -0.87851563708760E-02
+IE,d/dt,diss:  0.26217197955808E+10  0.50850129833928E+00  0.15278934891399E-01
+PE,d/dt,diss:  0.60942193265632E+04  0.14326221173522E+00 -0.63839105939184E-02
+ E,dE/dt       0.26233865576682E+10  0.10986769640887E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2 -0.5052748E-14  0.3650007E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.4210624E-15 -0.5273907E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.551420085601749E-09
+(Q-Q0)/Q0  -0.264968653544612E-14   Q1
+(Q-Q0)/Q0  -0.219242621831959E-14   Q2
+ nstep=        1320  time=   2.75000000000000       [day]
+  u     =  -0.399153463579152E+01  0.359625707950688E+02  0.155779841722244E+06
+  v     =  -0.742150510527669E+01  0.748106537824675E+01  0.117517695327838E+02
+  omega =  -0.237059538443137E-05  0.736086761116342E-05  0.679818635152468E-03
+  t     =   0.209286689959017E+03  0.310329837397790E+03  0.247643560731092E+07
+      qv=   0.522877387502901E+00  0.776782805792456E+00  0.619190083167627E+04
+      qv=   0.000000000000000E+00  0.840349504672626E+00  0.122382653232718E+04
+      ps=   0.995318654103635E+05  0.101220455076164E+06  0.384170439624183E+08
+      M =   0.101976716676048E+05 kg/m^2  0.999999999999990E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.65769456179369E-16 -0.25847025157743E-16
+Tot IE dry advection horiz, vert:   -0.20873243298132E-13 -0.20938867165398E-14
+Transfer:   KE->IE, KE->PE:         -0.12953550819272E+01 -0.51039271110394E+00
+Transfer:   IE->KE, PE->KE:          0.12953550819272E+01  0.51039271110394E+00
+Transfer:   IE->KE(wet only):        0.76319971434670E+00
+KE,d/dt,diss:  0.16680680170412E+07  0.17816362216819E+01 -0.24111571349303E-01
+IE,d/dt,diss:  0.26217142198509E+10 -0.12737211607121E+01  0.21633921215140E-01
+PE,d/dt,diss:  0.42698373588039E+04 -0.50775799712661E+00  0.26347139773256E-02
+ E,dE/dt       0.26233865577053E+10  0.15706397868969E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.8421247E-14  0.1658320E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.1263187E-14 -0.4650633E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.565548962603707E-09
+(Q-Q0)/Q0  -0.237077216329390E-14   Q1
+(Q-Q0)/Q0  -0.260350613425451E-14   Q2
+ nstep=        1440  time=   3.00000000000000       [day]
+  u     =  -0.365395885008340E+01  0.366067175928420E+02  0.155022586471369E+06
+  v     =  -0.645508090277403E+01  0.638925431508124E+01  0.614655817665411E+01
+  omega =  -0.450126007925778E-05  0.353298230377836E-05 -0.144111220339041E-02
+  t     =   0.209136228826473E+03  0.310159257493181E+03  0.247598494627523E+07
+      qv=   0.522709582244025E+00  0.777551907880482E+00  0.619132477112108E+04
+      qv=   0.000000000000000E+00  0.840358893531717E+00  0.120054911480843E+04
+      ps=   0.994759458512166E+05  0.101066379710083E+06  0.384088947199971E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999989E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.35677677598671E-15  0.17172228054251E-16
+Tot IE dry advection horiz, vert:   -0.68270497417094E-13 -0.44082272583046E-14
+Transfer:   KE->IE, KE->PE:          0.51685947027763E-01  0.43710903188229E-01
+Transfer:   IE->KE, PE->KE:         -0.51685947027729E-01 -0.43710903188229E-01
+Transfer:   IE->KE(wet only):       -0.32719395051856E-01
+KE,d/dt,diss:  0.16545896368363E+07  0.73390862167192E-02  0.10273593643271E+00
+IE,d/dt,diss:  0.26217237114030E+10 -0.21667606742294E-01 -0.73353553770023E-01
+PE,d/dt,diss:  0.82568548284724E+04  0.14293527711201E-01 -0.29417375477029E-01
+ E,dE/dt       0.26233865578946E+10 -0.34993666189688E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.1178975E-13  0.2468740E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.2105312E-14  0.1727576E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.637736160200240E-09
+(Q-Q0)/Q0  -0.334697246582668E-14   Q1
+(Q-Q0)/Q0  -0.383674588205928E-14   Q2
+ nstep=        1560  time=   3.25000000000000       [day]
+  u     =  -0.381606915606286E+01  0.372221174623957E+02  0.155495680149279E+06
+  v     =  -0.578169536011093E+01  0.576559284203434E+01 -0.827748951346348E+01
+  omega =  -0.364972072514908E-05  0.475264073685666E-05  0.143460638468767E-02
+  t     =   0.208992775224501E+03  0.310092257054371E+03  0.247621769278011E+07
+      qv=   0.522680469210971E+00  0.778548238710873E+00  0.619012499379359E+04
+      qv=   0.000000000000000E+00  0.840024941411978E+00  0.117918335158761E+04
+      ps=   0.996482176661377E+05  0.100861230366899E+06  0.384159270772615E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999989E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.54057087270714E-17  0.33658384018457E-17
+Tot IE dry advection horiz, vert:    0.30444951550866E-13 -0.74487803427939E-15
+Transfer:   KE->IE, KE->PE:         -0.31185763068717E+00 -0.74226356864934E-01
+Transfer:   IE->KE, PE->KE:          0.31185763068718E+00  0.74226356864933E-01
+Transfer:   IE->KE(wet only):        0.18419090296148E+00
+KE,d/dt,diss:  0.16651987489952E+07  0.41221230439540E+00  0.26128316843296E-01
+IE,d/dt,diss:  0.26217161436900E+10 -0.32776805206581E+00 -0.15910421378639E-01
+PE,d/dt,diss:  0.52158703679180E+04 -0.84472940431304E-01 -0.10246583566371E-01
+ E,dE/dt       0.26233865583093E+10 -0.28687936288339E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.3368499E-14  0.1370431E-06
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.2526374E-14  0.6485076E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.795817012926413E-09
+(Q-Q0)/Q0  -0.362588683797890E-14   Q1
+(Q-Q0)/Q0  -0.465890571392912E-14   Q2
+ nstep=        1680  time=   3.50000000000000       [day]
+  u     =  -0.655400218441374E+01  0.372454900678278E+02  0.156762551037916E+06
+  v     =  -0.104183460397553E+02  0.103956921169442E+02  0.140873079809990E+01
+  omega =  -0.852308864057662E-05  0.514928419135510E-05 -0.116376092771924E-03
+  t     =   0.208649473413398E+03  0.310241017947791E+03  0.247620480539725E+07
+      qv=   0.522521227989170E+00  0.779670026879538E+00  0.618837139271091E+04
+      qv=   0.000000000000000E+00  0.837411183939502E+00  0.117841956212496E+04
+      ps=   0.994637704084124E+05  0.101070732869548E+06  0.384180604374239E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999987E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:        0.17973981517512E-15 -0.15739347542321E-17
+Tot IE dry advection horiz, vert:   -0.72883368864195E-13 -0.46583343139372E-15
+Transfer:   KE->IE, KE->PE:          0.11708280019717E+01  0.50095366223075E+00
+Transfer:   IE->KE, PE->KE:         -0.11708280019718E+01 -0.50095366223076E+00
+Transfer:   IE->KE(wet only):       -0.66790568411900E+00
+KE,d/dt,diss:  0.16549144814636E+07 -0.16233577021186E+01  0.48423962083859E-01
+IE,d/dt,diss:  0.26217230455331E+10  0.11451595120960E+01 -0.25668489875794E-01
+PE,d/dt,diss:  0.85984687530600E+04  0.47813228606485E+00 -0.22821376165903E-01
+ E,dE/dt       0.26233865584833E+10 -0.65904193454319E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.5052748E-14  0.8479434E-07
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2  0.1263187E-14  0.7950459E-04
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.862135233659926E-09
+(Q-Q0)/Q0  -0.390480121013112E-14   Q1
+(Q-Q0)/Q0  -0.479593235257409E-14   Q2
+ nstep=        1800  time=   3.75000000000000       [day]
+  u     =  -0.478251166282406E+01  0.385441806088308E+02  0.158086430796667E+06
+  v     =  -0.627222101492808E+01  0.627728244199325E+01  0.160395585528562E+02
+  omega =  -0.864615717913676E-05  0.421575690870969E-05 -0.572672263839433E-03
+  t     =   0.208418801849495E+03  0.309864484110985E+03  0.247561652142770E+07
+      qv=   0.522418286746737E+00  0.779968536384816E+00  0.618657071159896E+04
+      qv=   0.000000000000000E+00  0.833752157301744E+00  0.119456929303924E+04
+      ps=   0.994809574982281E+05  0.100437654218870E+06  0.383867364221102E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999986E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.20766931026499E-15  0.52616270544707E-17
+Tot IE dry advection horiz, vert:    0.23986931524925E-13 -0.10146986266576E-14
+Transfer:   KE->IE, KE->PE:          0.35418158173881E+00  0.20626865050305E+00
+Transfer:   IE->KE, PE->KE:         -0.35418158173880E+00 -0.20626865050305E+00
+Transfer:   IE->KE(wet only):       -0.27321164724618E+00
+KE,d/dt,diss:  0.16740684430624E+07 -0.67683253434694E+00 -0.11638230210508E+00
+IE,d/dt,diss:  0.26217094898384E+10  0.44703758292728E+00  0.92856001188476E-01
+PE,d/dt,diss:  0.30006930522158E+04  0.22963808170277E+00  0.23369431199721E-01
+ E,dE/dt       0.26233865589745E+10 -0.15686971169931E-03
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.0000000E+00 -0.4093184E-07
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.2105312E-14 -0.3479081E-05
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.104938266024554E-08
+(Q-Q0)/Q0  -0.488100151266390E-14   Q1
+(Q-Q0)/Q0  -0.534403890715399E-14   Q2
+ nstep=        1920  time=   4.00000000000000       [day]
+  u     =  -0.333179091986116E+01  0.392912397012171E+02  0.159137319108269E+06
+  v     =  -0.712569369512812E+01  0.707350412620280E+01 -0.115718349346637E+02
+  omega =  -0.258928767075861E-05  0.489362133333631E-05  0.248336120249511E-02
+  t     =   0.208634239351634E+03  0.309868881300918E+03  0.247600066773106E+07
+      qv=   0.522448445395042E+00  0.779692590815162E+00  0.618411260707096E+04
+      qv=   0.000000000000000E+00  0.826890077490485E+00  0.122078083854636E+04
+      ps=   0.995359339338706E+05  0.101197031767697E+06  0.384029498461521E+08
+      M =   0.101976716676047E+05 kg/m^2  0.999999999999985E+05 mb     
+**DYNAMICS**        J/m^2                    W/m^2                W/m^2    
+Tot KE advection horiz, vert:       -0.50903757179922E-15 -0.10099657120486E-17
+Tot IE dry advection horiz, vert:   -0.10148317183622E-12  0.67408987096464E-14
+Transfer:   KE->IE, KE->PE:         -0.10664685050235E+00  0.11905919354821E+00
+Transfer:   IE->KE, PE->KE:          0.10664685050237E+00 -0.11905919354821E+00
+Transfer:   IE->KE(wet only):        0.40216605152589E-01
+KE,d/dt,diss:  0.16609661731972E+07 -0.37003246709463E-01 -0.24590903663609E-01
+IE,d/dt,diss:  0.26217183999734E+10 -0.81030517154270E-01  0.25616333348102E-01
+PE,d/dt,diss:  0.71931114853467E+04  0.11806038517307E+00 -0.99880837513762E-03
+ E,dE/dt       0.26233865592580E+10  0.26621641936126E-04
+Q1,Q diss, dQ^2/dt:  0.65216768483809E+04 kg/m^2  0.0000000E+00  0.1202533E-07
+Q2,Q diss, dQ^2/dt:  0.16593392182110E+04 kg/m^2 -0.1263187E-14 -0.1186333E-03
+                     Robert+fixer 
+dKE/dt(W/m^2):   0.000000000000000E+00
+dIE/dt(W/m^2):   0.000000000000000E+00
+dPE/dt(W/m^2):   0.000000000000000E+00
+(E-E0)/E0   0.115745370101768E-08
+(Q-Q0)/Q0  -0.502045869874002E-14   Q1
+(Q-Q0)/Q0  -0.575511882308891E-14   Q2
+ Finished main timestepping loop        1920
+ exiting program...

@@ -1,0 +1,9 @@
+coordinate_systems_mod.o: kinds.o
+coordinate_systems_mod.o: physical_constants.o
+coordinate_systems_mod.o: physical_constants.o
+coordinate_systems_mod.o: physical_constants.o
+coordinate_systems_mod.o: parallel_mod.o
+coordinate_systems_mod.o: physical_constants.o
+coordinate_systems_mod.o: parallel_mod.o
+coordinate_systems_mod.o: physical_constants.o
+coordinate_systems_mod.o: physical_constants.o

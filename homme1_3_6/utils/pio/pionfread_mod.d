@@ -1,0 +1,15 @@
+pionfread_mod.o: pio_types.o
+pionfread_mod.o: pio_kinds.o
+pionfread_mod.o: pio_utils.o
+pionfread_mod.o: pio_support.o
+pionfread_mod.o: alloc_mod.o
+pionfread_mod.o: pio_types.o
+pionfread_mod.o: pio_kinds.o
+pionfread_mod.o: pio_utils.o
+pionfread_mod.o: pio_support.o
+pionfread_mod.o: alloc_mod.o
+pionfread_mod.o: pio_types.o
+pionfread_mod.o: pio_kinds.o
+pionfread_mod.o: pio_utils.o
+pionfread_mod.o: pio_support.o
+pionfread_mod.o: alloc_mod.o

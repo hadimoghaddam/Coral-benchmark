@@ -1,0 +1,12 @@
+#{_out_file = _out_file // "_s" // tostring(_Nsmth)}
+
+create sphere radius 1
+set developer commands on
+#{Loop(_Nsmth)}
+	smooth face all scheme laplacian target surface 1
+#	smooth face all scheme centroid area pull target surface 1
+#	smooth face all scheme winslow target surface 1
+#{EndLoop}
+delete volume 1
+
+

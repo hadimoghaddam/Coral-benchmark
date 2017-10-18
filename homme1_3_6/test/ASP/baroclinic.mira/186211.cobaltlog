@@ -1,0 +1,22 @@
+
+Command: '/gpfs/mira-fs0/projects/Coral_rfp_prep/homme1_3_6/test/ASP/baroclinic.mira/run.job.1'
+
+Environment:
+SHELL=/bin/bash
+COBALT_NODEFILE=/tmp/tmpNoITWW
+COBALT_PARTNAME=MIR-48C80-7BFB1-512
+COBALT_JOBID=186211
+COBALT_STARTTIME=1386257457
+LOGNAME=norman
+USER=norman
+COBALT_ENDTIME=1386258657
+COBALT_PARTSIZE=512
+HOME=/home/norman
+COBALT_JOBSIZE=1
+
+Info: stdin received from /dev/null
+Info: stdout sent to /gpfs/mira-fs0/projects/Coral_rfp_prep/homme1_3_6/test/ASP/baroclinic.mira/186211.output
+Info: stderr sent to /gpfs/mira-fs0/projects/Coral_rfp_prep/homme1_3_6/test/ASP/baroclinic.mira/186211.error
+
+norman/186211: Block MIR-48C80-7BFB1-512 for location MIR-48C80-7BFB1-512 successfully booted (Initiating). 
+Info: task completed normally with an exit code of 0; initiating job cleanup and removal

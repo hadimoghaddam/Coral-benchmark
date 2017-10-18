@@ -1,0 +1,134 @@
+##################################################
+# Makefile for HOMME 
+##################################################
+# Staggering decided at compile time in Params.inc
+.SUFFIXES: .F90 .o .a 
+ARCH =$(shell uname -s)
+include ../Params.inc
+include ../bld/Makefile.$(ARCH)
+
+#
+#  OBJDIRSFX codes
+#    S/N   Stagger/Nonstagger
+#    T     threads
+#    M     mpi
+#    R     PRESTART
+#    O/I  pio or pio_interp
+#
+#
+ifeq ($(GRID_STAG),_STAGGER)
+  export OBJDIRSFX:=S
+endif
+ifeq ($(GRID_STAG),_NONSTAGGER)
+  export OBJDIRSFX:=N
+endif
+ifeq ($(OMP),_OMP_THREADS)
+  export OBJDIRSFX:=$(OBJDIRSFX)T
+endif
+ifeq ($(MPI),_MPI)
+  export FDEFS += $(DEF)$(MPI)
+  export OBJDIRSFX:=$(OBJDIRSFX)M
+  export CFLAGS+= -DSPMD
+  ifeq ($(RESTART),_PRESTART)
+    export OBJDIRSFX:=$(OBJDIRSFX)R
+  endif
+else
+  MPISERIAL = ../utils/pio/mct/mpi-serial
+  VPATH+= $(MPISERIAL)
+  export CFLAGS+= -I$(MPISERIAL) -DREAL4DOUBLE8
+  export FFLAGS+= -I./$(MPISERIAL)
+  MPISRC = collective.c  group.c       list.c        recv.c        send.c \
+           comm.c        handles.c     mpi.c         req.c         time.c \
+           fort.F90
+endif
+
+
+
+ifeq ($(MOVIE),_PIO)
+  export OBJDIRSFX:=$(OBJDIRSFX)O
+  export FDEFS+=$(DEF)PIO
+endif
+ifeq ($(MOVIE),_PIO_INTERP)
+  export OBJDIRSFX:=$(OBJDIRSFX)I
+  export FDEFS+=$(DEF)PIO_INTERP
+endif
+ifeq ($(MOVIE),_NETCDF)
+  export FDEFS+=$(DEF)NETCDF
+endif
+
+ifeq ($(MOVIE),_STUBS)
+  export NETCDFINC:= -I../libs/netcdf_stubs
+  export NETCDFLIB:= -L../libs/netcdf_stubs -lnetcdf_stubs
+  export SUPPORT+=netcdf_stubs
+endif
+
+export VPATH +=../src ../src/share ../utils/trilinos \
+       ./$(OBJDIR) ../utils ../utils/timing ../utils/csm_share
+
+
+
+SHRSRC = shr_kind_mod.F90 shr_mpi_mod.F90 shr_sys_mod.F90 shr_file_mod.F90\
+         shr_vmath_mod.F90 shr_vmath_fwrap.c
+
+TIMINGSRC = gptl.c GPTLget_memusage.c threadutil.c \
+            GPTLprint_memusage.c perf_utils.F90 GPTLutil.c   \
+            f_wrappers.c  gptl_papi.c perf_mod.F90
+
+
+COMMONSRC = reduction_mod.F90 edge_mod.F90 element_mod.F90 domain_mod.F90  \
+            dimensions_mod.F90 thread_mod.F90 parallel_mod.F90  \
+            control_mod.F90 restart_io_mod.F90 cg_mod.F90 \
+            solver_mod.F90 filter_mod.F90  \
+            quadrature_mod.F90 global_norms_mod.F90 \
+            derivative_mod.F90 time_mod.F90 hybrid_mod.F90 physical_constants.F90 kinds.F90 \
+            namelist_mod.F90 cube_mod.F90 spacecurve_mod.F90 metagraph_mod.F90 schedule_mod.F90 \
+            mass_matrix_mod.F90 dof_mod.F90 bndry_mod.F90 \
+            gridgraph_mod.F90 perfmodel_mod.F90 viscosity_mod.F90 \
+            coordinate_systems_mod.F90 ll_mod.F90 metis_mod.F90 params_mod.F90 linear_algebra_mod.F90 \
+	    checksum_mod.F90 common_movie_mod.F90 common_io_mod.F90  netcdf_io_mod.F90 interp_movie_mod.F90 \
+            pio_io_mod.F90 interpolate_mod.F90 
+	
+export SRC =  $(TIMINGSRC) $(SHRSRC) $(COMMONSRC) $(MPISRC)
+
+
+default: preqx
+
+clean:
+	$(RM) $(LIBS) $(EXE) ./obj*/* 
+
+cleansupport: 
+	$(RM) *.a 
+	for dir in $(SUPPORTDIRS); do \
+	  $(MAKE) -C $$dir clean; done
+
+realclean: clean cleansupport
+	$(RM) ./*mod/*.mod *~ Depends
+
+swim: $(SUPPORT) FORCE
+	$(MAKE) -f ../bld/Makefile.swim
+
+sweqx: $(SUPPORT) FORCE
+	$(MAKE) -f ../bld/Makefile.sw
+
+swdgx: $(SUPPORT) FORCE
+	$(MAKE) -f ../bld/Makefile.swdg
+	$(CP) -rf swdgx ../test/swdg
+	
+primdgx: $(SUPPORT) FORCE
+	$(MAKE) -f ../bld/Makefile.primdg
+	$(CP) -rf primdgx ../test/dg_jwbcl
+	$(CP) -rf primdgx ../test/dg_heldsuarez
+		
+preqx: $(SUPPORT) FORCE
+	$(MAKE) -f ../bld/Makefile.pe 
+
+dep_pe: FORCE
+	$(MAKE) -f ../bld/Makefile.pe dep
+
+dep_sw: FORCE
+	$(MAKE) -f ../bld/Makefile.sw dep
+
+$(SUPPORT):
+	$(MAKE) -C ../libs/$@  BUILDDIR=$(CURDIR)
+
+FORCE:

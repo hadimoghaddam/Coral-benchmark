@@ -1,0 +1,26 @@
+#{_out_file = "quadrant_" // tostring(_Nelem) // "_x" // tostring(2^_split)}
+
+#{if(fmod(_Nelem,2)==1)}
+	# Elem at center of last face...
+	# Elem ID: 5N^2 + (N^2-1)/2 + 1 
+	#{_center=5*_Nelem*_Nelem + (_Nelem*_Nelem-1)/2+1}
+#{else}
+	# 4 Elem at center of last face
+	# First: 5N^2 + N(N/2-1) + N/2
+	#{_center=5*_Nelem*_Nelem + _Nelem*(_Nelem/2-1)+_Nelem/2}
+#{endif}
+
+#{if(fmod(_Nelem,2)==1)}
+	refine face {_center} numsplit {_split} depth {(_Nelem-1)/2-1}
+#{else}
+	refine face {_center} {_center+1} {_center+_Nelem} {_center+_Nelem+1} numsplit {_split} depth {_Nelem/2-2}
+#{endif}
+
+#{include("nodes_to_sphere.jou")}
+
+#{if(_Nsmth>0)}
+	#{include("smooth.jou")}
+#{endif}
+
+
+

@@ -1,0 +1,131 @@
+#!/bin/tcsh -f 
+#PBS -A STF006
+#PBS -l nodes=8192
+#PBS -l walltime=0:30:00
+#PBS -N baroclinic
+#PBS -j oe
+
+source /opt/modules/default/init/tcsh
+module rm PrgEnv-pgi
+module rm PrgEnv-cray
+module rm PrgEnv-intel
+module rm PrgEnv-gnu
+module rm PrgEnv-pathscale
+module add PrgEnv-pgi
+module add netcdf parallel-netcdf
+
+# directores
+set HOMME = /tmp/work/$USER/homme1_3_6
+set src = $HOMME/build/preqx
+set wdir = /tmp/work/$USER/preqx.8192     # work directory where output is stored
+set input = $HOMME/test/ASP/baroclinic   # test cases
+set vcoord = $HOMME/test/vcoord          # location of vertical coordinate files
+
+# parameters:
+set qsize = 106
+set u_perturb = 1
+set rotate = 0
+set limiter = 4
+set psurf = 0
+set npdg=0
+set nu_p = 0
+set nu_div = -1
+set smooth = 0
+set tadv = 1
+set RK2 = 1    
+set qsplit = 4
+set mean_flux=1
+set ndays = 1
+set ne = 256
+
+#nu = 5.62882844584e19 * ne ^ (-3.22918674082)
+#ts = 3.28411185073e03 * ne ^ (-1.06797000058)
+if ( $ne == 8 ) then
+  set tstep = 356
+  set nu = 6e16
+  set nu_q = 6e16
+  set resolution = ne8
+endif
+if ( $ne == 16 ) then
+  set tstep = 170
+  set nu = 7.2e15
+  set nu_q = 7.2e15
+  set resolution = ne16
+endif
+if ( $ne == 32 ) then
+  set tstep = 81
+  set nu = 7.7e14
+  set nu_q = 7.7e14
+  set resolution = ne32
+endif
+if ( $ne == 64 ) then
+  set tstep = 38
+  set nu = 8.2e13
+  set nu_q = 8.2e13
+  set resolution = ne64
+endif
+if ( $ne == 128 ) then
+  set tstep = 18
+  set nu = 8.8e12
+  set nu_q = 8.8e12
+  set resolution = ne128
+endif
+if ( $ne == 256 ) then
+  set tstep = 8
+  set nu = 9.4e11
+  set nu_q = 9.4e11
+  set resolution = ne256
+endif
+
+# number of hours between calls to prim_printstate
+set sfreq = 72
+@ sfreq *= 3600
+set sfreq = `echo "$sfreq / $tstep " | bc`
+
+set name = jwasp-ne${ne}-nu$nu
+echo runname =  $name
+mkdir $wdir
+set wdir = $wdir/$name
+mkdir $wdir
+mkdir $wdir/movies
+cd $input
+rm -f $wdir/explicit.nl
+sed s/NE/$ne/ explicit26.nl.sed |\
+sed s/TSTEP/"$tstep qsplit=$qsplit psurf_vis=$psurf  "/ |\
+sed s/SFREQ/$sfreq/ |\
+sed s/tracer_advection_formulation.\*/"tracer_advection_formulation=$tadv  tstep_type = $RK2  compute_mean_flux=$mean_flux  "/ |\
+sed s/NU1/$nu/ | sed s/NU2/$nu_q/ | \
+sed s/nu_div.\*/"nu_div = $nu_div  npdg=$npdg"/ |\
+sed s/nu_p.\*/"nu_p = $nu_p"/ |\
+sed s/u_perturb.\*/"u_perturb = $u_perturb"/ |\
+sed s/rotate_grid.\*/"rotate_grid = $rotate"/ |\
+sed s/ndays.\*/"ndays = $ndays"/ |\
+sed s/limiter_option.\*/"limiter_option = $limiter"/ |\
+sed s/smooth.\*/"smooth = $smooth"/ |\
+sed s/qsize.\*/"qsize = $qsize"/    > $wdir/input.nl
+
+set NCPU = 16
+if ( ${?PBS_NODEFILE} ) then
+  set NCPU = `wc $PBS_NODEFILE | awk '{print $1}' - `
+endif
+if ( ${?PBS_NNODES} ) then
+  set NCPU = $PBS_NNODES
+endif
+if ( ${?LSB_MCPU_HOSTS} ) then
+  set NCPU = `wc $LSB_DJOB_HOSTFILE | awk '{print $1}' - `
+endif
+if ( ${?SLURM_NNODES} ) then
+  set NCPU = 0
+endif
+echo using NCPU = $NCPU
+
+set mpirun = "aprun -n $NCPU "
+cd $wdir
+rm -f vcoord
+ln -s $vcoord vcoord
+
+date
+$mpirun $src/preqx.cpu < $wdir/input.nl
+if ($status) exit
+date
+

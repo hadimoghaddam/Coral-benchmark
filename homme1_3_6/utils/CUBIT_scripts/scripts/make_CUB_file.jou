@@ -1,0 +1,34 @@
+reset
+
+#{_Nelem = 4}
+#{_Nnode = 6*_Nelem*_Nelem+2}
+#{_outdir = "~/Desktop/grids/CUB_files/"}
+#{_filename = Quote(_outdir // "ne" // tostring(_Nelem) // ".cub")}
+
+brick width {PI_2}
+surface 1 2 3 4 5 6 interval {_Nelem}
+mesh surface 1 2 3 4 5 6
+
+set node constraint off
+#{_nid=0}
+#{Loop(_Nnode)}
+	#{_nid++}
+
+	# Move node to sphere
+	##########
+	#{_newx = tan(Nx(_nid))}
+	#{_newy = tan(Ny(_nid))}
+	#{_newz = tan(Nz(_nid))}
+	#{_r = 1/sqrt(_newx*_newx+_newy*_newy+_newz*_newz)}
+	node {_nid} move X {_newx*_r-Nx(_nid)} Y {_newy*_r-Ny(_nid)} Z {_newz*_r-Nz(_nid)}
+
+#{EndLoop}
+
+disassociate mesh from surface 1 2 3 4 5 6
+delete volume 1
+save as {_filename} overwrite
+
+
+
+
+

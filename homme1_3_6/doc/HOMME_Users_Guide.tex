@@ -1,0 +1,392 @@
+\documentclass[12pt]{article}
+\usepackage[dvips]{graphicx}
+\usepackage{times}
+\usepackage{natbib,rotating}
+\usepackage{mystylefile}
+\usepackage{amsmath}
+
+\usepackage{verbatim}
+\usepackage{layout}
+\usepackage{calc}
+
+\newcommand{\figs}{./figs}
+\newcommand{\lfigs}{./figs}
+
+\def\lmpref#1 {\noindent #1 \vspace*{.15in}}
+
+\oddsidemargin 0in
+\evensidemargin 0in
+\markboth{}{}
+\topmargin -.25 in
+\headheight 0.5in
+\headsep 0.1in
+\textwidth 6.3in
+\textheight 9.0in
+\footskip .3in
+\jot 3mm
+\renewcommand{\baselinestretch}{1.15}
+
+\numberwithin{equation}{section}
+\pagestyle{empty}
+
+\begin{document}
+\pagenumbering{roman}
+\setcounter{page}{2}
+{\raggedleft \hfill\today}
+\sloppy
+
+\vspace{4cm}
+
+\begin{center}
+   {\bf {\LARGE  High Order Multiscale Modeling Environment (HOMME): User's Guide}}
+
+\vspace{2cm}
+R. D. Loft$\;^1$\\
+S. Thomas$\;^1$\\
+J. M. Dennis$\;^1$\\
+Amik St Cyr$\;^1$\\
+J. P. Edwards$\;^2$
+
+\vspace{2cm}
+
+{\it NCAR Technical Note}, June, 2003
+
+\vspace{4cm}
+
+{\small $^1\,$Computational Science Section, National Center for Atmospheric
+  Research, Boulder, Colorado}
+{\small $^2\,$IBM Global Services, IBM Business Consulting Services,
+Boulder, Colorado}
+\end{center}
+
+\newpage
+\pagestyle{plain}
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Introduction}
+
+This document provides a User's Guide for the Fortran 90 implementation of High Order Multiscale Modeling Environment, (HOMME). HOMME is designed to solve two and three dimensional atmospheric problems on a spherical domain. In particular,  the 2-d shallow water equations and  the hydrostatic primitive equations in $\sigma$ and hybrid $\eta$ and coordinates are supported. 
+The shallow water version of the model can be integrated explicitly or semi-implicitly, and is shipped with the capability of solving the standard shallow water test case problems 1,2,5,6 of Williamson and Drake, et al. The primitive equation model is currently explicit, dry and can build two idealized test cases: the Held-Suarez climate test and the Baroclinic Instability of test of Polvani and Scott. We are currently developing semi-implicit moist primitive equation dynamics. These models are discussed in further detail below.
+
+HOMME  has a flexible parallel implementation: it has been designed to run in parallel either using MPI (message passing), OpenMP (multithreading), or hybid (OpenMP + MPI)   paradigms.  Domain decomposition is accomplished  using either the standard Metis package or Hilbert-Peano space filling curves. Supported and tested platforms include Sun , IBM and MacOS 10.2. We are working on integrating Linux support for both IA32 (Pentium) and IA64 (Itanium) compilers.
+
+We describe how to obtain, compile and run the code, post-process data and interpret test case results. We provide information regarding how to file problem reports with the HOMME core group at NCAR.  A detailed description of the mathematical underpinnings of HOMME are provided in the companion document "High Order Multiscale Modeling Environment (HOMME): Numerical Description".
+
+\section{The Design of HOMME}
+	
+	HOMME is designed to be a high-performance scalable prototype atmospheric model written in Fortran 90. HOMME makes extensive use of the Fortran 90 standard, which provides modern programing features.  HOMME only uses those features of Fortran 90 which improve code function, without sacraficing serial performance.  In particular, HOMME use structures, derived types and modules extensively, while limits the use of array syntax.  Parallel support is provided through MPI (message passing), OpenMP (multithreading), or combined (OpenMP + MPI).  The combination of Fortran 90 and the flexible parallel implementation allows HOMME to efficiently execute on a large collection of computing platforms.  The platforms and OS configuration on which HOMME are actively tested and supported are provided in table \ref{tbl:SupportedMachConfig}.  HOMME has additionally been compiled and executed on a large collection of other platforms.  The platforms on which HOMME are not supported but will likely compile with a minimal effort are provided in table \ref{tbl:UnsupportedMachConfig}.
+	
+	
+\begin{table}[bht]
+\begin{center}
+
+\end{center}
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+OS & Arch & Compiler & Serial & MPI & OpenMP &  MPI + OpenMP \\ \hline \hline
+AIX & pwr3, pwr4  & xlf              & yes         & yes  & yes           & yes \\ \hline
+SunOS & ultra2 & f90 SunPro & yes & no    & yes           & no \\ \hline
+MacOS 10.2 & G3,G4,G5 & Absoft 8.0 & yes & no & no & no \\ \hline \hline
+\end{tabular}
+\caption{Platforms on which HOMME are actively supported}
+\label{tbl:SupportedMachConfig}
+\end{table}
+
+\begin{table}[bht]
+\begin{center}
+
+\end{center}
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+OS & Arch & Compiler & Serial & MPI & OpenMP &  MPI + OpenMP \\ \hline \hline
+Linux & IA64 & Intel ifort         & yes         & no & no        & no \\ \hline
+Linux & IA32 & Intel ifort         & yes         & no & no        & no \\ \hline
+Linux & IA32 & PGI                  & yes         & no & no   & no \\ \hline
+Linux & Opteron & ? & yes & no & no & no \\ \hline
+Linux & BGL prototype & XLF & yes & yes & no & no \\ \hline
+OSF   &  ASCI Red & yes & yes & no & no & no \\ \hline
+SunOS & ultra2 & f90 SunPro & yes & yes  & yes           & no \\ \hline
+MacOS 10.2 & G3,G4,G5 & IBM XLF & yes & no & yes & no \\ \hline \hline
+\end{tabular}
+\caption{Platforms on which HOMME has been compiled and executed but is not supported}
+\label{tbl:UnsupportedMachConfig}
+\end{table}
+
+%\subsection{Language/Build Choices}					%JD
+ 
+\subsection{HOMME directory structure}					%JD
+
+The HOMME directory tree structure is provided in Figure \ref{fig:dirTree}.  The contents of each subdirectory are as follows: 
+\begin{figure}
+\begin{center}
+\begin{verbatim}
+                  |
+ ________________________________________
+ |     |       |       |        |       |
+ /sw   /libs   /tests  /prim    /src    /doc	
+ |     |       |       |_____________
+ |     |       |       |     |      | 
+ |     |       |       /hs   /lmp   /vcoord
+ |     |       |__________________________
+ |     |       |             |           |
+ |     |       /integrated   /baselines  /scripts  
+ |     |_________________________________________
+ |     |       |        |         |       |     |
+ |     /blas   /lapack  /linpack  /metis  /tfs /utils
+ _____________________________________________
+ |        |	       |	  	   |          |	     |
+/swtc1   /swtc2   /swtc5  /swtc56gen /swtc6 /swtc8
+\end{verbatim}
+\end{center}
+\caption{HOMME directory tree.} 
+\label{fig:dirTree}
+\end{figure}
+
+\begin{list}
+{\setlength{\rightmargin}{\leftmargin}}
+\item  /src:  
+
+	This directory contains all the source files for the HOMME model.  The suffix .F90 indicates that the source is free form Fortran 90 that is first preprocessed using the cpp preprocessor.  Note that many of the files are of the form *\_mod.F90.  This convention is used to indicate that the file is an Fortran 90 module file.  Modules are used extensively in HOMME allowing the compiler to perform type checking and allow for the elimination of common blocks.
+	
+\item /doc:
+	
+	This directory contains all the file necessary to construct the HOMME User's Guide and Description documents along with *.pdf versions of each file.
+	
+\item /libs:
+
+	Contains several subdirectories of several libraries required by HOMME.  
+	\begin{list} {\setlength{\rightmargin}{\leftmargin}}
+		\item /blas:
+			
+			The required subset of the Basic Linearly Algebra Subroutines (BLAS) libraries. Note that these subroutines are used in a limited number of initialization subroutines  and do not form the basis of any performance critical component of HOMME.  
+			
+		\item /lapack:
+			
+			The required subset of the LAPACK libraries.  Note that these subroutines are used in a limited number of initialization subroutines and do not form the basis of any performance critical components of HOMME. 
+			
+		\item /linpack:
+			
+			The required subset of the LINPACK libraries.  Note that these subroutines are used in a limited number of initialization subroutines and do not form the basis of any performance critical components of HOMME.
+			
+		\item /metis:
+		
+			This is version 4.0 of the METIS graph partitioning library.  METIS is used at initialization to partition the computational mesh across processors.  Note that the graph is partitioning in serial on each processor when HOMME is executed in parallel when using MPI.
+			
+		\item /tfs:
+			
+			This is an alternate MPI communication package of Henry Tufo and Paul Fisher  which is based on global degrees of freedom.  This is a critical component of the adaptive mesh refinement research branch of HOMME.  This library is not used outside of the adaptive mesh refinement branch of HOMME.
+			
+		\item /utils:
+		
+			A small library of utilities written in C used by HOMME.  Porting to new platforms may involved the modification of the Fortran to C interface for several routines in the utils subdirectory.  
+
+	\end{list}
+	
+	\item /tests:
+	
+		This directory contains scripts necessary for the execution of the HOMME test suite, as well as the baselines for the test suite.  The automated test suite is run on all supported platforms on regular intervals to prevent the code from losing functionality during development. Please see Section \ref{sec:TestSuite} for information on how to execute the automated test suite.  
+	
+		\begin{list} {\setlength{\rightmargin}{\leftmargin}}
+		\item /integrated:
+			
+			Contains the scripts necessary to execute the test suite as a cron job. 
+			
+		\item /baselines:
+		
+			The baseline "TRUTH" logfiles for each test configuration are contain in this subdirectory.  The automated test suite executes a series of runs on all supported platforms and then computes the difference between the baseline results.  If differences greater than machine epsilon are discovered the particular test is marked as failed. 
+			
+		\item /scripts:
+		
+			Contains the common set of scripts needed by the test suite tool to either run automatically in a cron job or interactively.  
+			
+		\end{list}
+		
+		\item  /sw
+		
+			This contains all ancillary files that are associated with the shallow water equation version of HOMME described in detail in Section \ref{sec:SWE}.  Note that this subdirectory does not contain HOMME source files, but rather namelist input files, job scripts, sample output files and NCL ploting files. 
+
+			\begin{list} {\setlength{\rightmargin}{\leftmargin}}
+			\item /swtc{1,2,5,6,8}
+		
+			Each subdirectory corresponds to the associated files for each particular shallow water test case. For example the subdirectory 'swtc1/scripts' contains the namelist inputs and jobscripts necessary to execute shallow water test case 1, while the subdirectory 'swtc1/plots' and 'swtc1/results' contains the plot files and the and output file respectively for the same test case.  
+		
+			\item /swtc56gen
+		
+			Because shallow water test cases 5 and 6 have analytical solutions, source code is provided to calculate the analytical solution for comparison with the calculated solution.  
+		
+			\end{list}
+		
+		\item /prim
+			
+			The 'prim' subdirectory contains all ancillary files that are associated with the primitive equation version of HOMME described in detail in Section \ref{sec:PE}.  Note that this subdirectory does not contain HOMME source files, but rather namelist input files, jobscripts, and smaple output files and NCL ploting files.  
+			
+			\begin{list} {\setlength{\rightmargin}{\leftmargin}}
+			\item /hs
+				
+					Contains files necessary for the Held-Suarez test case. Plotting files are located in the 'plots' subdirectory while namelist input files and jobscripts are located in the 'scripts' subdirectory 
+			\item /lmp
+					
+					Contains files necessary for the Baroclinic Instability test problem.  Plotting files are located in the 'plots' subdirectory while namelist input files and jobscripts are located in the 'scripts subdirectory.  
+					
+			\item /vcoord
+			
+					This subdirectory contains the source for a stand alone code that generates two of the input files necessary for the primitive equations version of HOMME.   These input files, indicated in the 'vert\_nl' namelist structure are described in greater detail in Section \ref{sec:vcoord}.  
+					
+			\end{list}
+		
+\end{list}
+
+\subsection{HOMME module heirarchy}					%JD
+\subsubsection{Data Types} 							%JD
+\subsubsection{Physical Constants}						%??
+\subsubsection{Parallel Modules} 						%JD
+
+\section{HOMME Domain Decomposition Features} 		%JD
+\subsection{Metis}
+\subsection{Space Curves}
+
+\section{Using HOMME}								%JD
+\subsection{Obtaining HOMME Software}					%JD
+\subsection{Building HOMME}
+\subsection{Running HOMME}
+\subsubsection{Namelist input parameters}
+\subsubsection{Model output controls}
+
+Up to 5 analysis (or movie) variable output files are allowed.  The
+following controls are defined for each output file in the namelist
+analysis\_nl
+\begin{list}
+{\setlength{\rightmargin}{\leftmargin}}
+\item  output\_timeunits:
+
+  Specifies the units of time used in each of the other time related namelist variables.
+  0: steps
+  1: days
+  2: hours
+
+  default: 0
+
+\item output\_frequency:
+
+  Specifies the frequency of output of each file in units of output\_timeunits.
+
+  default: The first file only is output at the 0 and final steps.
+
+\item output\_start\_time:
+  
+  The time of the first write of this file in units of output\_timeunits
+
+  default: 0
+
+\item output\_end\_time:
+
+  The time of the last write of this file in units of output\_timeunits.
+
+  default: The first file only is output at the 0 and final steps.
+
+\item output\_stream\_count:
+ 
+  The number of different output files to be written.
+
+  default: 1
+  max    : 5
+
+\item output\_varnames[1..5]:
+
+  The names of the variables to be written to each output file.  
+
+  default: File one - all allowed, other files - none.
+
+\item output\_dir:
+  
+  Path to the output directory, this is a single variable all of the files will be written
+  to this directory
+
+  default: ./movies
+\end{list}
+
+\subsubsection{Interactive execution}
+\subsubsection{Batch Submission}
+\subsection{Output Files}
+\subsubsection{Adding a variable to the output file}
+
+
+\subsection{Getting Help with HOMME Software}			%JD
+
+\section{Using HOMME Tools}
+\subsection{Generating Vertical Coordinate Files \label{sec:vcoord}}
+\subsection{Automated Test Suite \label{sec:TestSuite} }		
+
+\subsection{Visualization Tools}						%??
+\subsection{Post-processing Tools}						%ST
+
+\section{Using the HOMME Shallow Water Equation Model\label{sec:SWE}}
+\subsection{Building the SWE's}
+\subsection{Running the SWE's}
+\subsubsection{SWE specific Namelist Parameters}
+
+\subsection{SWE Validation: Test Cases}					%JD & ST
+\subsubsection{SWE Test Case 1}
+\subsubsection{SWE Test Case 2}
+\subsubsection{SWE Test Case 5}
+\subsubsection{SWE Test Case 6}
+
+\section{Using the HOMME Primitive Equation Model \label{sec:PE}}
+\subsection{Building the PE's}
+\subsection{Running the PE's}							%JD & ST
+\subsubsection{PE specific Namelist Parameters}
+
+
+\subsection{Primitive Equation Validation: Test Cases}		%JD % ST
+\subsubsection{Held-Suarez Climate Test Case}
+\subsubsection{Baroclinic Instability Test Case}
+
+
+\clearpage
+%\newpage
+\pagenumbering{roman}
+\setcounter{page}{27}
+\section*{Acknowledgements}
+
+\addcontentsline{toc}{section}{Acknowledgements}
+
+The HOMME model was written by scientists in the Computational Science Section of the Scientific Computing Division at the National Center for Atmospheric Research, in collaboration with scientists and researchers at many other institutions. The authors gratefully acknowledge financial support received by NCAR through the Department of Energy Climate Change Prediction Program, and the NSF Mathematics Directorate to perform this work. 
+
+\clearpage
+
+\newpage
+
+\section*{References} 
+
+\addcontentsline{toc}{section}{References}
+
+\lmpref{Held, I. H., and Suarez, M. J., 1994:
+A proposal for the intercomparison of the dynamical cores of
+atmospheric general circulation models.
+{\it Bull. Amer. Meteor. Soc.,} {\bf 75,} 1825--1830.}
+
+\lmpref{Polvani, L. M. and Scott, R. K., 2002:
+An initial-value problem for testing the dynamical core of atmospheric
+general circulation models.
+{\it Mon. Weather Rev.}, Submitted.}
+
+\lmpref{Williamson, D. L., Drake, J. B, Hack, J. J., Jakob, R., and 
+Swarztrauber, P. N., 1992:
+A standard test set for numerical approximations to the shallow water
+equations in spherical geometry.
+{\it J. Comput. Phys.,} {\bf 102,} 211--224.}
+
+\newpage
+
+
+\newpage
+\section*{Appendix A -- ???}
+\addcontentsline{toc}{section}{Appendix A -- ???}
+
+
+
+\end{document}
+

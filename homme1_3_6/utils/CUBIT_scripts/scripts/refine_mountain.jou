@@ -1,0 +1,80 @@
+#{_out_file = "mountain_" // tostring(_Nelem) // "_x" // tostring(2^_split)}
+
+################
+# Notes
+# NE = 6 => minid = 120, 119
+# NE = 10 => minid = 298, 297
+# NE = 12 => minid = 417 (spot on to center of mtn!)
+# NE = 15 => minid = 640, 626 (641, 627)
+# NE = 20 => minid = 1094, 1095
+# NE = 30 => minid = 2391 (spot on to center of mtn!)
+# NE = 40 => minid = 4188, 4187
+# NE = 60 => minid = 9281 (spot on to center of mtn!)
+# NE = 80 => minid = 16374, 16375
+# NE = 160 => minid =  64748, 64747
+################
+
+#{if(_Nelem==6)}
+	#{_minid1=120}
+	#{_minid2=119}
+#{endif}
+
+#{if(_Nelem==10)}
+	#{_minid1=298}
+	#{_minid2=297}
+#{endif}
+
+#{if(_Nelem==12)}
+	#{_minid1=417}
+	#{_minid2=417}
+#{endif}
+
+#{if(_Nelem==15)}
+	#{_minid1=640}
+	#{_minid2=626}
+#{endif}
+
+#{if(_Nelem==20)}
+	#{_minid1=1094}
+	#{_minid2=1095}
+#{endif}
+
+#{if(_Nelem==30)}
+	#{_minid1=2391}
+	#{_minid2=2391}
+#{endif}
+
+#{if(_Nelem==40)}
+	#{_minid1=4188}
+	#{_minid2=4187}
+#{endif}
+
+#{if(_Nelem==60)}
+	#{_minid1=9281}
+	#{_minid2=9281}
+#{endif}
+
+#{if(_Nelem==80)}
+	#{_minid1=16374}
+	#{_minid2=16375}
+#{endif}
+
+#{if(_Nelem==160)}
+	#{_minid1=64748}
+	#{_minid2=64747}
+#{endif}
+
+#{_nid = 6*_Nelem*_Nelem+2}
+
+refine node {_minid1} {_minid2} numsplit {_split} radius 0.45
+
+#{include("nodes_to_sphere.jou")}
+
+#{if(_Nsmth>0)}
+	#{include("smooth.jou")}
+#{endif}
+
+
+
+
+

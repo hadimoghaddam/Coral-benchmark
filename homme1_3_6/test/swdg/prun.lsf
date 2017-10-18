@@ -1,0 +1,24 @@
+#!/bin/csh
+#
+# LSF batch script to run an MPI code
+#
+source /usr/local/lsf/conf/cshrc.lsf  # load LSF environment
+#BSUB -P 39310004		      # project number
+#BSUB -a poe                          # select poe
+#BSUB -x                              # exclusive use of node (not_shared)
+#BSUB -n 12                           # number of total MPI tasks
+#BSUB -R "span[ptile=6]"              # run a max of 8 MPI tasks per node
+#BSUB -J homme	                      # job name
+#BSUB -i explicit.nl                  # output filename
+#BSUB -o prun.out                     # output filename
+#BSUB -e prun.err                     # error filename
+#BSUB -q premium                      # queue
+#BSUB -W 6:00                         # wallclock limit (hours:minutes)
+
+setenv MP_SHARED_MEMORY yes
+setenv MEMORY_AFFINITY MCM
+setenv MP_STDOUTMODE   0
+setenv HPM_VIZ_OUTPUT  FALSE
+setenv HPM_OUTPUT_NAME dg2d
+
+mpirun.lsf ./swdgx >& prun.log

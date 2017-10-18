@@ -1,0 +1,11 @@
+ Number of processors:          16
+ REAL    wdsize      :           8
+ INTEGER wdsize      :           4
+ Max number of threads:            1
+ Processes: npx=            4  npy=            2  npz=            2
+ Local Elements: mx=            8  my=            8  mz=            8
+ Elements: nelx=           32  nely=           16  nelz=           16
+gs_setup: 115201 unique labels shared
+   setupds time 1.1826E+00 seconds   0  9     5971968
+[mpiexec@donatello] Sending Ctrl-C to processes as requested
+[mpiexec@donatello] Press Ctrl-C again to force abort

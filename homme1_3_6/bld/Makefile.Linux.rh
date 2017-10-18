@@ -1,0 +1,75 @@
+#
+# makefile for RedHat gcc 4.3.x
+#
+
+ifeq ($(METIS),_USEMETIS)
+#   SUPPORT = linpack metis utils
+   SUPPORT = lapack blas linpack metis utils
+else
+#   SUPPORT = linpack utils
+   SUPPORT = lapack blas linpack utils
+endif
+
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+ifeq ($(MPI),_NOMPI)
+   F90 = gfortran   # G fortran
+   CC = gcc
+   CXX = g++
+   MPCC = gcc
+else
+   F90 = mpif90
+   CC = mpicc
+   MPCC = mpicc
+endif
+#CFLAGS = -g -D$(ARCH) -I. -DFORTRANDOUBLEUNDERSCORE 
+CFLAGS = -g -D$(ARCH) -I. -DFORTRANUNDERSCORE 
+DEF =-D
+MFLAGS = 
+MODPATH_FLAG = -I
+MODEXT=.mod
+
+#LDFLAGS= -L.  -L$(LALIB_DIR)/liblapack.a -L$(BLASLIB_DIR)/libblas.a $(addprefix -l,$(SUPPORT)) 
+LDFLAGS= -L.  $(addprefix -l,$(SUPPORT)) 
+FFLAGS=-I../src -DSPHEREW 
+
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=
+  FFLAGS += 
+  CFLAGS += 
+endif
+
+
+ifeq ($(MOVIE),_NETCDF)
+   NETCDFROOT = /usr/local
+   NETCDFINC= -I$(NETCDFROOT)/include
+   NETCDFLIB= -L$(NETCDFROOT)/lib -lnetcdf 
+#   NETCDFLIB= $(NETCDFROOT)/lib/libnetcdf.a 
+endif
+ifeq ($(MOVIE),_PIO)
+  PNETCDF = /usr/local/pnetcdf
+  NETCDF = /usr/local
+  NETCDFINC =  -I../utils/pio/pio -I$(PNETCDF)/include 
+  NETCDFLIB = -L../utils/pio/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib -lnetcdf 
+endif
+ifeq ($(MOVIE),_PIO_INTERP)
+  PNETCDF = /usr/local
+  NETCDF = /usr/local
+  NETCDFINC =  -I../utils/pio/pio   -I$(PNETCDF)/include 
+  NETCDFLIB = -L../utils/pio/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib -lnetcdf 
+endif
+
+

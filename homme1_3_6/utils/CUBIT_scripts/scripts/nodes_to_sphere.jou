@@ -1,0 +1,12 @@
+#{_nid = 6*_Nelem*_Nelem+2}
+#{_lastnode = Id("node")}
+#{_Nnode = _lastnode-6*_Nelem*_Nelem-2}
+
+#{Loop(_Nnode)}
+	#{_nid++}
+
+	# Move node to sphere
+	##########
+	#{_r = sqrt(Nx(_nid)*Nx(_nid)+Ny(_nid)*Ny(_nid)+Nz(_nid)*Nz(_nid))}
+	node {_nid} move X {Nx(_nid)/_r-Nx(_nid)} Y {Ny(_nid)/_r-Ny(_nid)} Z {Nz(_nid)/_r-Nz(_nid)}
+#{EndLoop}

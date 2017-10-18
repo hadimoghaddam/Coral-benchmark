@@ -1,0 +1,11 @@
+schedule_mod.o: metagraph_mod.o
+schedule_mod.o: kinds.o
+schedule_mod.o: element_mod.o
+schedule_mod.o: metagraph_mod.o
+schedule_mod.o: dimensions_mod.o
+schedule_mod.o: parallel_mod.o
+schedule_mod.o: parallel_mod.o
+schedule_mod.o: gridgraph_mod.o
+schedule_mod.o: element_mod.o
+schedule_mod.o: dimensions_mod.o
+schedule_mod.o: parallel_mod.o

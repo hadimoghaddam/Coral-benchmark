@@ -1,0 +1,42 @@
+QUEUE        =  cqsub -q R.homme
+DEBUGQUEUE   =  cqsub -debug 
+NP           =  108		
+TIME         =  24:00:00
+COMODE       =  co
+VNMODE       =  vn
+COUNT        =  216
+EXECUTE      =  primdgx
+OUTPUT_PREFIX_CO=  corun
+OUTPUT_PREFIX_VN=  vnrun
+OUTPUT_PREFIX_D =  debug
+OUTPUT_PREFIX_S =  srun
+
+debug2:
+	$(DEBUGQUEUE) -p 39550000 -n 108 -t 02:00:00 -O $(OUTPUT_PREFIX_D) -m $(VNMODE) -c 216 $(EXECUTE)
+debug:
+	$(QUEUE) -p 39550000 -n 400 -t 12:00:00 -O $(OUTPUT_PREFIX_D) -m $(VNMODE) -c 800 $(EXECUTE)
+        
+corun:
+	$(QUEUE) -n $(NP) -t $(TIME) -O $(OUTPUT_PREFIX_CO) -m $(COMODE) $(EXECUTE)
+
+vnrun:
+	$(QUEUE) -n $(NP) -t $(TIME) -O $(OUTPUT_PREFIX_VN) -m $(VNMODE) -c $(COUNT) $(EXECUTE)
+
+clean:
+	rm -rf *.error *.output *.errors *~ fort.* swtc*.* core.* 
+
+tclean:	
+	rm -rf *.txt mpi_profile.* events.trc
+
+pclean:
+	rm -rf corun.* vnrun.* debug.* 
+
+dclean: 
+	rm -rf ./data/*.out ./movies/*.nc
+
+clear: tclean clean dclean
+
+qstat:
+	cqstat -f
+view:
+	nedit *.output&

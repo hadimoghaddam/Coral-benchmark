@@ -1,0 +1,2 @@
+ARCH=$(shell uname -s)
+include ../swdg/Makefile.$(ARCH)

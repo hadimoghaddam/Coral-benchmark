@@ -1,0 +1,10 @@
+dof_mod.o: kinds.o
+dof_mod.o: dimensions_mod.o
+dof_mod.o: quadrature_mod.o
+dof_mod.o: element_mod.o
+dof_mod.o: parallel_mod.o
+dof_mod.o: edge_mod.o
+dof_mod.o: bndry_mod.o
+dof_mod.o: element_mod.o
+dof_mod.o: coordinate_systems_mod.o
+dof_mod.o: parallel_mod.o

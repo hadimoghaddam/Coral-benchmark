@@ -1,0 +1,43 @@
+ifeq ($(METIS),_USEMETIS)
+   SUPPORT = lapack linpack blas metis utils
+else
+   SUPPORT = lapack linpack blas utils
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = /usr/bin/ln 
+
+F90 = $(MP)f90
+CC = /opt/SUNWspro/bin/cc
+MPCC = 
+CFLAGS += -xO5 -fast -xarch=v8plusa -xchip=native -dalign -xrestrict=%all -xunroll=4 -D$(ARCH) -I.
+FREE = -free
+FIXED = -fixed
+DEF =-D
+MODPATH_FLAG =-moddir=
+MODEXT=.mod
+
+LDFLAGS= -L. $(addprefix -l,$(SUPPORT))
+FFLAGS += -g -I../src -fast -e -xarch=v8plusa -xchip=native -dalign -stackvar
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=-explicitpar -mp=openmp
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=mp
+  LDFLAGS+=-L/opt/SUNWhpc/lib -lmpi
+else
+  NETCDF = _NOPNETCDF
+  RESTART = _NOPRESTART
+endif
+ifeq ($(NETCDF),_NOPNETCDF)
+  NETCDFINC = -M/fs/tools/sparc.solaris-7/netcdf-3.5.1-beta/lib
+  NETCDFLIB = -L/fs/tools/sparc.solaris-7/netcdf-3.5.1-beta/lib -lnetcdf
+endif
+

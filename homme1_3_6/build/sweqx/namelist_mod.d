@@ -1,0 +1,14 @@
+namelist_mod.o: kinds.o
+namelist_mod.o: params_mod.o
+namelist_mod.o: cube_mod.o
+namelist_mod.o: control_mod.o
+namelist_mod.o: thread_mod.o
+namelist_mod.o: dimensions_mod.o
+namelist_mod.o: time_mod.o
+namelist_mod.o: parallel_mod.o
+namelist_mod.o: cg_mod.o
+namelist_mod.o: interpolate_mod.o
+namelist_mod.o: common_io_mod.o
+namelist_mod.o: common_movie_mod.o
+namelist_mod.o: interpolate_mod.o
+namelist_mod.o: mesh_mod.o

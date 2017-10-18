@@ -1,0 +1,30 @@
+#{_out_file = "north_" // tostring(_Nelem) // "_x" // tostring(2^_split)}
+
+#{if(fmod(_Nelem,2)==1)}
+	#{_npole=(_Nelem*_Nelem+5*_Nelem)/2+1}
+	#{_radius=sqrt(Nx(_npole)*Nx(_npole)+(Ny(_npole)+1)*(Ny(_npole)+1)+Nz(_npole)*Nz(_npole))}
+#{else}
+	#{_npole=_Nelem*_Nelem/2+3*_Nelem+1}
+#{endif}
+
+#{_nid = 6*_Nelem*_Nelem+2}
+
+#{if(fmod(_Nelem,2)==1)}
+	refine node {_npole} {_npole+1} {_npole+_Nelem-1} {_npole+_Nelem} numsplit {_split} radius {_radius}
+#{else}
+	refine node {_npole} numsplit {_split} radius {sqrt(2)}
+#{endif}
+
+#{include("nodes_to_sphere.jou")}
+
+#{if(_Nsmth>0)}
+	#{include("smooth.jou")}
+#{endif}
+
+
+
+
+
+
+
+

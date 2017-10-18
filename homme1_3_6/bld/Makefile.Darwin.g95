@@ -1,0 +1,51 @@
+#
+#  setup for Darwin, with g95 and LAM-MPI installed via fink
+#
+ifeq ($(METIS),_USEMETIS)
+  SUPPORT = lapack linpack metis utils blas
+else
+  SUPPORT = lapack linpack utils blas
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+
+#F90 = $(MP)f95
+F90 = g95
+CC = cc
+MPCC = cc
+CFLAGS += -O3 -D$(ARCH) -I.   -DFORTRANDOUBLEUNDERSCORE
+DEF =-D
+#MODPATH_FLAG = -p
+MODPATH_FLAG = -I
+MODEXT=.mod
+
+LDFLAGS= -L. $(addprefix -l,$(SUPPORT))
+FFLAGS += -I../src -I../src/share -O1 -fendian=little  
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifneq ($(INIT),_NEW_INIT)
+   INIT = _OLD_INIT
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=mp
+  FFLAGS += -I/sw/include  -DMPI_REAL8=MPI_DOUBLE_PRECISION -Dmpi_real8=MPI_DOUBLE_PRECISION 
+  LDFLAGS+= -L/sw/lib -llammpio -llamf77mpi -lmpi -llam 
+endif
+
+NETCDFLIB=-L/sw/lib  -lnetcdf 
+NETCDFINC=-I/sw/include
+FFLAGS += -DNETCDF
+
+
+PRECOMP=$(RM) $*.mod
+POSTCOMP=mv $*.mod $(OBJDIR); ln -fs $(OBJDIR)/$*.mod .

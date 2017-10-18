@@ -1,0 +1,77 @@
+#
+# makefile for Fedora 7
+# uses F7 distributed:
+#       gfortran
+#       netcdf
+#       openmpi
+#
+# note: F7 gfortran is too old to compile HOMME
+# have to upgrade to gcc4.2 to get newer gfortran
+# now using gcc4.3, but the module format changed, so .mod files
+# have to be recompiled, which means FC6's netcdf has to be 
+# recompiled.  Easier to just install pnetcdf
+#
+ifeq ($(METIS),_USEMETIS)
+   SUPPORT = metis utils
+else
+   SUPPORT = utils
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+
+F90 = gfortran   
+F90 = mpif90
+CC = mpicc
+MPCC = mpicc
+
+#CFLAGS += -g -D$(ARCH) -I. -DFORTRANDOUBLEUNDERSCORE
+CFLAGS += -g -D$(ARCH) -I. -DFORTRANUNDERSCORE
+# add these for compiling GPTL timing library C code
+CFLAGS += -DHAVE_GETTIMEOFDAY
+CFLAGS += -DHAVE_MPI 
+
+
+FREE =  
+FIXED = 
+DEF =-D
+# to avoid picking up -wk (gmake default) for MFLAGS: 
+MFLAGS = 
+MODPATH_FLAG = -J$(OBJDIR) -I
+MODEXT=.mod
+
+LDFLAGS= -L. $(addprefix -l,$(SUPPORT))  -llapack 
+FFLAGS+=-I../src -ffree-line-length-280 -O1 -frecord-marker=4 -fconvert=little-endian 
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifeq ($(MPI),_MPI)
+#  FFLAGS += -I/usr/include/openmpi -I/usr/include/openmpi/32
+#  LDFLAGS+= -L/usr/lib/openmpi -lmpi 
+endif
+
+NETCDFINC = -I../utils/pio  
+
+
+##############################################################
+# uncomment one of the following blocks:
+##############################################################
+
+### NETCDF only, fedora 32 bit ###
+#NETCFD=/usr
+#NETCDFLIB = -L../utils/pio -lpio -L$(NETCDF)/lib/ -lnetcdff -lnetcdf
+
+### NETCDF & PNETCDF, fedora 64 bit ###
+NETCFD=/usr
+PNETCDF=/home/onguba/local
+NETCDFLIB = -L../utils/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib64/ -lnetcdf -lnetcdff
+
+

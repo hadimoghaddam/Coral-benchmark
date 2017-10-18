@@ -1,0 +1,633 @@
+GFORTRAN module version '10' created from module_netcdf_nc_data.F90
+MD5:e995fc41a3dcc3850cdb0a079d97f404 -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+(('c_funptr' '__iso_c_binding' 2) ('c_ptr' '__iso_c_binding' 3))
+
+()
+
+()
+
+()
+
+(2 'C_funptr' '__iso_c_binding' '' 1 ((DERIVED UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_BIND_C IS_C_INTEROP IS_ISO_C) (
+DERIVED 2 0 1 1 UNKNOWN ()) 0 0 () () 0 ((4 '__c_funptr_c_address' (
+INTEGER 8 0 1 0 INTEGER ()) () (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) UNKNOWN-ACCESS ())) UNKNOWN-ACCESS () () 2 44 0)
+3 'C_ptr' '__iso_c_binding' '' 1 ((DERIVED UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 IS_BIND_C IS_C_INTEROP IS_ISO_C) (DERIVED 3 0 1 1
+UNKNOWN ()) 0 0 () () 0 ((5 '__c_ptr_c_address' (INTEGER 8 0 1 0 INTEGER
+()) () (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0)
+UNKNOWN-ACCESS ())) UNKNOWN-ACCESS () () 2 42 0)
+6 '__iso_c_binding' '__iso_c_binding' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 INTRINSIC) (UNKNOWN 0 0 0 0 UNKNOWN ())
+0 0 () () 0 () () () 2 0)
+7 'c_alert' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U00000007') () 0 () () ()
+2 35)
+8 'c_associated' '__iso_c_binding' '__iso_c_binding_c_associated' 1 ((
+PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 FUNCTION
+ALWAYS_EXPLICIT IS_ISO_C) (LOGICAL 4 0 0 0 LOGICAL ()) 9 0 (10 11) () 8
+() () () 2 47)
+12 'c_backspace' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U00000008') () 0 () () ()
+2 36)
+13 'c_bool' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+LOGICAL ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '1') () 0 ()
+() () 2 32)
+14 'c_carriage_return' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U0000000d') () 0 () () ()
+2 39)
+15 'c_char' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+CHARACTER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '1') () 0
+() () () 2 33)
+16 'c_double' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+REAL ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 () ()
+() 2 25)
+17 'c_double_complex' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+COMPLEX ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 29)
+18 'c_enum' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
+19 'c_f_pointer' '__iso_c_binding' '__iso_c_binding_c_f_pointer' 1 ((
+PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE
+ALWAYS_EXPLICIT IS_ISO_C) (UNKNOWN 0 0 0 0 UNKNOWN ()) 20 0 (21 22 23) ()
+0 () () () 2 46)
+24 'c_f_procpointer' '__iso_c_binding' '__iso_c_binding_c_f_procpointer'
+1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE
+IS_ISO_C) (UNKNOWN 0 0 0 0 UNKNOWN ()) 25 0 (26 27) () 0 () () () 2 50)
+28 'c_float' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+REAL ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '4') () 0 () ()
+() 2 24)
+29 'c_float128' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+REAL ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '16') () 0 () ()
+() 2 27)
+30 'c_float128_complex' '__iso_c_binding' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (
+INTEGER 4 0 1 1 COMPLEX ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ())
+0 '16') () 0 () () () 2 31)
+31 'c_float_complex' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+COMPLEX ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '4') () 0 ()
+() () 2 28)
+32 'c_form_feed' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U0000000c') () 0 () () ()
+2 37)
+33 'c_funloc' '__iso_c_binding' '__iso_c_binding_c_funloc' 1 ((
+PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 EXTERNAL
+FUNCTION PURE IS_ISO_C) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 33 () ()
+() 2 49)
+34 'c_funptr' '__iso_c_binding' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION GENERIC) (UNKNOWN 0 0 0 0
+UNKNOWN ()) 0 0 () () 0 () () () 2 44)
+35 'c_horizontal_tab' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U00000009') () 0 () () ()
+2 40)
+36 'c_int' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '4') () 0 ()
+() () 2 0)
+37 'c_int128_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '16') () 0 ()
+() () 2 13)
+38 'c_int16_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '2') () 0 ()
+() () 2 10)
+39 'c_int32_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '4') () 0 ()
+() () 2 11)
+40 'c_int64_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 12)
+41 'c_int8_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '1') () 0 ()
+() () 2 9)
+42 'c_int_fast128_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '16') () 0 ()
+() () 2 23)
+43 'c_int_fast16_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 20)
+44 'c_int_fast32_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 21)
+45 'c_int_fast64_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 22)
+46 'c_int_fast8_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '1') () 0 ()
+() () 2 19)
+47 'c_int_least128_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '16') () 0 ()
+() () 2 18)
+48 'c_int_least16_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '2') () 0 ()
+() () 2 15)
+49 'c_int_least32_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '4') () 0 ()
+() () 2 16)
+50 'c_int_least64_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 17)
+51 'c_int_least8_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '1') () 0 ()
+() () 2 14)
+52 'c_intmax_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 4)
+53 'c_intptr_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 5)
+54 'c_loc' '__iso_c_binding' '__iso_c_binding_c_loc' 1 ((PROCEDURE
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 EXTERNAL FUNCTION PURE
+IS_ISO_C) (DERIVED 3 0 0 0 DERIVED ()) 0 0 () () 54 () () () 2 48)
+55 'c_long' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 2)
+56 'c_long_double' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+REAL ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '10') () 0 () ()
+() 2 26)
+57 'c_long_double_complex' '__iso_c_binding' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (
+INTEGER 4 0 1 1 COMPLEX ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ())
+0 '10') () 0 () () () 2 30)
+58 'c_long_long' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 3)
+59 'c_new_line' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U0000000a') () 0 () () ()
+2 38)
+60 'c_null_char' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U00000000') () 0 () () ()
+2 34)
+61 'c_null_funptr' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_BIND_C IS_C_INTEROP IS_ISO_C) (
+DERIVED 2 0 1 1 UNKNOWN ()) 0 0 () (STRUCTURE (DERIVED 2 0 0 0 DERIVED ())
+0 (((NULL (UNKNOWN 0 0 0 1 UNKNOWN ()) 0) ())) ()) () 0 () () () 2 45)
+62 'c_null_ptr' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_BIND_C IS_C_INTEROP IS_ISO_C) (
+DERIVED 3 0 1 1 UNKNOWN ()) 0 0 () (STRUCTURE (DERIVED 3 0 0 0 DERIVED ())
+0 (((NULL (UNKNOWN 0 0 0 1 UNKNOWN ()) 0) ())) ()) () 0 () () () 2 43)
+63 'c_ptr' '__iso_c_binding' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION GENERIC) (UNKNOWN 0 0 0 0
+UNKNOWN ()) 0 0 () () 0 () () () 2 42)
+64 'c_ptrdiff_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 6)
+65 'c_short' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '2') () 0 ()
+() () 2 1)
+66 'c_signed_char' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '1') () 0 ()
+() () 2 8)
+67 'c_size_t' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 UNKNOWN ()) 0 '8') () 0 ()
+() () 2 7)
+68 'c_sizeof' '__iso_c_binding' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN-PROC DECL UNKNOWN 0 0 INTRINSIC FUNCTION) (INTEGER 8 0 0 0
+INTEGER ()) 69 0 (70) () 0 () () () 2 48)
+71 'c_vertical_tab' '__iso_c_binding' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 IS_C_INTEROP IS_ISO_C) (CHARACTER 1 0 1
+1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (
+CONSTANT (CHARACTER 1 0 1 1 UNKNOWN (())) 0 1 '\U0000000b') () 0 () () ()
+2 41)
+72 'cint' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 INTEGER ()) 0 '4') () 0 ()
+() () 0 0)
+73 'cint1' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 INTEGER ()) 0 '1') () 0 ()
+() () 0 0)
+74 'cint2' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0 IS_C_INTEROP IS_ISO_C) (INTEGER 4 0 1 1
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 1 INTEGER ()) 0 '2') () 0 ()
+() () 0 0)
+75 'ik1' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') () 0 () () () 0 0)
+76 'ik2' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2') () 0 () () () 0 0)
+77 'ik4' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
+78 'ik8' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
+79 'kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 FUNCTION) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 79
+() () () 0 0)
+80 'nc2_err' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-1') () 0 () () () 0 0)
+81 'nc_64bit_offset' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '512') () 0 () () () 0 0)
+82 'nc_align_chunk' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-1') () 0 () () () 0 0)
+83 'nc_byte' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') () 0 () () () 0 0)
+84 'nc_char' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2') () 0 () () () 0 0)
+85 'nc_clobber' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 0 0)
+86 'nc_diskless' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
+87 'nc_double' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '6') () 0 () () () 0 0)
+88 'nc_eaxistype' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-65') () 0 () () () 0 0)
+89 'nc_ebaddim' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-46') () 0 () () () 0 0)
+90 'nc_ebadid' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-33') () 0 () () () 0 0)
+91 'nc_ebadname' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-59') () 0 () () () 0 0)
+92 'nc_ebadtype' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-45') () 0 () () () 0 0)
+93 'nc_ebfile' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-34') () 0 () () () 0 0)
+94 'nc_echar' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-56') () 0 () () () 0 0)
+95 'nc_ecurl' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-67') () 0 () () () 0 0)
+96 'nc_edap' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-66') () 0 () () () 0 0)
+97 'nc_edapconstraint' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-75') () 0 () () () 0 0)
+98 'nc_edapsvc' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-70') () 0 () () () 0 0)
+99 'nc_edapurl' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-74') () 0 () () () 0 0)
+100 'nc_edas' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-71') () 0 () () () 0 0)
+101 'nc_edatadds' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-73') () 0 () () () 0 0)
+102 'nc_edds' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-72') () 0 () () () 0 0)
+103 'nc_edimsize' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-63') () 0 () () () 0 0)
+104 'nc_eedge' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-57') () 0 () () () 0 0)
+105 'nc_eexist' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-35') () 0 () () () 0 0)
+106 'nc_eglobal' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-50') () 0 () () () 0 0)
+107 'nc_eindefine' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-39') () 0 () () () 0 0)
+108 'nc_einval' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-36') () 0 () () () 0 0)
+109 'nc_einvalcoords' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-40') () 0 () () () 0 0)
+110 'nc_eio' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-68') () 0 () () () 0 0)
+111 'nc_emaxatts' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-44') () 0 () () () 0 0)
+112 'nc_emaxdims' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-41') () 0 () () () 0 0)
+113 'nc_emaxname' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-53') () 0 () () () 0 0)
+114 'nc_emaxvars' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-48') () 0 () () () 0 0)
+115 'nc_enameinuse' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-42') () 0 () () () 0 0)
+116 'nc_enodata' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-69') () 0 () () () 0 0)
+117 'nc_enomem' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-61') () 0 () () () 0 0)
+118 'nc_enorecvars' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-55') () 0 () () () 0 0)
+119 'nc_enotatt' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-43') () 0 () () () 0 0)
+120 'nc_enotindefine' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-38') () 0 () () () 0 0)
+121 'nc_enotnc' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-51') () 0 () () () 0 0)
+122 'nc_enotvar' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-49') () 0 () () () 0 0)
+123 'nc_eperm' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-37') () 0 () () () 0 0)
+124 'nc_erange' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-60') () 0 () () () 0 0)
+125 'nc_estride' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-58') () 0 () () () 0 0)
+126 'nc_ests' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-52') () 0 () () () 0 0)
+127 'nc_etranslation' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-76') () 0 () () () 0 0)
+128 'nc_etrunc' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-64') () 0 () () () 0 0)
+129 'nc_eunlimit' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-54') () 0 () () () 0 0)
+130 'nc_eunlimpos' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-47') () 0 () () () 0 0)
+131 'nc_evarsize' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-62') () 0 () () () 0 0)
+132 'nc_exdr' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-32') () 0 () () () 0 0)
+133 'nc_fatal' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') () 0 () () () 0 0)
+134 'nc_fill' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 0 0)
+135 'nc_fill_byte' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 1 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 1 0 0 0 INTEGER ()) 0 '-127') () 0 () () () 0 0)
+136 'nc_fill_char' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (CHARACTER 1 0 1 0 CHARACTER ((
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1'))) 0 0 () (CONSTANT (
+CHARACTER 1 0 1 1 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1')))
+0 1 '\U00000000') () 0 () () () 0 0)
+137 'nc_fill_double' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 8 0 1 0 REAL ()) 0 0 () (
+CONSTANT (REAL 8 0 0 0 REAL ()) 0 '0.78000000000000@31') () 0 () () () 0
+0)
+138 'nc_fill_float' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (REAL 4 0 1 0 REAL ()) 0 0 () (
+CONSTANT (REAL 4 0 0 0 REAL ()) 0 '0.7800000@31') () 0 () () () 0 0)
+139 'nc_fill_int' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-2147483647') () 0 () () ()
+0 0)
+140 'nc_fill_short' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 2 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 2 0 0 0 INTEGER ()) 0 '-32767') () 0 () () () 0 0)
+141 'nc_float' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '5') () 0 () () () 0 0)
+142 'nc_format_64bit' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2') () 0 () () () 0 0)
+143 'nc_format_classic' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') () 0 () () () 0 0)
+144 'nc_global' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 0 0)
+145 'nc_inmemory' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '32768') () 0 () () () 0 0)
+146 'nc_int' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
+147 'nc_lock' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1024') () 0 () () () 0 0)
+148 'nc_max_attrs' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8192') () 0 () () () 0 0)
+149 'nc_max_dims' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1024') () 0 () () () 0 0)
+150 'nc_max_name' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '256') () 0 () () () 0 0)
+151 'nc_max_var_dims' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0 IS_C_INTEROP) (INTEGER 4 0 1 0
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 1 0 INTEGER ()) 0 '1024') () 0
+() () () 0 0)
+152 'nc_max_vars' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8192') () 0 () () () 0 0)
+153 'nc_mmap' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '16') () 0 () () () 0 0)
+154 'nc_nat' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 0 0)
+155 'nc_noclobber' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
+156 'nc_noerr' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 0 0)
+157 'nc_nofill' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '256') () 0 () () () 0 0)
+158 'nc_nowrite' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 0 0)
+159 'nc_share' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2048') () 0 () () () 0 0)
+160 'nc_short' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '3') () 0 () () () 0 0)
+161 'nc_sizehint_default' 'netcdf_nc_data' '' 1 ((PARAMETER
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0
+INTEGER ()) 0 0 () (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 ()
+() () 0 0)
+162 'nc_strict_nc3' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
+163 'nc_syserr' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '-31') () 0 () () () 0 0)
+164 'nc_unlimited' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0') () 0 () () () 0 0)
+165 'nc_verbose' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2') () 0 () () () 0 0)
+166 'nc_write' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 1 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') () 0 () () () 0 0)
+167 'netcdf_nc_data' 'netcdf_nc_data' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
+0 () () () 0 0)
+168 'nfint' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
+169 'nfint1' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') () 0 () () () 0 0)
+170 'nfint2' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '2') () 0 () () () 0 0)
+171 'nfreal' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
+172 'rk4' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '4') () 0 () () () 0 0)
+173 'rk8' 'netcdf_nc_data' '' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '8') () 0 () () () 0 0)
+174 'selected_int_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION) (UNKNOWN 0 0 0 0 UNKNOWN ())
+0 0 () () 174 () () () 0 0)
+175 'selected_real_kind' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 FUNCTION) (UNKNOWN 0 0 0 0 UNKNOWN ())
+0 0 () () 175 () () () 0 0)
+10 'C_ptr_1' '__iso_c_binding' '' 9 ((DERIVED IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 VALUE DUMMY) (DERIVED 3 0 0 0 DERIVED ()) 0 0 () () 0 () ()
+() 0 0 0)
+11 'C_ptr_2' '__iso_c_binding' '' 9 ((DERIVED IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 OPTIONAL VALUE DUMMY) (DERIVED 3 0 0 0 DERIVED ()) 0 0 () ()
+0 () () () 0 0 0)
+21 'Cptr' '__iso_c_binding' '' 20 ((DERIVED IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 VALUE DUMMY) (DERIVED 3 0 0 0 DERIVED ()) 0 0 () () 0 () ()
+() 0 0 0)
+22 'fptr' '__iso_c_binding' '' 20 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 POINTER DUMMY) (VOID 0 0 0 0 VOID ()) 0 0 () () 0 ()
+() () 0 0)
+23 'shape' '__iso_c_binding' '' 20 ((VARIABLE IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DIMENSION OPTIONAL DUMMY) (VOID 4 0 0 0 VOID ()) 0 0 () (1 0
+ASSUMED_SHAPE (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') ()) 0 () ()
+() 0 0)
+26 'Cptr' '__iso_c_binding' '' 25 ((DERIVED IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 VALUE DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () ()
+() 0 0 0)
+27 'fptr' '__iso_c_binding' '' 25 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DUMMY PROC_POINTER) (VOID 0 0 0 0 VOID ()) 0 0 () ()
+0 () () () 0 0)
+70 'x' '' '' 69 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+)
+
+('C_funptr' 0 2 'C_ptr' 0 3 '__iso_c_binding' 0 6 'c_alert' 0 7
+'c_associated' 0 8 'c_backspace' 0 12 'c_bool' 0 13 'c_carriage_return'
+0 14 'c_char' 0 15 'c_double' 0 16 'c_double_complex' 0 17 'c_enum' 0 18
+'c_f_pointer' 0 19 'c_f_procpointer' 0 24 'c_float' 0 28 'c_float128' 0
+29 'c_float128_complex' 0 30 'c_float_complex' 0 31 'c_form_feed' 0 32
+'c_funloc' 0 33 'c_funptr' 0 34 'c_horizontal_tab' 0 35 'c_int' 0 36
+'c_int128_t' 0 37 'c_int16_t' 0 38 'c_int32_t' 0 39 'c_int64_t' 0 40
+'c_int8_t' 0 41 'c_int_fast128_t' 0 42 'c_int_fast16_t' 0 43
+'c_int_fast32_t' 0 44 'c_int_fast64_t' 0 45 'c_int_fast8_t' 0 46
+'c_int_least128_t' 0 47 'c_int_least16_t' 0 48 'c_int_least32_t' 0 49
+'c_int_least64_t' 0 50 'c_int_least8_t' 0 51 'c_intmax_t' 0 52
+'c_intptr_t' 0 53 'c_loc' 0 54 'c_long' 0 55 'c_long_double' 0 56
+'c_long_double_complex' 0 57 'c_long_long' 0 58 'c_new_line' 0 59
+'c_null_char' 0 60 'c_null_funptr' 0 61 'c_null_ptr' 0 62 'c_ptr' 0 63
+'c_ptrdiff_t' 0 64 'c_short' 0 65 'c_signed_char' 0 66 'c_size_t' 0 67
+'c_sizeof' 0 68 'c_vertical_tab' 0 71 'cint' 0 72 'cint1' 0 73 'cint2' 0
+74 'ik1' 0 75 'ik2' 0 76 'ik4' 0 77 'ik8' 0 78 'kind' 0 79 'nc2_err' 0
+80 'nc_64bit_offset' 0 81 'nc_align_chunk' 0 82 'nc_byte' 0 83 'nc_char'
+0 84 'nc_clobber' 0 85 'nc_diskless' 0 86 'nc_double' 0 87 'nc_eaxistype'
+0 88 'nc_ebaddim' 0 89 'nc_ebadid' 0 90 'nc_ebadname' 0 91 'nc_ebadtype'
+0 92 'nc_ebfile' 0 93 'nc_echar' 0 94 'nc_ecurl' 0 95 'nc_edap' 0 96
+'nc_edapconstraint' 0 97 'nc_edapsvc' 0 98 'nc_edapurl' 0 99 'nc_edas' 0
+100 'nc_edatadds' 0 101 'nc_edds' 0 102 'nc_edimsize' 0 103 'nc_eedge' 0
+104 'nc_eexist' 0 105 'nc_eglobal' 0 106 'nc_eindefine' 0 107 'nc_einval'
+0 108 'nc_einvalcoords' 0 109 'nc_eio' 0 110 'nc_emaxatts' 0 111
+'nc_emaxdims' 0 112 'nc_emaxname' 0 113 'nc_emaxvars' 0 114
+'nc_enameinuse' 0 115 'nc_enodata' 0 116 'nc_enomem' 0 117 'nc_enorecvars'
+0 118 'nc_enotatt' 0 119 'nc_enotindefine' 0 120 'nc_enotnc' 0 121
+'nc_enotvar' 0 122 'nc_eperm' 0 123 'nc_erange' 0 124 'nc_estride' 0 125
+'nc_ests' 0 126 'nc_etranslation' 0 127 'nc_etrunc' 0 128 'nc_eunlimit'
+0 129 'nc_eunlimpos' 0 130 'nc_evarsize' 0 131 'nc_exdr' 0 132 'nc_fatal'
+0 133 'nc_fill' 0 134 'nc_fill_byte' 0 135 'nc_fill_char' 0 136
+'nc_fill_double' 0 137 'nc_fill_float' 0 138 'nc_fill_int' 0 139
+'nc_fill_short' 0 140 'nc_float' 0 141 'nc_format_64bit' 0 142
+'nc_format_classic' 0 143 'nc_global' 0 144 'nc_inmemory' 0 145 'nc_int'
+0 146 'nc_lock' 0 147 'nc_max_attrs' 0 148 'nc_max_dims' 0 149
+'nc_max_name' 0 150 'nc_max_var_dims' 0 151 'nc_max_vars' 0 152 'nc_mmap'
+0 153 'nc_nat' 0 154 'nc_noclobber' 0 155 'nc_noerr' 0 156 'nc_nofill' 0
+157 'nc_nowrite' 0 158 'nc_share' 0 159 'nc_short' 0 160
+'nc_sizehint_default' 0 161 'nc_strict_nc3' 0 162 'nc_syserr' 0 163
+'nc_unlimited' 0 164 'nc_verbose' 0 165 'nc_write' 0 166 'netcdf_nc_data'
+0 167 'nfint' 0 168 'nfint1' 0 169 'nfint2' 0 170 'nfreal' 0 171 'rk4' 0
+172 'rk8' 0 173 'selected_int_kind' 0 174 'selected_real_kind' 0 175)

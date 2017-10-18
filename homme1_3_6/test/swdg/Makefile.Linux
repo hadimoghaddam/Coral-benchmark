@@ -1,0 +1,43 @@
+QUEUE        =  cqsub -q debug
+NP           =  54
+TIME         =  00:59:00
+COMODE       =  co
+VNMODE       =  vn
+COUNT        =  108
+EXECUTE      =  swdgx
+SEXECUTE     =  swdgx
+OUTPUT_PREFIX_CO=  corun
+OUTPUT_PREFIX_VN=  vnrun
+OUTPUT_PREFIX_S =  srun
+
+default:
+	$(QUEUE) -n $(NP) -t $(TIME) $(EXECUTE)
+
+srun:
+	$(QUEUE) -n 1 -t $(TIME) -O $(OUTPUT_PREFIX_S) $(SEXECUTE)
+
+debug:
+	$(QUEUE) -n $(NP) -t $(TIME) -O $(OUTPUT_PREFIX_S) $(SEXECUTE)
+
+corun:
+	$(QUEUE) -n $(NP) -t $(TIME) -O $(OUTPUT_PREFIX_CO) -m $(COMODE) $(EXECUTE)
+
+vnrun:
+	$(QUEUE) -n $(NP) -t $(TIME) -O $(OUTPUT_PREFIX_VN) -m $(VNMODE) -c $(COUNT) $(EXECUTE)
+
+clear: clean tclean dclean
+
+clean:
+	rm -rf *.error *.output *.errors *~ fort.* swtc*.* core.* 
+
+tclean:
+	rm -rf *.txt mpi_profile.* *.trc
+
+dclean: 
+	rm -rf ./movies/*.nc
+
+runclean:
+	rm corun.* vnrun.* srun.*
+
+qstat:
+	cqstat -f

@@ -1,0 +1,413 @@
+runname = jwasp-ne8-nu6e16
+4
+16
+16
+Thu Dec  5 16:14:35 UTC 2013
+ number of MPI processes:  16
+ (t_initf) Read in prof_inparm namelist from: input.nl
+ (t_initf) Using profile_disable= F  profile_timer= 4
+ (t_initf)  profile_depth_limit= 99999  profile_detail_limit= 1
+ (t_initf)  profile_barrier= F  profile_outpe_num= 100
+ (t_initf)  profile_outpe_stride= 1  profile_single_file= T
+ (t_initf)  profile_global_stats= F  profile_papi_enable= F
+ reading ctl namelist...
+ reading filter namelist...
+ reading physics namelist...
+ reading vertical namelist...
+   vform =ccm                                                                             
+   vfile_mid=vcoord/camm-26.fbin                                                             
+   vfile_int=vcoord/cami-26.fbin                                                             
+ reading aquaplanet namelist...
+ reading analysis namelist...
+ Mesh File:none                                                                                                                                                                                                                                            
+ done reading namelist...
+ readnl: accum         =  -1 200 1200
+ readnl: topology      = cube
+ readnl: test_case     = asp_baroclinic
+ readnl: sub_case      =  1
+ readnl: ndays         =  2
+ readnl: nmax          =  485
+ readnl: qsize,qsize_d =  106 106
+ readnl: ntrac,ntrac_d =  0 5
+ readnl: NThreads      =  1
+ readnl: ne,np         =  8 4
+ readnl: partmethod    =  4
+ readnl: nmpi_per_node =  1
+ readnl: multilevel    =  1
+ readnl: useframes     =  0
+ readnl: nnodes        =  16
+ readnl: npart         =  16
+ readnl: test_cfldep   =  F
+ 
+ readnl: integration   = explicit
+ readnl: LF-trapazoidal freq=  0
+ readnl: rk_stage_user   =  3
+ readnl: tracer_advection_formulation  =  1
+ readnl: tstep_type    =  1
+ readnl: tstep          =  356.000000000000000
+ readnl: ftype          =  0
+ readnl: limiter_option =  4
+ filter: smooth         =  0.000000000000000000E+00
+ readnl: qsplit        =  4
+ readnl: energy_fixer  =  -1
+ readnl: runtype       =  0
+ Hyperviscosity power set to zero, constant hyperviscosity used.
+ weak form hyper viscsosity subcycle, tracer subcycle =  1 1
+ psurf_vis:  0
+ Equivalent ne in fine region =  -1
+viscosity:  nu (vor/div) =  0.60E+17 0.60E+17
+viscosity:  nu_s      =  0.60E+17
+viscosity:  nu_q      =  0.60E+17
+viscosity:  nu_p      =  0.00E+00
+viscosity:  nu_top      =  0.00E+00
+ PHIS smoothing:   0 0.000000000000000000E+00
+ SGH  smoothing:   0
+ cooling:  cool_ampl             =  0.000000000000000000E+00
+ cooling:  cool_min              =  0.000000000000000000E+00
+ cooling:  cool_max              =  0.000000000000000000E+00
+ moisture: qv_flag               =  0
+ moisture: qv_pert_flag          =  0
+ moisture: qv_pert_ampl          =  0.000000000000000000E+00
+ moisture: qv_pert_zmin          =  0.000000000000000000E+00
+ moisture: qv_pert_zmax          =  0.000000000000000000E+00
+ surface:  isrf_forc             =  0
+ surface:  h_dis                 =  0.000000000000000000E+00
+ surface:  Cdrag                 =  0.000000000000000000E+00
+ surface:  wstar                 =  0.000000000000000000E+00
+ surface:  tsurf                 =  0.000000000000000000E+00
+ surface:  qsurf                 =  0.000000000000000000E+00
+ wind:     u0                    =  0.000000000000000000E+00
+ absorber: zabsampl              =  0.000000000000000000E+00
+ absorber: zabsmid               =  0.000000000000000000E+00
+ absorber: zabsmin               =  0.000000000000000000E+00
+ noise   : noisef  0 off,  >0 on =  0
+ noise   : noisef>0 indicate nr of first grid point 
+ noise   : to which noise function is applied       
+   analysis: output_prefix = 
+   analysis: io_stride =  8
+   analysis: num_io_procs =  2
+   analysis stream     : 1
+   analysis : start_time 0
+   analysis : end_time   7280898
+   analysis : frequency  242
+   analysis : variables   ps  zeta  DIFFT
+
+
+
+
+
+   analysis stream     : 2
+   analysis : start_time 0
+   analysis : end_time   7280898
+   analysis : frequency  242
+   analysis : variables   Q  Q2  Q3  Q4  Q5
+
+
+
+
+
+  analysis interpolation =  T T T T T T T T
+  analysis interp nlat =  64
+  analysis interp nlon =  128
+  analysis interp gridtype =  2
+  analysis interpolation type =  0
+ REPRO_SUM_SETOPTS: Using fixed-point-based (scalable) reproducible distributed sum algorithm
+                     and not comparing with floating point algorithms.
+ Initialized repro_sum
+ 
+  total simulated time =  172660.000000000000
+ 
+ 
+ ============================================
+         Testing Gaussian Quadrature...
+ 
+           points              weights
+ ============================================
+ 1 -0.861136311594052573 0.347854845137453739
+ 2 -0.339981043584856257 0.652145154862545984
+ 3 0.339981043584856257 0.652145154862545984
+ 4 0.861136311594052573 0.347854845137453739
+ ============================================
+ sum of Gaussian weights= 1.99999999999999956
+ ============================================
+ 
+ ============================================
+       Testing Gauss-Lobatto Quadrature...
+ 
+           points              weights
+ ============================================
+ 1 -1.00000000000000000 0.166666666666666657
+ 2 -0.447213595499957928 0.833333333333333370
+ 3 0.447213595499957928 0.833333333333333370
+ 4 1.00000000000000000 0.166666666666666657
+ ============================================
+ sum of Gauss-Lobatto weights= 2.00000000000000000
+ ============================================
+ creating cube topology...
+ ...done.
+ partitioning graph using SF Curve...
+ init shared boundary_exchange buffers
+ initializing cube elements...
+ running mass_matrix
+ re-initializing cube elements: area correction= 0.99999999846388754
+ re-running mass_matrix
+ running global_dof
+ PrintStateDescriptor:
+component   1 length= 2496 displacement=      0
+component   2 length= 1248 displacement=  19968
+component   3 length=   48 displacement=  29952
+component   4 length=   48 displacement=  30336
+component   5 length=   16 displacement=  30720
+component   6 length=***** displacement=  30848
+component   7 length=***** displacement=1089152
+ Main:NThreads= 1
+ Main:n_domains =  1
+process:  2 thread:  0 element limits:     1 -    24
+ end of prim_init
+process:  0 thread:  0 element limits:     1 -    24
+process:  7 thread:  0 element limits:     1 -    24
+process: 11 thread:  0 element limits:     1 -    24
+process:  4 thread:  0 element limits:     1 -    24
+process:  1 thread:  0 element limits:     1 -    24
+process:  5 thread:  0 element limits:     1 -    24
+process: 10 thread:  0 element limits:     1 -    24
+process:  6 thread:  0 element limits:     1 -    24
+process: 12 thread:  0 element limits:     1 -    24
+process:  3 thread:  0 element limits:     1 -    24
+process: 13 thread:  0 element limits:     1 -    24
+process:  9 thread:  0 element limits:     1 -    24
+process:  8 thread:  0 element limits:     1 -    24
+process: 15 thread:  0 element limits:     1 -    24
+process: 14 thread:  0 element limits:     1 -    24
+1 Layer Locations (*1000) 
+   1    2.1941              0.0000              2.1941
+                  3.5446              0.0000              3.5446
+   2    4.8952              0.0000              4.8952
+                  7.3888              0.0000              7.3888
+   3    9.8824              0.0000              9.8824
+                 13.9672              0.0000             13.9672
+   4   18.0520              0.0000             18.0520
+                 23.9446              0.0000             23.9446
+   5   29.8372              0.0000             29.8372
+                 37.2303              0.0000             37.2303
+   6   44.6233              0.0000             44.6233
+                 53.1146              0.0000             53.1146
+   7   61.6059              0.0000             61.6059
+                 70.0591              0.0000             70.0591
+   8   78.5124              0.0000             78.5124
+                 77.9126              7.5265             85.4391
+   9   77.3127             15.0531             92.3658
+                 76.6070             23.9077            100.5147
+  10   75.9013             32.7623            108.6636
+                 75.0711             43.1793            118.2503
+  11   74.2409             53.5962            127.8371
+                 73.2642             65.8512            139.1154
+  12   72.2874             78.1063            150.3937
+                 71.1384             92.5237            163.6620
+  13   69.9893            106.9411            176.9304
+                 68.6375            123.9024            192.5399
+  14   67.2857            140.8637            208.1494
+                 65.6954            160.8178            226.5132
+  15   64.1051            180.7720            244.8771
+                 62.2342            204.2469            266.4811
+  16   60.3632            227.7220            288.0852
+                 58.1622            255.3391            313.5013
+  17   55.9611            282.9562            338.9173
+                 53.3717            315.4463            368.8180
+  18   50.7822            347.9364            398.7186
+                 47.7359            386.1593            433.8952
+  19   44.6896            424.3822            469.0718
+                 41.1058            469.3495            510.4553
+  20   37.5219            514.3168            551.8387
+                 33.3057            567.2184            600.5241
+  21   29.0895            620.1202            649.2097
+                 24.9684            671.8278            696.7962
+  22   20.8474            723.5355            744.3829
+                 17.0959            770.6061            787.7020
+  23   13.3444            817.6768            831.0212
+                 10.2147            856.9460            867.1607
+  24    7.0850            896.2153            903.3003
+                  4.8032            924.8458            929.6490
+  25    2.5214            953.4761            955.9974
+                  1.2607            969.2941            970.5548
+  26    0.0000            985.1122            985.1122
+                  0.0000            992.5561            992.5561
+  27    0.0000           1000.0000           1000.0000
+ Primitive Equation Initialization...
+ 
+ Running Global Integral Diagnostic...
+ Area of unit sphere is 1.00000000000000022
+ Should be 1.0 to round off...
+Element area:  max/min  1.278
+Average equatorial node spacing (deg, km) =  3.750  417.31
+Min eigenvalue of Dinv (min, max):   8.8213 10.1785
+Max eigenvalue of Dinv (min, max):  10.5736 15.2789
+dx for CFL (smallest scale per elem): ave,min,max =   327.65  278.21  402.01
+dx for hypervis (largest scale per elem): ave,min,max =   431.75  417.61  481.87
+CFL estimates in terms of S=time step stability region
+(i.e. advection w/leapfrog: S=1, viscosity w/forward Euler: S=2)
+SSP preservation (120m/s) dt < S *    579.59s
+Stability: advective (120m/s)   dt < S *   1269.19s
+Stability: gravity wave(342m/s) dt < S *    445.33s
+Stability: nu_vor hyperviscosity dt < S *    221.49s
+Stability: nu_div hyperviscosity dt < S *    221.49s
+  runtype: INITIAL primitive equations
+ initializing Jablonowski and Williamson ASP baroclinic instability test
+ ...done
+ initial state:
+ nstep= 0  time= 0.000000000000000000E+00  [day]
+  u     =   0.523268206046354-259  0.355765281115837E+02  0.252661634291652E+07
+  v     =   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+  omega =   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+  t     =   0.209499342669113E+03  0.309683927536819E+03  0.395966117031355E+08
+      qv=   0.000000000000000E+00  0.980295330858088E+00  0.323738387405659E+02
+      qv=   0.000000000000000E+00  0.974905146256732E+00  0.451359625677163E+02
+      qv=   0.186396188962507E-02  0.958576167833637E+00  0.263679199496802E+05
+      qv=   0.100000000000000E+01  0.100000000000000E+01  0.159744000000000E+06
+      qv=   0.000000000000000E+00  0.100000000000000E+01  0.174000000000000E+03
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      qv=   0.000000000000000E+00  0.000000000000000E+00  0.000000000000000E+00
+      ps=   0.100000000000000E+06  0.100000000000000E+06  0.614400000000000E+09
+      M =   0.101976716676049E+05 kg/m^2  0.100000000000000E+06 mb     
+ Directory ./movies/                                                                        does exist: initialing IO
+Initializing   64 x  128 lat-lon interpolation grid: 
+ finished latitude  1  of  64
+ finished latitude  64  of  64
+Max interpolation point search error:   0.6001E-14
+Maximum number of interpolation points claimed by an element:    141
+ Number of interpolation points claimed by more than one element:  0
+ max number of elements which claimed the same interpolation point: 1
+ Setting mpi info: romio_ds_read=disable
+ Opening file ./movies/asp_baroclinic1.nc using netcdf
+ Setting mpi info: romio_ds_write=disable
+ Opening file ./movies/asp_baroclinic2.nc using netcdf
+ writing coordinates to ios= 1
+ writing coordinates to ios= 2
+ writing ps...
+ writing zeta...
+ writing time...
+ finished I/O sync
+ writing Q 
+ writing Q2
+ writing Q3
+ writing Q4
+ writing Q5
+ writing time...
+ finished I/O sync
+ Entering main timestepping loop
+ writing ps...
+ writing zeta...
+ writing time...
+ finished I/O sync
+ writing Q 
+ writing Q2
+ writing Q3
+ writing Q4
+ writing Q5
+ writing time...
+ finished I/O sync
+ Finished main timestepping loop 488
+ closing history files
+ writing timing data
+ calling t_finalizef
+ exiting program...
+Thu Dec  5 16:17:07 UTC 2013

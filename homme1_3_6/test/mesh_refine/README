@@ -1,0 +1,7 @@
+MNL
+June 2011
+
+A set of scripts to run various tests on meshes read from Exodus files.
+Note that reading in a uniform mesh is different than specifying NE
+because of the orientation / ordering of the elements (the mesh itself
+is the same).

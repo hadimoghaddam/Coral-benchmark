@@ -1,0 +1,69 @@
+#
+# makefile for BGL
+#
+ifeq ($(METIS),_USEMETIS)
+   SUPPORT = lapack linpack blas metis utils
+else
+   SUPPORT = lapack linpack blas utils
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+MKDEPF90=/contrib/fe_tools/makedepf90/bin/makedepf90
+
+F90 =  blrts_xlf90   # xlf Fortran
+CC = blrts_xlc
+MPCC = mpcc
+CFLAGS +=  -D$(ARCH) -I. -DFORTRAN_SAME
+FREE =  -qfree=f90
+FIXED = -qfixed
+DEF =-WF,-D
+MFLAGS = 
+MODPATH_FLAG = -qmoddir=
+MODEXT=.mod
+
+LDFLAGS= -L. $(addprefix -l,$(SUPPORT)) -L/contrib/bgl/lib -lmass -lmassvbgl -Wl,--allow-multiple-definition
+FFLAGS+= -g -qfullpath -qarch=440 -O3 -qstrict -qalias=noaryovrlp -qsuffix=cpp=F90 -I../src -I../src/share -I/bgl/BlueLight/ppcfloor/bglsys/include $(DEF)_BGL $(DEF)_USE_VECTOR
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=mp
+  LDFLAGS+= -L/bgl/BlueLight/ppcfloor/bglsys/lib -lmpich.rts -lmsglayer.rts -lrts.rts -ldevices.rts
+  LDFLAGS+= -L/contrib/bgl/mpi_trace -lmpihpm_f -lbgl_perfctr.rts -lmpich.rts -lmsglayer.rts -lrts.rts -ldevices.rts
+endif
+ifeq ($(TRACE),_BGL)
+  LDFLAGS+= -L/contrib/bgl/mpi_trace -lmpihpm_f -lbgl_perfctr.rts -lmpich.rts -lmsglayer.rts -lrts.rts -ldevices.rts
+endif
+PNETCDF=/contrib/bgl/parallel-netcdf-1.0.2pre2
+
+NETCDF=/contrib/bgl/netcdf/
+ifeq ($(MOVIE),_NETCDF)
+  NETCDFINC = -I$(NETCDF)/include
+  NETCDFLIB = -L$(NETCDF)/lib -lnetcdf
+endif
+ifeq ($(MOVIE),_PIO)
+  NETCDFINC = -I../utils/pio/pio -I$(PNETCDF)/include 
+  NETCDFLIB = -L../utils/pio/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib/ -lnetcdf 
+endif
+ifeq ($(MOVIE),_PIO_INTERP)
+  NETCDFINC = -I../utils/pio/pio -I$(PNETCDF)/include 
+  NETCDFLIB = -L../utils/pio/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib -lnetcdf 
+endif
+
+
+# The CRCP physics is only built here and on AIX for now.
+
+CRCPSRC = grid_init_mod.F90 moist_init_mod.F90 prof_init_mod.F90 absor_mod.F90 \
+          noise_mod.F90 surfflux_mod.F90 gcrk_mod.F90 diag_mod.F90 velprd_mod.F90 \
+          rad_mod.F90 mpdat_mod.F90 thermo_mod.F90 rain_mod.F90 integxz_mod.F90 \
+          zero_mean_mod.F90 crcp_mod.F90

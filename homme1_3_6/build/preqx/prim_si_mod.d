@@ -1,0 +1,17 @@
+prim_si_mod.o: kinds.o
+prim_si_mod.o: dimensions_mod.o
+prim_si_mod.o: kinds.o
+prim_si_mod.o: dimensions_mod.o
+prim_si_mod.o: kinds.o
+prim_si_mod.o: dimensions_mod.o
+prim_si_mod.o: hybvcoord_mod.o
+prim_si_mod.o: kinds.o
+prim_si_mod.o: dimensions_mod.o
+prim_si_mod.o: hybvcoord_mod.o
+prim_si_mod.o: kinds.o
+prim_si_mod.o: dimensions_mod.o
+prim_si_mod.o: physical_constants.o
+prim_si_mod.o: dimensions_mod.o
+prim_si_mod.o: kinds.o
+prim_si_mod.o: kinds.o
+prim_si_mod.o: dimensions_mod.o

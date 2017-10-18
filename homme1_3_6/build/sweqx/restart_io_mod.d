@@ -1,0 +1,9 @@
+restart_io_mod.o: kinds.o
+restart_io_mod.o: dimensions_mod.o
+restart_io_mod.o: parallel_mod.o
+restart_io_mod.o: parallel_mod.o
+restart_io_mod.o: parallel_mod.o
+restart_io_mod.o: time_mod.o
+restart_io_mod.o: element_mod.o
+restart_io_mod.o: control_mod.o
+restart_io_mod.o: schedule_mod.o

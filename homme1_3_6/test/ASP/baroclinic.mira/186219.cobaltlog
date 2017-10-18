@@ -1,0 +1,29 @@
+Jobid: 186219
+
+/usr/bin/qsub.py -A Coral_rfp_prep -t 20 -n 1 --mode script run.job.1
+
+submitted with cwd set to: /gpfs/mira-fs0/projects/Coral_rfp_prep/homme1_3_6/test/ASP/baroclinic.mira
+
+norman/186219: Initiating boot at location MIR-484C0-7B7F1-512.
+
+Command: '/gpfs/mira-fs0/projects/Coral_rfp_prep/homme1_3_6/test/ASP/baroclinic.mira/run.job.1'
+
+Environment:
+SHELL=/bin/bash
+COBALT_NODEFILE=/tmp/tmp1jk4xO
+COBALT_PARTNAME=MIR-484C0-7B7F1-512
+COBALT_JOBID=186219
+COBALT_STARTTIME=1386259990
+LOGNAME=norman
+USER=norman
+COBALT_ENDTIME=1386261190
+COBALT_PARTSIZE=512
+HOME=/home/norman
+COBALT_JOBSIZE=1
+
+Info: stdin received from /dev/null
+Info: stdout sent to /gpfs/mira-fs0/projects/Coral_rfp_prep/homme1_3_6/test/ASP/baroclinic.mira/186219.output
+Info: stderr sent to /gpfs/mira-fs0/projects/Coral_rfp_prep/homme1_3_6/test/ASP/baroclinic.mira/186219.error
+
+norman/186219: Block MIR-484C0-7B7F1-512 for location MIR-484C0-7B7F1-512 successfully booted (Initiating). 
+Info: task completed normally with an exit code of 0; initiating job cleanup and removal

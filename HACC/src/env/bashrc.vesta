@@ -1,0 +1,47 @@
+
+export HACC_PLATFORM="vesta"
+export HACC_OBJDIR="${HACC_PLATFORM}"
+
+ompflg="-qsmp=omp:noauto -DRCB_UNTHREADED_BUILD"
+#ompflg="-qsmp=nested_par:noauto"
+
+export HACC_CC=cc
+export HACC_CXX=gcc
+export HACC_MPI_CC=mpicc
+export HACC_MPI_CXX=mpixx
+
+export HACC_CFLAGS=" -D__bgq__ $incdirflg -O3 -qhot=level=1 ${ompflg} -g"
+
+export HACC_CXXFLAGS=$HACC_CFLAGS
+export HACC_MPI_CFLAGS=$HACC_CFLAGS
+export HACC_MPI_CXXFLAGS=$HACC_CFLAGS
+
+export HACC_LDFLAGS=""
+export HACC_MPI_LDFLAGS="-lbgpm -lxlsmp -lcxxmpich -lmpich -lopa -lmpl  -lpami  -lSPI_cnk -lrt -lpthread -lstdc++"
+
+export FFTW_MAJOR_VERSION=3
+
+# currently "omp" turns on fftw omp threads
+# any other value turns off fftw omp threads, eg. "none"
+export FFTW_THREADING=none
+
+use_essl=yes
+if [ "x$use_essl" = xyes ]; then
+export FFTW_WRAPPER=essl
+
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/bglib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/bglib64:${LD_LIBRARY_PATH}
+else
+export LD_LIBRARY_PATH=${root}/bglib:${LD_LIBRARY_PATH}
+fi
+
+else
+
+
+
+fi
+

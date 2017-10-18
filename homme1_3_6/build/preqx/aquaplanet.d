@@ -1,0 +1,14 @@
+aquaplanet.o: parallel_mod.o
+aquaplanet.o: kinds.o
+aquaplanet.o: physical_constants.o
+aquaplanet.o: dimensions_mod.o
+aquaplanet.o: element_mod.o
+aquaplanet.o: physics_mod.o
+aquaplanet.o: hybrid_mod.o
+aquaplanet.o: hybvcoord_mod.o
+aquaplanet.o: time_mod.o
+aquaplanet.o: reduction_mod.o
+aquaplanet.o: gravity_wave_drag_mod.o
+aquaplanet.o: control_mod.o
+aquaplanet.o: global_norms_mod.o
+aquaplanet.o: coordinate_systems_mod.o

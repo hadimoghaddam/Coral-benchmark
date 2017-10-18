@@ -1,0 +1,47 @@
+\newcommand\eg{{\it e.g.}}
+\newcommand\ie{{\it i.e.}}
+\newcommand\etal{{\it et al.}}
+\newcommand\adhoc{{\it ad hoc}}
+\newcommand\via{{\it via}}
+\newcommand\etc{{\it etc.}}
+\newcommand\cf{{\it cf.}}
+\newcommand\opcit{{\it op. cit.}}
+\newcommand\dd{$^\circ$}
+\newcommand\Le{$L_{\rm eq}$}
+\newcommand\keff{$\kappa_{\rm{eff}}$}
+\newcommand\Lepv{$L_e^{\rm{PV}}$}
+
+% Encapsulated postscript: (need \input epsf)
+\newcommand{\epshereblank}[1]{\begin{figure}\caption{...}\label{pic-#1}
+                              \end{figure}}
+\newcommand{\epsherefigonly}[2]{\begin{figure}\centerline{\epsfbox{#1}}
+                              \caption{...}\label{pic-#2}\end{figure}}
+\newcommand{\epsherefigcap}[3]{\begin{figure}\centerline{\epsfbox{#1}}
+                \caption{#3}\label{pic-#2}\end{figure}}
+%\newcommand{\epsherefigcap}[3]{\begin{figure}
+%                \caption{#3}\label{#2}\end{figure}}
+%
+%\newcommand{\fig}[1]      {Fig.~\ref{pic-#1}}
+%\newcommand{\figs}[1]      {Figs.~\ref{pic-#1}}
+%\newcommand{\tab}[1]      {Table~\ref{tab-#1}}
+%
+\renewcommand{\section}{\@startsection%
+   {section}{1}{0mm}{-9.0001mm}{+3.0001mm}%
+   {\normalfont\large\bfseries}%
+}
+\renewcommand{\subsection}{\@startsection%
+   {subsection}{2}{0mm}{-6.0001mm}{+3.0001mm}%
+   {\normalfont\normalsize\bfseries\slshape}%
+}
+\renewcommand{\thesubsection}{\thesection\alph{subsection}.}
+\renewcommand{\subsubsection}{\@startsection%
+   {subsubsection}{3}{0mm}{-6.0001mm}{+3.0001mm}%
+   {\normalfont\normalsize\slshape\underline}%
+}
+\renewcommand{\thesubsubsection}{(\roman{subsubsection})}
+%
+%\renewcommand{\appendix}{\@startsection%
+%   {appendix}{1}{0mm}{-3.0001mm}{+3.0001mm}%
+%   {\normalfont\normalsize\bfseries}%
+%}
+%\renewcommand{\theappendix}{Appendix \alph{appendix}.}

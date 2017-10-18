@@ -1,0 +1,9 @@
+forcing_mod.o: kinds.o
+forcing_mod.o: hybvcoord_mod.o
+forcing_mod.o: element_mod.o
+forcing_mod.o: dimensions_mod.o
+forcing_mod.o: time_mod.o
+forcing_mod.o: control_mod.o
+forcing_mod.o: element_mod.o
+forcing_mod.o: time_mod.o
+forcing_mod.o: dimensions_mod.o

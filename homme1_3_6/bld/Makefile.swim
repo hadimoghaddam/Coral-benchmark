@@ -1,0 +1,84 @@
+##################################################
+# Makefile for HOMME 
+##################################################
+# Staggering decided at compile time in Params.inc
+
+# 11/3/10 tested on jaguar using netcdf/3.6.2, trilinos/10.4.0, p-netcdf/1.0.3 (but 1.1.1 used to build pio)
+
+.SUFFIXES: .F90 .o .a 
+ARCH =$(shell uname -s)
+
+include ../Params.inc
+include ../bld/Makefile.$(ARCH)
+
+TRILINOS=/sw/xt5/trilinos/10.4.0/cnl2.2_pgi10.3.0
+TRILINOSINC=-I/sw/xt5/trilinos/10.4.0/cnl2.2_pgi10.3.0/include
+TRILINOSLIB=-L/sw/xt5/trilinos/10.4.0/cnl2.2_pgi10.3.0/lib
+
+FDEFS += $(DEF)$(RESTART) $(DEF)_$(ARCH) $(DEF)$(OMP) $(DEF)$(GRID_STAG) \
+	$(DEF)NP=$(NP) $(DEF)PLEV=$(PLEV) $(DEF)_WK_GRAD  $(DEF)SPHEREW $(DEF)TRILINOS 
+
+EXE = swim
+
+SRC += donoxloca.cpp noxlocainterface.cpp precon_interface.cpp \
+       derived_type_mod.F90 implicit_mod.F90 precon_mod.F90 ref_state_mod.F90 jrio.c \
+       NOX_Epetra_LinearSystem_Stratimikos.cpp \
+
+
+SRC +=	state_mod.F90 init_mod.F90 shallow_water_mod.F90 \
+	sweq_mod.F90 restart_mod.F90 advance_mod.F90 \
+        shal_movie_mod.F90 types_mod.F90 rk_mod.F90
+
+MAIN = main.F90
+OBJ = $(filter %.o,$(SRC:.F90=.o) $(SRC:.c=.o) $(SRC:.cpp=.o))
+
+LIB = libsweq.a 
+
+EXEID_tmp=$(PLEV)$(NP)$(PCOLS)$(PCNST)$(PNATS)$(OBJDIRSFX)
+
+EXEID=$(strip $(EXEID_tmp))
+
+OBJDIR=objswim.$(EXEID)
+
+OBJFP = $(addprefix $(OBJDIR)/,$(OBJ))
+
+CPPDEFS = $(subst $(DEF),-D, $(FDEFS))
+
+FINCS =  $(BLDPATH) $(NETCDFINC) $(TRILINOSINC) 
+
+DEPENDS = ../bld/Depends.swim.$(OBJDIRSFX)
+
+SUPPORTDIRS = $(addprefix ../libs/,$(SUPPORT))
+
+VPATH+=$(OBJDIR)
+
+default: $(EXE) 
+
+EXEID=$(PLEV)$(NP)$(PCOLS)$(PCNST)$(PNATS)$(OBJDIRSFX)
+
+MFLAGS = $(MODPATH_FLAG)./$(OBJDIR) 
+
+COMPILE_FLAGS = $(TRILINOSINC)
+LINK_FLAGS = $(TRILINOSLIB)
+
+$(EXE): $(MAIN) $(DEPENDS) $(OBJDIR) $(OBJ)
+	$(F90)  $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) $< -o $@ $(OBJFP) $(NETCDFLIB) $(LDFLAGS) $(LINK_FLAGS) -llocathyra -llocaepetra -lloca -lnoxthyra -lnoxepetra -lnox -lModeLaplace -lanasaziepetra -lanasazi -lstratimikos -lstratimikosbelos -lstratimikosaztecoo -lstratimikosamesos -lstratimikosml -lstratimikosifpack -lbelostpetra -lbelosepetra -lbelos -lml -lifpack -lamesos -lgaleri -laztecoo -lisorropia -lthyratpetra -lthyraepetraext -lthyraepetra -lthyra -lepetraext -ltpetrainout -ltpetra -ltriutils -lzoltan -lepetra -lkokkoslinalg -lkokkosnodeapi -lkokkos -lrtop -ltpi -lteuchos -L/sw/xt5/parmetis/3.1.1/cnl2.2_pgi9.0.4/lib -lparmetis -L/sw/xt5/parmetis/3.1.1/cnl2.2_pgi9.0.4/lib -lmetis -lmpichcxx -lstd -lC
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
+%.o : %.F90
+	$(F90) $(FFLAGS) $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) -c $< -o $(OBJDIR)/$@
+
+%.o : %.c
+	$(CC) $(COMPILE_FLAGS) $(CFLAGS) -c $< -o $(OBJDIR)/$@
+
+%.o : %.cpp
+	$(CXX) $(COMPILE_FLAGS) -c $< -o $(OBJDIR)/$@
+
+#dep:  $(DEPENDS)
+# Depends currently only works for F90 
+#$(DEPENDS):
+#	$(MKDEPF90) $(CPPDEFS) -I "$(VPATH)" $(MAIN) $(filter %.F90,$(SRC)) > $@
+
+include ./$(DEPENDS)

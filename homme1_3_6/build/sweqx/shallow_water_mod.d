@@ -1,0 +1,16 @@
+shallow_water_mod.o: kinds.o
+shallow_water_mod.o: physical_constants.o
+shallow_water_mod.o: dimensions_mod.o
+shallow_water_mod.o: derivative_mod.o
+shallow_water_mod.o: edge_mod.o
+shallow_water_mod.o: bndry_mod.o
+shallow_water_mod.o: coordinate_systems_mod.o
+shallow_water_mod.o: quadrature_mod.o
+shallow_water_mod.o: global_norms_mod.o
+shallow_water_mod.o: time_mod.o
+shallow_water_mod.o: element_mod.o
+shallow_water_mod.o: hybrid_mod.o
+shallow_water_mod.o: parallel_mod.o
+shallow_water_mod.o: common_io_mod.o
+shallow_water_mod.o: viscosity_mod.o
+shallow_water_mod.o: control_mod.o

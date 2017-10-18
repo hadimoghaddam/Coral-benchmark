@@ -1,0 +1,82 @@
+#
+# makefile for Intel Fortran Compiler 8.0  "ifort"
+#
+ifeq ($(METIS),_USEMETIS)
+  SUPPORT = metis utils
+else
+  SUPPORT = utils
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+MKDEPF90=/home/dennis/bin/makedepf90
+
+ifeq ($(MPI),_MPI)
+   F90 = mpif90
+   CC = mpicc
+   MPCC = mpicc
+else
+   F90 = ifort
+   CC = cc
+   MPCC = cc
+endif
+CFLAGS +=  -D$(ARCH) -I.  -DFORTRANUNDERSCORE
+
+# add these for compiling GPTL timing library C code
+CFLAGS+= -DHAVE_GETTIMEOFDAY
+CFLAGS+= -DHAVE_MPI 
+
+
+FREE = 
+FIXED =
+DEF =-D
+MFLAGS = 
+MODPATH_FLAG = -module 
+MODEXT=.mod
+
+ifeq ($(SNLSYSTEM),)
+   LDFLAGS= -L. $(addprefix -l,$(SUPPORT))  -llapack
+else
+   # SNL ICC systems with MCL installed
+   # ifort 9.*
+   #LDFLAGS= -L. $(addprefix -l,$(SUPPORT))  -L$(MKL_LIB) -lmkl_lapack95_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 
+   # ifort 10.*
+   #LDFLAGS= -L. $(addprefix -l,$(SUPPORT))  -L$(MKL_LIB) -lmkl_lapack -lmkl -liomp5
+   # ifort 11.*
+   LDFLAGS= -L. $(addprefix -l,$(SUPPORT))  -L$(MKL_LIB) -lmkl_lapack95_lp64 -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 
+endif 
+
+FFLAGS += -I../src -I../src/share  -O2 -w90 -Vaxlib  -DPIO_LUSTRE_HINTS
+
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=mp
+  #LDFLAGS+= -L/opt/scali/lib -lmpi -lfmpi
+  #FFLAGS += -I/opt/scali/include
+endif
+
+# need netcdf built by ifort.
+# netcdf supplied by Redhat was built with gfortran
+#NETCDFROOT = /usr/lib/netcdf-3
+#NETCDFROOT = /opt/netcdf.ifort
+
+PNETCDF = /projects/ccsm/pnetcdf-intel
+NETCDF = /projects/ccsm/netcdf-intel
+
+#
+# we only need NETCDF if PIO was build with NETCDF
+# we only need pNETCDF if PIO was build with NETCDF
+#
+NETCDFINC = -I../utils/pio -I$(PNETCDF)/include -I$(NETCDF)/include
+NETCDFLIB = -L../utils/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib/ -lnetcdf 
+

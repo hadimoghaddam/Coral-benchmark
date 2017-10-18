@@ -1,0 +1,24 @@
+The user is allowed to select up to 5 analysis output
+streams.  Each stream can have an independent list of variables, start
+time, end time and frequency.  Time units for each stream can be
+listed in steps, days or hours.  
+
+Here is a sample namelist:
+
+&analysis_nl
+  output_stream_count=2
+  output_timeunits=1,2
+  output_start_time=0,4
+  output_end_time=-1,7
+  output_frequency=5,1
+  output_varnames1='ps','zeta','T','Th','u','v','ke','Q','prec','accum','udrag','vdrag','tsflx','qsflx','usfrc',&
+                  'vsfrc','tsfrc','qsfrc'
+  output_varnames2=  'prec'
+/
+
+In the above example there are 2 streams.  The first has all of the variables
+and is written once per day starting at time 0 and ending at the run
+completion. The second only contains the variable 'prec' and is
+written once per hour starting at time 4 hours and ending at time 7
+hours.  
+

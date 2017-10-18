@@ -1,0 +1,273 @@
+ number of MPI processes:           16
+ (t_initf) Read in prof_inparm namelist from: input.nl
+ (t_initf) Using profile_disable= F  profile_timer=           4
+ (t_initf)  profile_depth_limit=       99999  profile_detail_limit=           1
+ (t_initf)  profile_barrier= F  profile_outpe_num=          -1
+ (t_initf)  profile_outpe_stride=           1  profile_single_file= F
+ (t_initf)  profile_global_stats= F  profile_papi_enable= F
+ reading ctl namelist...
+ reading filter namelist...
+ reading analysis namelist...
+ ../../src/common_movie_mod.F90         165           9 ps   geop u    v    lon  lat  time zeta area 
+ done reading namelist...
+ readnl: accum         =           90         300         600
+ readnl: topology      = cube
+ readnl: test_case     = swtc6
+ readnl: sub_case      =            1
+ readnl: ndays         =            1
+ readnl: nmax          =        14400
+ readnl: qsize,qsize_d =            4           4
+ readnl: NThreads      =            1
+ readnl: ne,np,nv      =            2           8           8
+ readnl: partmethod    =            4
+ readnl: nmpi_per_node =           16
+ readnl: multilevel    =            1
+ readnl: useframes     =            0
+ readnl: nnodes        =            1
+ readnl: npart         =           16
+
+ readnl: integration   = explicit
+ readnl: LF-trapazoidal freq=            0
+ readnl: tracer_advection_formulation  =            1
+ readnl: tstep_type    =            0
+ readnl: compute_mean_flux  =            0
+ readnl: tstep         =    6.0000000000000000     
+ readnl: qsplit        =            1
+ readnl: homme_ftype         =            0
+ readnl: energy_fixer  =            0
+ readnl: runtype       =            0
+ filter: smooth        =    0.0000000000000000     
+ limiter_option        =            0
+ weak form hyper viscsosity subcycle, tracer subcycle =            1           1
+ psurf_vis:            0
+ viscosity:  nu        =    0.0000000000000000     
+ viscosity:  nu_s      =    0.0000000000000000     
+ viscosity:  nu_q      =    0.0000000000000000     
+ viscosity:  nu_p      =    0.0000000000000000     
+ viscosity:  nu_top      =    0.0000000000000000     
+ PHIS smoothing:             0   0.0000000000000000     
+ SGH  smoothing:             0
+   analysis: output_prefix = 
+   analysis: io_stride =            1
+   analysis: num_io_procs =           16
+  analysis interpolation =  T T T T T T T T
+  analysis interp nlat =           48
+  analysis interp nlon =           96
+  analysis interp gridtype =            2
+  analysis interpolation type =            0
+ 
+  total simulated time =    86400.000000000000     
+ 
+
+ ============================================
+         Testing Gaussian Quadrature...
+
+           points              weights
+ ============================================
+           1 -0.96028985649753618       0.10122853629037645     
+           2 -0.79666647741362673       0.22238103445337451     
+           3 -0.52553240991632899       0.31370664587788732     
+           4 -0.18343464249564981       0.36268378337836199     
+           5  0.18343464249564981       0.36268378337836199     
+           6  0.52553240991632899       0.31370664587788732     
+           7  0.79666647741362673       0.22238103445337451     
+           8  0.96028985649753618       0.10122853629037645     
+ ============================================
+ sum of Gaussian weights=   2.0000000000000004     
+ ============================================
+
+ ============================================
+       Testing Gauss-Lobatto Quadrature...
+
+           points              weights
+ ============================================
+           1  -1.0000000000000000       3.57142857142857123E-002
+           2 -0.87174014850960657       0.21070422714350612     
+           3 -0.59170018143314229       0.34112269248350435     
+           4 -0.20929921790247888       0.41245879465870378     
+           5  0.20929921790247888       0.41245879465870378     
+           6  0.59170018143314229       0.34112269248350435     
+           7  0.87174014850960657       0.21070422714350612     
+           8   1.0000000000000000       3.57142857142857123E-002
+ ============================================
+ sum of Gauss-Lobatto weights=   2.0000000000000000     
+ ============================================
+ creating cube topology...
+ ...done.
+ partitioning graph...
+ ...done.
+ initializing cube elements...
+ ...done.
+ allocating state variables...
+ number of elements=           2
+ Main:NThreads=           1
+process:  7 thread:  0 element limits:    1   2
+process: 13 thread:  0 element limits:    1   1
+process: 15 thread:  0 element limits:    1   1
+process: 11 thread:  0 element limits:    1   1
+process:  3 thread:  0 element limits:    1   2
+process:  9 thread:  0 element limits:    1   1
+process: 10 thread:  0 element limits:    1   1
+process:  1 thread:  0 element limits:    1   2
+process:  4 thread:  0 element limits:    1   2
+process:  0 thread:  0 element limits:    1   2
+process:  8 thread:  0 element limits:    1   1
+process:  6 thread:  0 element limits:    1   2
+process: 12 thread:  0 element limits:    1   1
+process: 14 thread:  0 element limits:    1   1
+process:  5 thread:  0 element limits:    1   2
+process:  2 thread:  0 element limits:    1   2
+ 
+ Running Global Integral Diagnostic...
+ Area of unit sphere is  0.99999999999972577     
+ Should be 1.0 to round off...
+Element area:  max/min  1.000
+Equatorial grid spacing: ave,min,max (km) =   715.39  321.14 1048.11 (T  18)
+gravity wave dt:  (global min_dx/pi)    /342m/s:     275.38s
+gravity wave dt:  (equatorial min_dx/pi)/342m/s:     298.90s
+ transfer function type in homme=bv      
+ filter type            in homme=taylor  
+Tv(:) =   1.000000  1.000000  1.000000  1.000000  1.000000  0.995701  0.106647  0.000000
+ runtype: INITIAL of Shallow Water equations
+ initializing swtc6...
+Initializing   48 x   96 lat-lon interpolation grid: 
+ finished latitude            1  of           48
+Average number of interpolation points per element:    192.0
+Maximum number of interpolation points on any element:    316
+  u=    0.000000000000000E+00   0.100077696000000E+03   0.645309127425113E+05
+  v=   -0.609897182680726E+02   0.609897182680726E+02   0.609964747203360E-17
+  p=    0.800000000000000E+04   0.105585578025814E+05   0.146303711297354E+08
+ sqrt(g(h0+max(h)) =    298.34181370130034     
+
+  u=    0.895610222444763E-17   0.100077696000000E+03   0.645309127425113E+05
+  v=   -0.609903340224137E+02   0.609903340224137E+02  -0.745931094670027E-16
+  p=    0.800000000000000E+04   0.105585581995009E+05   0.146303711297354E+08
+ sqrt(g(h0+max(h)) =    298.34181436650960     
+
+M-M0/M0      = 0.0000E+00 dM/dt   /M  =  0.000000E+00
+ENS-ENS0/ENS0= 0.8663E-10 dENS/dt /ENS=  0.144375E-10
+E-E0/E0      = 0.1327E-10 dE/dt   /E  =  0.221169E-11  ( 0.2063E-11, 0.1487E-12)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       = 0.0000E+00 dPV/dt      =  0.000000E+00
+DV-DV0       =-0.1196E-21 dDV/dt      = -0.199261E-22
+        1440 time=  0.10000000000000001       days
+  u=    0.672330134768918E-14   0.100616700771609E+03   0.646004644162840E+05
+  v=   -0.629470743254954E+02   0.629470743254954E+02  -0.277111666946439E-12
+  p=    0.800074115689986E+04   0.105575707543903E+05   0.146296909579049E+08
+ sqrt(g(h0+max(h)) =    298.34015947302544     
+
+M-M0/M0      =-0.1910E-15 dM/dt   /M  = -0.221177E-19
+ENS-ENS0/ENS0= 0.3149E-06 dENS/dt /ENS=  0.364624E-10
+E-E0/E0      = 0.1067E-11 dE/dt   /E  = -0.141343E-14  ( 0.1297E-08,-0.1297E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       = 0.0000E+00 dPV/dt      =  0.000000E+00
+DV-DV0       =-0.1177E-21 dDV/dt      =  0.219084E-27
+        2880 time=  0.20000000000000001       days
+  u=    0.428701690668513E-13   0.998993778328922E+02   0.645316119336870E+05
+  v=   -0.640667325190831E+02   0.640667325190831E+02  -0.135003119794419E-11
+  p=    0.800275232281914E+04   0.105611979002700E+05   0.146314025478878E+08
+ sqrt(g(h0+max(h)) =    298.34623828744685     
+
+M-M0/M0      =-0.3819E-15 dM/dt   /M  = -0.221024E-19
+ENS-ENS0/ENS0= 0.7614E-06 dENS/dt /ENS=  0.516819E-10
+E-E0/E0      = 0.2938E-12 dE/dt   /E  = -0.894401E-16  ( 0.2927E-08,-0.2927E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       = 0.0000E+00 dPV/dt      =  0.000000E+00
+DV-DV0       =-0.1903E-21 dDV/dt      = -0.841096E-26
+        4320 time=  0.29999999999999999       days
+  u=   -0.738203908148775E-01   0.100389398194536E+03   0.644248142460789E+05
+  v=   -0.649701150098884E+02   0.649701150098884E+02   0.255795384873636E-12
+  p=    0.800295678385717E+04   0.105627129250951E+05   0.146307813257477E+08
+ sqrt(g(h0+max(h)) =    298.34877731456362     
+
+M-M0/M0      =-0.1910E-15 dM/dt   /M  =  0.221024E-19
+ENS-ENS0/ENS0= 0.9914E-06 dENS/dt /ENS=  0.266107E-10
+E-E0/E0      = 0.1245E-11 dE/dt   /E  =  0.110054E-15  (-0.1537E-08, 0.1537E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       =-0.4314E-20 dPV/dt      = -0.499294E-24
+DV-DV0       =-0.4341E-22 dDV/dt      =  0.170048E-25
+        5760 time=  0.40000000000000002       days
+  u=   -0.459528835886950E-13   0.997472317786286E+02   0.643410871712516E+05
+  v=   -0.652568987187772E+02   0.652568987187772E+02   0.287059265247080E-11
+  p=    0.801729398326202E+04   0.105700543670207E+05   0.146322904791551E+08
+ sqrt(g(h0+max(h)) =    298.36108051657925     
+
+M-M0/M0      =-0.1910E-15 dM/dt   /M  =  0.000000E+00
+ENS-ENS0/ENS0= 0.1182E-05 dENS/dt /ENS=  0.221139E-10
+E-E0/E0      = 0.4593E-12 dE/dt   /E  = -0.908934E-16  ( 0.1196E-08,-0.1196E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       = 0.0000E+00 dPV/dt      =  0.499294E-24
+DV-DV0       =-0.1716E-21 dDV/dt      = -0.148411E-25
+        7200 time=  0.50000000000000000       days
+  u=   -0.210705318538711E-14   0.986423056982888E+02   0.641356040832377E+05
+  v=   -0.650728320590635E+02   0.650728320590633E+02  -0.994759830064140E-12
+  p=    0.798419799319812E+04   0.105664412930064E+05   0.146357100849485E+08
+ sqrt(g(h0+max(h)) =    298.35502558697812     
+
+M-M0/M0      =-0.1910E-15 dM/dt   /M  =  0.000000E+00
+ENS-ENS0/ENS0= 0.1610E-05 dENS/dt /ENS=  0.494854E-10
+E-E0/E0      = 0.3305E-12 dE/dt   /E  = -0.149115E-16  (-0.4392E-08, 0.4392E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       =-0.4314E-20 dPV/dt      = -0.499294E-24
+DV-DV0       =-0.8132E-23 dDV/dt      =  0.189247E-25
+        8640 time=  0.59999999999999998       days
+  u=   -0.437889636196330E-13   0.998639394448533E+02   0.640351881979665E+05
+  v=   -0.642702774403005E+02   0.642702774403005E+02   0.804334376880433E-11
+  p=    0.801730089213346E+04   0.105590497006290E+05   0.146361769025196E+08
+ sqrt(g(h0+max(h)) =    298.34263808686313     
+
+M-M0/M0      =-0.3819E-15 dM/dt   /M  = -0.221024E-19
+ENS-ENS0/ENS0= 0.2337E-05 dENS/dt /ENS=  0.841055E-10
+E-E0/E0      = 0.1023E-11 dE/dt   /E  =  0.801981E-16  ( 0.9299E-08,-0.9299E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       = 0.0000E+00 dPV/dt      =  0.499294E-24
+DV-DV0       =-0.1390E-21 dDV/dt      = -0.151458E-25
+       10080 time=  0.69999999999999996       days
+  u=   -0.115829243167143E-12   0.100410037074643E+03   0.638621570982935E+05
+  v=   -0.629371332299425E+02   0.629371332299426E+02  -0.244426701101474E-11
+  p=    0.798961105733475E+04   0.105561076548113E+05   0.146387517454964E+08
+ sqrt(g(h0+max(h)) =    298.33770739685463     
+
+M-M0/M0      =-0.3819E-15 dM/dt   /M  =  0.000000E+00
+ENS-ENS0/ENS0= 0.4063E-05 dENS/dt /ENS=  0.199775E-09
+E-E0/E0      = 0.9167E-12 dE/dt   /E  = -0.123499E-16  (-0.3664E-08, 0.3664E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       =-0.4314E-20 dPV/dt      = -0.499294E-24
+DV-DV0       =-0.1998E-21 dDV/dt      = -0.703961E-26
+       11520 time=  0.80000000000000004       days
+  u=   -0.123620160791018E-12   0.997629393302077E+02   0.635784428874443E+05
+  v=   -0.636235671203236E+02   0.636235671203235E+02   0.608224581810646E-11
+  p=    0.801160799278556E+04   0.105784233785665E+05   0.146437561673476E+08
+ sqrt(g(h0+max(h)) =    298.37510515886959     
+
+M-M0/M0      =-0.1910E-15 dM/dt   /M  =  0.221024E-19
+ENS-ENS0/ENS0= 0.6511E-05 dENS/dt /ENS=  0.283355E-09
+E-E0/E0      = 0.6616E-12 dE/dt   /E  = -0.295309E-16  ( 0.3220E-08,-0.3220E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       =-0.4314E-20 dPV/dt      =  0.000000E+00
+DV-DV0       =-0.2248E-21 dDV/dt      = -0.289508E-26
+       12960 time=  0.90000000000000002       days
+  u=   -0.411116592485126E-12   0.999984220571210E+02   0.633255720794152E+05
+  v=   -0.645141272161047E+02   0.645141272161044E+02  -0.838440428196918E-11
+  p=    0.801010602006725E+04   0.105622762018680E+05   0.146430110919432E+08
+ sqrt(g(h0+max(h)) =    298.34804541318516     
+
+M-M0/M0      =-0.3819E-15 dM/dt   /M  = -0.221024E-19
+ENS-ENS0/ENS0= 0.1091E-04 dENS/dt /ENS=  0.509373E-09
+E-E0/E0      = 0.2423E-12 dE/dt   /E  = -0.485337E-16  ( 0.8629E-10,-0.8629E-10)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       =-0.4314E-20 dPV/dt      =  0.000000E+00
+DV-DV0       =-0.1019E-21 dDV/dt      =  0.142316E-25
+       14400 time=   1.0000000000000000       days
+  u=   -0.393762696411538E-12   0.993440245098603E+02   0.630344349296426E+05
+  v=   -0.651832458489521E+02   0.651832458489521E+02  -0.420641299569979E-11
+  p=    0.799053980735029E+04   0.105799532131980E+05   0.146513317774658E+08
+ sqrt(g(h0+max(h)) =    298.37766875756307     
+
+M-M0/M0      =-0.1910E-15 dM/dt   /M  =  0.221024E-19
+ENS-ENS0/ENS0= 0.2010E-04 dENS/dt /ENS=  0.106396E-08
+E-E0/E0      = 0.9579E-12 dE/dt   /E  =  0.828435E-16  (-0.1025E-08, 0.1025E-08)
+                       Dissipation/E  = -0.000000E+00
+PV-PV0       =-0.4314E-20 dPV/dt      =  0.000000E+00
+DV-DV0       =-0.1198E-21 dDV/dt      = -0.207227E-26
+ exiting program...

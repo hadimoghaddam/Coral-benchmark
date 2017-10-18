@@ -1,0 +1,85 @@
+ifneq ('$(OBJECT_MODE)','32')
+  export OBJECT_MODE=64
+endif
+
+ifeq ($(METIS),_USEMETIS)
+   SUPPORT = metis linpack 
+else
+   SUPPORT = 
+endif
+ifeq ($(TRACE),_HTRACE)
+   SUPPORT += htrace
+endif
+ifeq ($(TRACE),_HPM)
+   HPMDIR=/usr/local/hpmtoolkit/dist_3.1.0/pwr5_aix5
+   TRACELIBS= -L$(HPMDIR)/lib -lhpm -lpmapi -lm
+   TRACEINCS= -g -I$(HPMDIR)/include     
+endif
+
+#linpack metis utils lapack blas
+AR = ar 
+ARFLAGS = -r -v -X$(OBJECT_MODE)
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+MKDEPF90=/contrib/makedepf90/bin/makedepf90
+
+F90 = $(MP)xlf90_r
+CC = $(MP)cc_r
+MPCC = mpcc_r
+CFLAGS += -q$(OBJECT_MODE) -O3 -I. -D$(ARCH) -D_MPI -g -qfullpath -qarch=auto -qtune=auto -DFORTRAN_SAME -qcpluscmt
+FREE = -qfree=f90
+FIXED = -qfixed=132
+
+DEF =-WF,-D
+MODPATH_FLAG =-qmoddir=
+MODEXT=.mod
+
+LDFLAGS=-L../libs -llapack -lblas -L. $(addprefix -l,$(SUPPORT)) $(TRACELIBS) -lmass -lmassv -bloadmap:map -bdatapsize:64K -bstackpsize:64K
+#-L../utils/mpi_trace/lib -lmpitrace
+MPI_LIBS=
+
+# DEBUG mode on AIX
+# useful debugging flags -qsigtrap -qflttrap=en:inv:zero -qinitauto=7FF7FFFF
+
+FFLAGS+=-O3 -q$(OBJECT_MODE) -g -qfullpath -qhot=novector -qalias=noaryovrlp\
+ -qsuffix=cpp=F90 -qarch=auto -qtune=auto -I../src -I../src/share \
+ $(DEF)$(ARCH) $(DEF)_NAMELIST_FROM_FILE -qsigtrap -qflttrap=en:inv:zero -qinitauto=7FF7FFFF
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=-qsmp=omp
+endif
+ifeq ($(MPI),_MPI)
+  MP=mp
+else
+  FFLAGS +=-I../utils/mct/mpi-serial
+  LDFLAGS +=-L../utils/mct/mpi-serial -lmpi-serial
+  NETCDF = _NOPNETCDF
+  RESTART= _NOPRESTART
+endif
+PNETCDF=/contrib/parallel-netcdf-1.1.1.svn821/
+ifeq ($(MOVIE),_PIO)
+  NETCDFINC = -I../utils/pio -I$(PNETCDF)/include 
+  NETCDFLIB = -L$(PNETCDF)/lib -lpnetcdf -L../utils/pio -lpio \
+              -L/usr/local/lib -lnetcdf
+else
+ifeq ($(MOVIE),_PIO_INTERP)
+  NETCDFINC = -I../utils/pio -I$(PNETCDF)/include 
+  NETCDFLIB = -L$(PNETCDF)/lib -lpnetcdf -L../utils/pio -lpio \
+              -L/usr/local/lib/ -lnetcdf
+else
+  NETCDFINC = -I/usr/local/include -I/usr/local/lib
+  NETCDFLIB = -L/usr/local/lib -L/usr/local/lib -lnetcdf
+endif
+endif
+# The CRCP physics is only built here and on BGL for now.
+
+CRCPSRC = grid_init_mod.F90 moist_init_mod.F90 prof_init_mod.F90 absor_mod.F90 \
+          noise_mod.F90 surfflux_mod.F90 gcrk_mod.F90 diag_mod.F90 velprd_mod.F90 \
+          rad_mod.F90 mpdat_mod.F90 thermo_mod.F90 rain_mod.F90 integxz_mod.F90 \
+          zero_mean_mod.F90 crcp_mod.F90 
+
+COMMONSRC += rebind.c

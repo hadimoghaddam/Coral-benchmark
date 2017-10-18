@@ -1,0 +1,81 @@
+##################################################
+# Makefile for HOMME primitive equation model
+##################################################
+# Staggering decided at compile time in Params.inc
+.SUFFIXES: .F90 .o .a 
+ARCH =$(shell uname -s)
+include ../Params.inc
+include ../bld/Makefile.$(ARCH)
+
+GRID_STAG:=_NONSTAGGER
+
+SRC +=  vertical_mod.F90  hybvcoord_mod.F90  \
+	baroclinic_inst_mod.F90 diffusion_mod.F90 \
+        asp_tests.F90 \
+	prim_state_mod.F90 \
+	prim_restart_mod.F90 \
+	prim_advance_mod.F90  \
+	prim_si_ref_mod.F90 prim_si_mod.F90 prim_driver_mod.F90 \
+	prim_advection_mod.F90 physics_mod.F90 \
+        column_model_mod.F90 convect43c.F90 mjo_mod.F90   \
+	forcing_mod.F90 held_suarez_mod.F90 aquaplanet.F90 \
+        physics_types_mod.F90 prim_movie_mod.F90 \
+        aquaplanet_io_mod.F90 physics_io_mod.F90 surfaces_mod.F90\
+        gravity_wave_drag_mod.F90  interpolate_driver_mod.F90 $(CRCPSRC) 
+
+FDEFS += $(DEF)$(RESTART) $(DEF)_$(ARCH) $(DEF)$(OMP) $(DEF)$(GRID_STAG) \
+        $(DEF)NP=$(NP) $(DEF)PLEV=$(PLEV) $(DEF)_WK_GRAD  \
+        $(DEF)SPHEREW $(DEF)ENERGY_DIAGNOSTICS \
+        $(DEF)_PRIM $(ADDFDEFS)
+
+CPPDEFS = $(subst $(DEF),-D, $(FDEFS))
+
+FINCS =  $(BLDPATH) $(NETCDFINC)
+
+SUPPORTDIRS = $(addprefix ../libs/,$(SUPPORT))
+
+
+MAIN =prim_main.F90
+LIB = libpreq.a 	 
+EXEID_tmp=$(PLEV)$(NP)$(PCOLS)$(PCNST)$(PNATS)$(OBJDIRSFX)
+EXEID=$(strip $(EXEID_tmp))
+EXE = preqx
+OBJDIR=objpe.$(EXEID)
+
+VPATH +=../physics ../physics/emanuel \
+       ../physics/heldsuarez ../physics/crcp $(OBJDIR)
+
+
+DEPENDS = ../bld/Depends.pe.$(OBJDIRSFX)
+
+
+OBJ = $(filter %.o,$(SRC:.F90=.o) $(SRC:.c=.o))
+
+OBJFP = $(addprefix $(OBJDIR)/,$(OBJ))
+
+override MFLAGS+=$(MODPATH_FLAG)./$(OBJDIR) -I./$(OBJDIR)
+
+$(EXE): $(MAIN) $(DEPENDS) $(OBJDIR) $(OBJ) FORCE
+	$(F90) $(FFLAGS) $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) $< -o $@ $(OBJFP) $(NETCDFLIB) $(LDFLAGS)
+
+FORCE:
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
+%.o : %.F90
+	$(PRECOMP)
+	$(F90) $(FFLAGS) $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) -c $< -o $(OBJDIR)/$@
+	$(POSTCOMP)
+
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $(OBJDIR)/$@
+
+
+dep:  $(DEPENDS)
+
+$(DEPENDS):
+	$(MKDEPF90) $(CPPDEFS) -I "$(VPATH)" $(MAIN) $(filter %.F90,$(SRC)) > $@
+
+include $(DEPENDS)

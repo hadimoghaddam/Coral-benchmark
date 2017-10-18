@@ -1,0 +1,10 @@
+cslam_line_integrals_mod.o: kinds.o
+cslam_line_integrals_mod.o: dimensions_mod.o
+cslam_line_integrals_mod.o: parallel_mod.o
+cslam_line_integrals_mod.o: cslam_control_volume_mod.o
+cslam_line_integrals_mod.o: coordinate_systems_mod.o
+cslam_line_integrals_mod.o: physical_constants.o
+cslam_line_integrals_mod.o: control_mod.o
+cslam_line_integrals_mod.o: coordinate_systems_mod.o
+cslam_line_integrals_mod.o: cslam_analytic_mod.o
+cslam_line_integrals_mod.o: cslam_analytic_mod.o

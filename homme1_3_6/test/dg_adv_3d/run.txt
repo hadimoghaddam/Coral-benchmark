@@ -1,0 +1,1 @@
+mpirun -n 20 ../../build/primdgx/primdgx < input.nl

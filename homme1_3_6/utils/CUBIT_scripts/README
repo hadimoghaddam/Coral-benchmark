@@ -1,0 +1,28 @@
+# Last update: MNL -- July 7, 2011
+
+This directory allows you to use CUBIT to create exodus mesh files to be read in by HOMME. The structure isn't too complicated:
+
+./scripts/ -- contains CUBIT journal files (.jou). To create a new mesh, edit create_mesh.jou and edit the following:
+
+	#{_refine_type} -- current options are
+		1) "uniform" (no refinement)
+		2) "equator" (equatorial band with width ~80 deg of latitude (-40:40)
+		3) "mountain" (area around SWTC5 mountain)
+		4) "north" (entire northern hemisphere)
+		5) "quadrant" (a region centered on the equator with radius ~90 degrees lat/lon)
+
+	#{_Nelem} -- number of elements in the coarse region
+
+	#{_split} -- number of times to refine in 1:4 fashion... so ratio of area in coarse grid to area in fine grid will be approx 2^_split
+
+	#{_Nsmth} -- number of times to apply smoothing operator
+
+	To create a new style of refinement, look at refine_*.jou for guidance.
+
+./CUB_files/ -- contains uniform meshes stored in CUBIT's native format (NOT readable by exodus!). The first thing create_mesh.jou does is read in the uniform mesh before refining / exporting the exodus mesh file. If you want to refine a resolution not currently in this directory, run ./scripts/make_CUB_file.jou with the proper {_Nelem}. (This will take a while, which is why we save these files in the first place.)
+
+./exodus/ -- where the final exodus mesh files (*.g) are stored. As mentioned in the commit log for r1578, it probably makes sense to store meshes here rather than in various test/ subdirectories.
+
+./gridplot.ncl -- an NCL script to generate a PDF (or PS, or any other NCL-supported output type) file with orthographic and stereographic projections of a generated mesh.
+
+./pdf/ -- the directory to which gridplot.ncl outputs (regardless of output type).

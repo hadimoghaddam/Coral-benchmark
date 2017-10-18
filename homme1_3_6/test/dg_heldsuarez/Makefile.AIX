@@ -1,0 +1,16 @@
+run: 
+	bsub  < ./run.lsf
+srun: 
+	bsub  < ./srun.lsf
+prun: 
+	bsub  < ./prun.lsf
+hpmrun: 
+	bsub  < ./hpmrun.lsf
+regular:
+	bsub  < ./regular.lsf
+economy: 
+	bsub  < ./economy.lsf	
+premium: 
+	bsub  < ./premium.lsf
+clear:	
+	rm -rf *.err *.out purn.* srun.* hpmcount.* *.hpm ./movies/*.nc *.log

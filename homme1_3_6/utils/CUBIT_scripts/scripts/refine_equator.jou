@@ -1,0 +1,69 @@
+# Only works for even _Nelem at this point!
+
+#{_out_file = "equator_" // tostring(_Nelem) // "_x" // tostring(2^_split)}
+
+#{if(fmod(_Nelem,2)==1)}
+	# Center of last face...
+	# 2(N+1)^2 + (N+1)(N-1) + 2N(N-1) = 5N^2 + 2N + 1 to get to last face
+	# (N-1)(N-2)/2 to get to first of centered corners
+	#{_center4=11*_Nelem*_Nelem/2+_Nelem/2+2}
+	#{_radius=sqrt((Nx(_center)-sqrt(2)/2)*(Nx(_center)-sqrt(2)/2)+(Ny(_center)+sqrt(2)/2)*(Ny(_center)+sqrt(2)/2)+Nz(_center)*Nz(_center))}
+#{else}
+	#{if(_Nelem<7)}
+		#{_depth = _Nelem/2-1}
+	#{else}
+		#{_depth = _Nelem/2-2}
+	#{endif}
+	# Edge between 3 & 6
+	# 2(N+1)^2 to get to Face 3
+	# N/2 for center of edge
+	#{_edge1 = 2*_Nelem*_Nelem + 9*_Nelem/2 + 2}
+
+	# Center of Face 3
+	# 2(N+1)^2 to get to Face 3
+	# And (N+2)(N-1)/2 + N/2 to get to center
+	#{_center1 = 5*_Nelem*_Nelem/2 + 5*_Nelem + 1}
+
+	# Edge between 3 & 4
+	# 2(N+1)^2 to get to Face 3
+	# (N-1) + N/2 for center of edge
+	#{_edge2 = 2*_Nelem*_Nelem + 11*_Nelem/2 + 1}
+
+	# Center of Face 4
+	# 2(N+1)^2 + (N+1)(N-1) to get to Face 4
+	# And N(N-1)/2 + N/2 to get to center
+	#{_center2 = 7*_Nelem*_Nelem/2 + 4*_Nelem + 1}
+
+	# Edge between 4 & 5
+	# 2(N+1)^2 + (N+1)(N-1) to get to Face 4
+	# N/2 for center of edge
+	#{_edge3 = 3*_Nelem*_Nelem + 9*_Nelem/2 + 1}
+
+	# Center of Face 5
+	# 2(N+1)^2 + (N+1)(N-1) + N(N-1) to get to Face 5
+	# And N(N-1)/2 + N/2 to get to center
+	#{_center3 = 9*_Nelem*_Nelem/2 + 3*_Nelem + 1}
+
+	# Edge between 5 & 6
+	# 2(N+1)^2 + (N+1)(N-1) + N(N-1) to get to Face 5
+	# N/2 for center of edge
+	#{_edge4 = 4*_Nelem*_Nelem + 7*_Nelem/2 + 1}
+
+	# Center of Face 6
+	# 2(N+1)^2 + (N+1)(N-1) + 2N(N-1) = 5N^2 + 2N + 1 to get to last face
+	# And (N-1)(N-2)/2 + N/2 to get to center
+	#{_center4=11*_Nelem*_Nelem/2+_Nelem+2}
+#{endif}
+
+#{if(fmod(_Nelem,2)==1)}
+	refine node {_center} {_center+1} {_center+_Nelem-1} {_center+_Nelem} numsplit {_split} radius {_radius}
+#{else}
+	refine node {_center1} {_center2} {_center3} {_center4} {_edge1} {_edge2} {_edge3} {_edge4} numsplit {_split} depth {_depth}
+#{endif}
+
+#{include("nodes_to_sphere.jou")}
+
+#{if(_Nsmth>0)}
+	#{include("smooth.jou")}
+#{endif}
+

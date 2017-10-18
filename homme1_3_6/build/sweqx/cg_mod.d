@@ -1,0 +1,9 @@
+cg_mod.o: kinds.o
+cg_mod.o: dimensions_mod.o
+cg_mod.o: global_norms_mod.o
+cg_mod.o: parallel_mod.o
+cg_mod.o: hybrid_mod.o
+cg_mod.o: dimensions_mod.o
+cg_mod.o: hybrid_mod.o
+cg_mod.o: parallel_mod.o
+cg_mod.o: reduction_mod.o

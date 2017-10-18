@@ -1,0 +1,14 @@
+interpolate_mod.o: kinds.o
+interpolate_mod.o: element_mod.o
+interpolate_mod.o: dimensions_mod.o
+interpolate_mod.o: quadrature_mod.o
+interpolate_mod.o: coordinate_systems_mod.o
+interpolate_mod.o: physical_constants.o
+interpolate_mod.o: quadrature_mod.o
+interpolate_mod.o: parallel_mod.o
+interpolate_mod.o: cube_mod.o
+interpolate_mod.o: mesh_mod.o
+interpolate_mod.o: physical_constants.o
+interpolate_mod.o: physical_constants.o
+interpolate_mod.o: coordinate_systems_mod.o
+interpolate_mod.o: coordinate_systems_mod.o

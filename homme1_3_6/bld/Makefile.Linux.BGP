@@ -1,0 +1,68 @@
+#
+# makefile for BGL
+#
+ifeq ($(METIS),_USEMETIS)
+   SUPPORT = metis utils 
+else
+   SUPPORT = utils 
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+MKDEPF90=/contrib/fe_tools/makedepf90/bin/makedepf90
+
+F90 =  mpixlf90_r   # xlf Fortran
+CC = mpixlc_r
+MPCC = mpixlc_r
+CFLAGS +=  -D$(ARCH) -I. -DFORTRAN_SAME
+
+# add these for compiling GPTL timing library C code
+CFLAGS+= -DHAVE_GETTIMEOFDAY
+CFLAGS+= -DHAVE_MPI 
+
+FREE =  -qfree=f90
+FIXED = -qfixed
+DEF =-WF,-D
+MFLAGS = 
+MODPATH_FLAG = -qmoddir=
+MODEXT=.mod
+
+LDFLAGS= -L. $(addprefix -l,$(SUPPORT))  -Wl,--allow-multiple-definition \
+-lmassv -L/soft/apps/LAPACK -llapack_bgp -L/soft/apps/BLAS -lblas_bgp
+
+
+FFLAGS+= -g -qfullpath -O3 -qarch=450d -qtune=450 -qstrict -qalias=noaryovrlp -qsuffix=cpp=F90 -I../src -I../src/share  $(DEF)_BGL
+#FFLAGS+= -g -qfullpath -qsuffix=cpp=F90 -I../src -I../src/share  $(DEF)_BGL
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=mp
+#  LDFLAGS+= -L/contrib/bgl/mpi_trace -lmpihpm_f -lbgl_perfctr.rts -lmpich.rts -lmsglayer.rts -lrts.rts -ldevices.rts
+endif
+ifeq ($(TRACE),_BGL)
+  LDFLAGS+= -L/contrib/bgl/mpi_trace -lmpihpm_f -lbgl_perfctr.rts -lmpich.rts -lmsglayer.rts -lrts.rts -ldevices.rts
+endif
+
+
+PNETCDF=/home/robl/soft/pnetcdf-1.1.1-xl
+NETCDF=/soft/apps/netcdf-3.6.2
+
+NETCDFINC = -I../utils/pio 
+NETCDFLIB = -L../utils/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib/ -lnetcdf 
+
+
+# The CRCP physics is only built here and on AIX for now.
+
+CRCPSRC = grid_init_mod.F90 moist_init_mod.F90 prof_init_mod.F90 absor_mod.F90 \
+          noise_mod.F90 surfflux_mod.F90 gcrk_mod.F90 diag_mod.F90 velprd_mod.F90 \
+          rad_mod.F90 mpdat_mod.F90 thermo_mod.F90 rain_mod.F90 integxz_mod.F90 \
+          zero_mean_mod.F90 crcp_mod.F90

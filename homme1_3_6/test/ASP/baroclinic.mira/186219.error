@@ -1,0 +1,47 @@
+mkdir: cannot create directory `/projects/Coral_rfp_prep/preqx.1': File exists
+mkdir: cannot create directory `/projects/Coral_rfp_prep/preqx.1/jwasp-ne8-nu6e16.t4': File exists
+mkdir: cannot create directory `/projects/Coral_rfp_prep/preqx.1/jwasp-ne8-nu6e16.t4/movies': File exists
+2013-12-05 16:14:35.661 (INFO ) [0xfff7b8eb990] 45878:ibm.runjob.AbstractOptions: using properties file /bgsys/local/etc/bg.properties
+2013-12-05 16:14:35.664 (INFO ) [0xfff7b8eb990] 45878:ibm.runjob.AbstractOptions: max open file descriptors: 65536
+2013-12-05 16:14:35.664 (INFO ) [0xfff7b8eb990] 45878:ibm.runjob.AbstractOptions: core file limit: 0
+2013-12-05 16:14:35.664 (INFO ) [0xfff7b8eb990] 45878:tatu.runjob.client: scheduler job id is 186219
+2013-12-05 16:14:35.667 (INFO ) [0xfff90053290] 45878:tatu.runjob.monitor: monitor started
+2013-12-05 16:14:35.669 (INFO ) [0xfff7b8eb990] MIR-484C0-7B7F1-512:45878:ibm.runjob.client.options.Parser: set local socket to runjob_mux from properties file
+2013-12-05 16:14:38.497 (INFO ) [0xfff7b8eb990] MIR-484C0-7B7F1-512:363738:ibm.runjob.client.Job: job 363738 started
+2013-12-05 16:14:45.398 (INFO ) [0xfff90053290] 45878:tatu.runjob.monitor: tracklib completed
+STOP
+(INEXACT)
+STOP
+(INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(INEXACT)
+STOP
+(INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(INEXACT)
+STOP
+(UNDERFLOW, INEXACT)
+STOP
+(INEXACT)
+STOP
+(INEXACT)
+2013-12-05 16:17:07.946 (INFO ) [0xfff7b8eb990] MIR-484C0-7B7F1-512:363738:ibm.runjob.client.Job: exited with status 0
+2013-12-05 16:17:07.946 (INFO ) [0xfff7b8eb990] tatu.runjob.client: task exited with status 0
+2013-12-05 16:17:07.947 (INFO ) [0xfff90053290] 45878:tatu.runjob.monitor: monitor terminating
+2013-12-05 16:17:07.949 (INFO ) [0xfff7b8eb990] tatu.runjob.client: monitor completed

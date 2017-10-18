@@ -1,0 +1,51 @@
+reset
+
+##### User defined!
+#{_root_dir = "~/Desktop/grids/"}
+#{_refine_type = "mountain"}  # uniform, equator, north, quadrant, or mountain
+#{_Nelem = 15}
+#{_Nsmth = 0}
+#{_split = 1} # for non-uniform, most be >0!
+
+##### Only change if you re-organize the CUBIT directory
+#{_script_dir = Quote(_root_dir // "scripts/")}
+#{_in_dir = _root_dir // "CUB_files/"}
+#{_out_dir = _root_dir // "exodus/"}
+
+cd {_script_dir}
+
+### Read in CUB file
+#{_in_file = Quote(_in_dir // "ne" // tostring(_Nelem) // ".cub")}
+open {_in_file}
+
+# If no refinement, use uniform!
+#{if(_split == 0)}
+	#{_refine_type = "uniform"}
+#{endif}
+
+#{if(_refine_type == "uniform")}
+	#{_out_file = "uniform_" // tostring(_Nelem)}
+#{endif}
+
+#{if(_refine_type == "quadrant")}
+	#{include("refine_quadrant.jou")}
+#{endif}
+
+#{if(_refine_type == "equator")}
+	#{include("refine_equator.jou")}
+#{endif}
+
+#{if(_refine_type == "north")}
+	#{include("refine_north.jou")}
+#{endif}
+
+#{if(_refine_type == "mountain")}
+	#{include("refine_mountain.jou")}
+#{endif}
+
+set large exodus file off
+#{_efilename = Quote(_out_dir // _out_file // ".g")}
+export genesis {_efilename} dimension 3 overwrite
+
+
+

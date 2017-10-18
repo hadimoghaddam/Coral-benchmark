@@ -1,0 +1,82 @@
+#
+# makefile for PGI running on Cray XT3/XT4 systems
+#
+
+ifeq ($(METIS),_USEMETIS)
+   SUPPORT = linpack metis utils
+else
+   SUPPORT = linpack utils
+endif
+AR = ar 
+ARFLAGS = rv
+RANLIB = ranlib
+RM = rm -f
+CD = cd
+CP = cp
+MV = mv
+LN = ln
+ifeq ($(MPI),_NOMPI)
+   F90 = pgf90   # PGI fortran
+   CC = pgcc
+   MPCC = pgcc
+else
+   F90 = ftn
+   CC = cc
+   CXX = CC
+   MPCC = cc
+endif
+CFLAGS += -g -D$(ARCH) -I. -DFORTRANUNDERSCORE $(NOX_C_FLAGS)
+FREE =  -Mfree
+FIXED = -Mfixed
+DEF =-D
+MFLAGS = 
+MODPATH_FLAG = -I
+MODEXT=.mod
+
+LDFLAGS= -L. $(addprefix -l,$(SUPPORT))  -lsci 
+FFLAGS += -I../src -fast -Mvect 
+
+# add these for compiling GPTL timing library C code
+CFLAGS+= -DHAVE_GETTIMEOFDAY
+CFLAGS+= -DHAVE_MPI 
+
+
+ifeq ($(OMP),_OMP_THREADS)
+  OMP_FLAGS=
+endif
+
+ifeq ($(MPI),_MPI)
+  MP=
+  FFLAGS += 
+  LDFLAGS+= 
+endif
+
+ifeq ($(MOVIE),_NETCDF)
+   # FC6 default netcdf package:
+   #NETCDFROOT = /usr
+   #NETCDFINC= -I$(NETCDFROOT)/include/netcdf-3
+   #NETCDFLIB= -L$(NETCDFROOT)/lib/netcdf-3 -lnetcdf 
+
+   # user installed:
+   NETCDFROOT = $(HOME)/netcdf/reddish
+   NETCDFINC= -I$(NETCDFROOT)/include
+   NETCDFLIB= -L$(NETCDFROOT)/lib/ -lnetcdf 
+endif
+ifeq ($(MOVIE),_PIO)
+  PNETCDF = $(PNETCDF_DIR)
+  NETCDF = $(NETCDF_DIR)
+
+  NETCDFINC =  -I../utils/pio -I$(PNETCDF)/include  -I$(NETCDF)/include
+  NETCDFLIB = -L../utils/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib -lnetcdf  -module $(NETCDF)/include
+endif
+ifeq ($(MOVIE),_PIO_INTERP)
+  PNETCDF = $(PNETCDF_DIR)
+  NETCDF = $(NETCDF_DIR)
+
+  NETCDFINC =  -I../utils/pio  -I$(PNETCDF)/include  -I$(NETCDF)/include
+  NETCDFLIB = -L../utils/pio -lpio -L$(PNETCDF)/lib -lpnetcdf \
+              -L$(NETCDF)/lib -lnetcdf   -module $(NETCDF)/include
+endif
+
+

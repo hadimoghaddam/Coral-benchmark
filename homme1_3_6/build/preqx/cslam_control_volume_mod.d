@@ -1,0 +1,10 @@
+cslam_control_volume_mod.o: kinds.o
+cslam_control_volume_mod.o: coordinate_systems_mod.o
+cslam_control_volume_mod.o: element_mod.o
+cslam_control_volume_mod.o: dimensions_mod.o
+cslam_control_volume_mod.o: control_mod.o
+cslam_control_volume_mod.o: cube_mod.o
+cslam_control_volume_mod.o: parallel_mod.o
+cslam_control_volume_mod.o: time_mod.o
+cslam_control_volume_mod.o: coordinate_systems_mod.o
+cslam_control_volume_mod.o: coordinate_systems_mod.o

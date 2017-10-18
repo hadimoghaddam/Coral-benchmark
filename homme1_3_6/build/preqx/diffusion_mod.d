@@ -1,0 +1,14 @@
+diffusion_mod.o: kinds.o
+diffusion_mod.o: dimensions_mod.o
+diffusion_mod.o: derivative_mod.o
+diffusion_mod.o: edge_mod.o
+diffusion_mod.o: hybrid_mod.o
+diffusion_mod.o: physical_constants.o
+diffusion_mod.o: element_mod.o
+diffusion_mod.o: bndry_mod.o
+diffusion_mod.o: control_mod.o
+diffusion_mod.o: hybrid_mod.o
+diffusion_mod.o: physical_constants.o
+diffusion_mod.o: element_mod.o
+diffusion_mod.o: bndry_mod.o
+diffusion_mod.o: control_mod.o

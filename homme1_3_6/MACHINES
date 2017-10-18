@@ -1,0 +1,112 @@
+Cray XT5m (lynx) - Intel Compilers
+#C. Erath (January 30th, 2012): set everything to run HOMME running on lynx
+module load subversion
+module remove PrgEnv-pgi/2.2.48B
+module load PrgEnv-intel
+module remove xt-mpt/4.0.3
+module load xt-mpich2
+
+module load netcdf/4.0.1.3
+module load pnetcdf/1.2.0
+
+module load ncl/6.0.0
+
+export F77=ftn
+export FC=ftn
+export F90=ftn
+export CC=cc
+export INCLUDE="-I/contrib/pnetcdf/1.2.0/intel/include -I/opt/cray/netcdf/4.0.1.3/netcdf-intel/include"
+export LDFLAGS="-L/contrib/pnetcdf/1.2.0/intel/lib -L/opt/cray/netcdf/4.0.1.3/netcdf-intel/lib"
+export NETCDF_PATH="/opt/cray/netcdf/4.0.1.3/netcdf-intel"
+export PNETCDF_PATH="/contrib/pnetcdf/1.2.0/intel"
+export LIBS=""
+export FCFLAGS="-g -O2"
+export CPP="cpp"
+
+export PBS_O_WORKDIR="/glade/home/erath/hommelynx/test/cslamtest"
+
+# use configure: 
+#./configure NC=$(NC) NP=$(NP) PLEV=$(PLEV) --enable-blas --enable-lapack --enable-pio --with-pnetcdf=$(PNETCDF_PATH) --with-netcdf=$(NETCDF_PATH)
+
+
+
+BlueGene/L (Frost) - IBM Compilers
+
+setenv F77 mpxlf
+setenv FC mpxlf90
+setenv CC mpixlc
+setenv LDFLAGS "-L/bgl/local/software/bgl/lib/ -L/bgl/local/software/bgl/mpi_trace/"
+setenv LIBS "-lscal -lmpitrace_f"
+setenv FFLAGS "-g -O3"
+setenv CFLAGS "-g -O2"
+setenv FCFLAGS "-qfullpath -qarch=440 -g -O3 -qstrict -qalias=noaryovrlp -qsuffix=cpp=F90"
+setenv PNETCDF_PATH "/contrib/bgl/parallel-netcdf-1.1.1"
+setenv NETCDF_PATH "/contrib/bgl/netcdf-3.6.2"
+./configure --host=powerpc64-ibm --enable-blas --enable-lapack --with-netcdf=/contrib/bgl/netcdf-3.6.2 --with-pnetcdf=/contrib/bgl/parallel-netcdf-1.1.1 --enable-bgl
+
+Bluefire - IBM Compilers
+setenv NETCDF_PATH /contrib/netcdf-4.1.3b1_mpi
+setenv PNETCDF_PATH /contrib/pnetcdf
+setenv FFLAGS "-g -O3"
+setenv CPP "mpcc -E"
+setenv FC mpxlf90
+setenv LIBS -lnetcdff
+setenv LDFLAGS -L/contrib/netcdf-4.1.3b1_mpi/lib
+./configure --host=powerpc-ibm-aix5.3.0.0 --enable-blas --enable-lapack --with-netcdf=$NETCDF_PATH --with-pnetcdf=$PNETCDF_PATH
+Notice that because this version of the netCDF library breaks the Fortran code into a separate library (libnetcdff.a) then it is necessary to pass to the build system this information via LIBS and LDFLAGS
+
+
+Catalyst: Linux workstation - GNU compilers
+
+setenv NETCDF_PATH /home/jgarcia/lib/netcdf-4.1.1
+setenv F77 mpif77
+setenv FC mpif90
+setenv CC mpicc
+setenv CFLAGS "-g -O2"
+setenv FCFLAGS "-g -O3 -ffree-line-length-280 -frecord-marker=4 -fconvert=little-endian"
+setenv FFLAGS "-g -O3 -ffree-line-length-280 -frecord-marker=4 -fconvert=little-endian"
+setenv LIBS "-lcurl -lhdf5 -lhdf5_hl"
+ ./configure --enable-blas --enable-lapack --with-netcdf=/home/jgarcia/lib/netcdf-4.1.1 --with-pnetcdf=/home/jgarcia/lib/parallel-netcdf-1.1.1 --with-arch=Linux
+
+
+Sandia Redsky Linux cluster:
+
+setenv FC mpif90 ; setenv F77 mpif90 ; setenv MPIF90 mpif90
+setenv CC mpicc
+setenv PNETCDF_PATH /projects/ccsm/pnetcdf-intel
+setenv NETCDF_PATH /projects/ccsm/netcdf-intel
+#setenv FCFLAGS "-openmp -O2 -w90"
+#setenv F90FLAGS "-openmp -O2 -w90"
+setenv FCFLAGS "-O2 -w90"
+setenv F90FLAGS "-O2 -w90"
+./configure
+
+
+JaguarPF ORNL Cray XT5
+
+module load netcdf/3.6.2
+module load p-netcdf/1.1.1
+setenv NETCDF_PATH $NETCDF_DIR
+setenv FCFLAGS "-fast -Mvect"
+setenv F90FLAGS "-fast -Mvect"
+setenv FC ftn ; setenv F77 ftn ; setenv MPIF90 ftn
+setenv PNETCDF_PATH $PNETCDF_DIR
+
+
+Sierra LLNL Intel+Infiniband
+
+use pgi-9.0.4
+use mvapich2-pgi-1.5
+setenv NETCDF_DIR /usr/local/tools/netcdf-pgi
+setenv NETCDF_PATH $NETCDF_DIR
+# link problem when setting pnetcdf parameters below
+#setenv PNETCDF_DIR /usr/local/tools/parallel-netcdf-pgi-1.2.0
+#setenv PNETCDF_PATH $PNETCDF_DIR
+setenv MPI_DIR /usr/local/tools/mvapich2-pgi-1.5
+setenv LDFLAGS "-L$NETCDF_DIR/lib"
+# need to use big_endian files
+setenv FCFLAGS "-byteswapio -Mextend -O2 -mp -g -D_Linux -DLINUX -DSPMD -I$NETCDF_DIR/include  -I$MPI_DIR/include"
+setenv F90FLAGS "-byteswapio -Mextend -O2 -mp -g -D_Linux -DLINUX -DSPMD -I$NETCDF_DIR/include  -I$MPI_DIR/include" 
+setenv FC mpif90 ; setenv F77 mpif90 ; setenv MPIF90 mpif90
+setenv LDFLAGS "$LDFLAGS"
+

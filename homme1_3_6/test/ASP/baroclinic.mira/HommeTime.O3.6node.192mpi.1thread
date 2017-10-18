@@ -1,0 +1,105 @@
+GPTL was built with THREADED_PTHREADS
+HAVE_MPI was true
+  HAVE_COMM_F2C was true
+  ENABLE_PMPI was false
+HAVE_PAPI was false
+Underlying timing routine was MPI_Wtime.
+Per-call utr overhead est: 1.55456e-07 sec.
+If overhead stats are printed, roughly half the estimated number is
+embedded in the wallclock stats for each timer.
+Print method was full_tree.
+If a '%_of' field is present, it is w.r.t. the first timer for thread 0.
+If a 'e6_per_sec' field is present, it is in millions of PAPI counts per sec.
+
+A '*' in column 1 below means the timer had multiple parents, though the
+values printed are for all calls.
+Further down the listing may be more detailed information about multiple
+parents. Look for 'Multiple parent info'
+
+Stats for thread 0:
+                                        Called  Recurse Wallclock max       min       UTR_Overhead  
+  Total                                        1    -      11.030    11.030    11.030         0.000 
+    prim_init1                                 1    -       0.112     0.112     0.112         0.000 
+*     edge_pack                             5744    -       0.277  1.18e-03  9.59e-07         0.002 
+*     edge_unpack                           5256    -       0.587  1.69e-03  1.01e-06         0.002 
+*     repro_sum_int                        14439    -       1.195     0.076  4.38e-05         0.004 
+      decompose                                1    -    3.20e-06  3.20e-06  3.20e-06         0.000 
+    prim_init2                                 1    -       0.124     0.124     0.124         0.000 
+*     repro_sum_int                        14439    -       1.195     0.076  4.38e-05         0.004 
+      bv_transfer                              1    -    1.98e-05  1.98e-05  1.98e-05         0.000 
+        bvsigma                                2    -    9.61e-06  9.16e-06  4.46e-07         0.000 
+      taylor_filter_create                     2    -    4.64e-05  2.62e-05  2.02e-05         0.000 
+    interp_movie_output                        2    -       0.267     0.267  5.30e-06         0.000 
+*     edge_pack                             5744    -       0.277  1.18e-03  9.59e-07         0.002 
+*     edge_unpack                           5256    -       0.587  1.69e-03  1.01e-06         0.002 
+*     bndry_exchange                        1099    -       1.756     0.037  1.18e-04         0.000 
+    prim_run                                  61    -      10.234     0.272     0.133         0.000 
+*     repro_sum_int                        14439    -       1.195     0.076  4.38e-05         0.004 
+      prim_advance_exp                       244    -       1.259     0.039  2.43e-03         0.000 
+        compute_and_apply_rhs                305    -       0.784     0.037  7.70e-04         0.000 
+*         edge_pack                         5744    -       0.277  1.18e-03  9.59e-07         0.002 
+*         edge_unpack                       5256    -       0.587  1.69e-03  1.01e-06         0.002 
+*         bndry_exchange                    1099    -       1.756     0.037  1.18e-04         0.000 
+        advance_hypervis                     244    -       0.471  4.35e-03  1.63e-03         0.000 
+*         edge_pack                         5744    -       0.277  1.18e-03  9.59e-07         0.002 
+*         edge_unpack                       5256    -       0.587  1.69e-03  1.01e-06         0.002 
+*         bndry_exchange                    1099    -       1.756     0.037  1.18e-04         0.000 
+      prim_advec_tracers_remap_rk2            61    -       7.404     0.123     0.120         0.000 
+        euler_step                           183    -       2.921     0.017     0.015         0.000 
+*         edge_pack                         5744    -       0.277  1.18e-03  9.59e-07         0.002 
+*         edge_unpack                       5256    -       0.587  1.69e-03  1.01e-06         0.002 
+*         bndry_exchange                    1099    -       1.756     0.037  1.18e-04         0.000 
+        remap_velocityQ_ppm                   61    -       1.817     0.030     0.029         0.000 
+        advance_hypervis_scalar               61    -       2.591     0.043     0.042         0.000 
+*         edge_pack                         5744    -       0.277  1.18e-03  9.59e-07         0.002 
+*         edge_unpack                       5256    -       0.587  1.69e-03  1.01e-06         0.002 
+*         bndry_exchange                    1099    -       1.756     0.037  1.18e-04         0.000 
+  t_prf                                        0    -    0.00e+00  0.00e+00  0.00e+00         0.000 
+
+Overhead sum =   0.00863 wallclock seconds
+Total calls  = 27769
+
+Multiple parent info for thread 0:
+Columns are count and name for the listed child
+Rows are each parent, with their common child being the last entry, which is indented.
+Count next to each parent is the number of times it called the child.
+Count next to child is total number of times it was called by the listed parents.
+
+       8 prim_init1                      
+       2 interp_movie_output             
+    1830 compute_and_apply_rhs           
+    2928 advance_hypervis                
+     732 euler_step                      
+     244 advance_hypervis_scalar         
+    5744   edge_pack                       
+
+       8 prim_init1                      
+       2 interp_movie_output             
+    1830 compute_and_apply_rhs           
+    2440 advance_hypervis                
+     732 euler_step                      
+     244 advance_hypervis_scalar         
+    5256   edge_unpack                     
+
+       1 prim_init1                      
+     218 prim_init2                      
+   14220 prim_run                        
+   14439   repro_sum_int                   
+
+       1 interp_movie_output             
+     305 compute_and_apply_rhs           
+     488 advance_hypervis                
+     183 euler_step                      
+     122 advance_hypervis_scalar         
+    1099   bndry_exchange                  
+
+Size of hash table was 1023
+
+Total GPTL memory usage = 1052.5 KB
+Components:
+Hashmem                 = 1047.72 KB
+Regionmem               = 4.2 KB (papimem portion = 0 KB)
+Parent/child arrays     = 0.576 KB
+
+Thread mapping:
+threadid[0] = 135379550208

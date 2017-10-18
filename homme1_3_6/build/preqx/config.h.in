@@ -1,0 +1,70 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Energy Diagnostics */
+#undef ENERGY_DIAGNOSTICS
+
+/* using mesh refine */
+#undef MESH
+
+/* Number of POINTS in the element (Default value is 4) */
+#undef NP
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Basic PIO */
+#undef PIO
+
+/* PIO with interpolation */
+#undef PIO_INTERP
+
+/* Number of POINTS in the element (Default value is 26) */
+#undef PLEV
+
+/* SPHEREW */
+#undef SPHEREW
+
+/* Version number of package */
+#undef VERSION
+
+/* BGL system */
+#undef _BGL
+
+/* Enable CSLAM */
+#undef _CSLAM
+
+/* Darwin System */
+#undef _Darwin
+
+/* Linux System */
+#undef _Linux
+
+/* Using MPI */
+#undef _MPI
+
+/* Using _PRESTART */
+#undef _PRESTART
+
+/* Using PRIMITIVE */
+#undef _PRIM
+
+/* _WK_GRAD */
+#undef _WK_GRAD

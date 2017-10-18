@@ -1,0 +1,69 @@
+##################################################
+# Makefile for HOMME 
+##################################################
+# Staggering decided at compile time in Params.inc
+.SUFFIXES: .F90 .o .a 
+ARCH =$(shell uname -s)
+include ../Params.inc
+include ../bld/Makefile.$(ARCH)
+
+VPATH +=../physics ../physics/emanuel ../physics/heldsuarez ../physics/crcp \
+       ./$(OBJDIR)
+
+EXE = primdgx
+
+SRC +=  dg3d_primeq_mod.F90 ref_state_mod.F90 dg_movie_mod.F90 state_mod.F90\
+      dg3d_prim_mod.F90 dg3d_dynamics_mod.F90 dg3d_core_mod.F90 dg3d_errors_mod.F90 \
+      dg3d_tests_mod.F90 dg3d_vertical_mod.F90 dg_core_mod.F90 interpolate_mod.F90 \
+      init_mod.F90 restart_mod.F90
+OBJ = $(filter %.o,$(SRC:.F90=.o) $(SRC:.c=.o))
+
+
+MAIN = dg3d_main.F90
+
+LIB = libprimdg.a 
+EXEID=$(PLEV)$(NP)$(PCOLS)$(PCNST)$(PNATS)$(OBJDIRSFX)
+
+OBJDIR= objprimdg.$(EXEID)
+OBJFP = $(addprefix $(OBJDIR)/,$(OBJ))
+DEPENDS = ../bld/Depends.primdg.$(OBJDIRSFX)
+
+FDEFS += $(DEF)$(RESTART) $(DEF)_$(ARCH) $(DEF)$(OMP) $(DEF)$(GRID_STAG) \
+        $(DEF)NP=$(NP) $(DEF)PLEV=$(PLEV) $(DEF)_WK_GRAD $(DEF)TIMING $(DEF)_PRIMDG \
+	$(DEF)$(TRACE)
+
+CPPDEFS = $(subst $(DEF),-D, $(FDEFS))
+
+FINCS =  $(BLDPATH) $(NETCDFINC) $(TRACEINCS)
+
+SUPPORTDIRS = $(addprefix ../libs/,$(SUPPORT))
+
+
+default: $(EXE) 
+
+EXEID=$(PLEV)$(NP)$(PCOLS)$(PCNST)$(PNATS)$(OBJDIRSFX)
+
+override MFLAGS+=$(MODPATH_FLAG)./$(OBJDIR) -I./$(OBJDIR)
+
+
+$(EXE): $(MAIN) $(DEPENDS) $(OBJDIR) $(OBJ)
+	$(F90) $(FFLAGS) $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) $< -o $@ $(OBJFP) $(NETCDFLIB) $(LDFLAGS)
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
+%.o : %.F90
+	$(PRECOMP)
+	$(F90) $(FFLAGS) $(MFLAGS) $(FDEFS) $(FINCS) $(FREE) $(OMP_FLAGS) -c $< -o $(OBJDIR)/$@
+	$(POSTCOMP)
+
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $(OBJDIR)/$@
+
+
+$(DEPENDS):
+	$(MKDEPF90) $(CPPDEFS) -I "$(VPATH)" $(MAIN) $(filter %.F90,$(SRC)) > $@
+
+include ./$(DEPENDS)
+

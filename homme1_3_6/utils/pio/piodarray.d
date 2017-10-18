@@ -1,0 +1,14 @@
+piodarray.o: pio_types.o
+piodarray.o: pio_kinds.o
+piodarray.o: pio_support.o
+piodarray.o: pionfwrite_mod.o
+piodarray.o: pionfread_mod.o
+piodarray.o: iompi_mod.o
+piodarray.o: alloc_mod.o
+piodarray.o: rearrange.o
+piodarray.o: pio_msg_mod.o
+piodarray.o: pio_msg_mod.o
+piodarray.o: pio_msg_mod.o
+piodarray.o: pio_msg_mod.o
+piodarray.o: pio_msg_mod.o
+piodarray.o: pio_msg_mod.o
