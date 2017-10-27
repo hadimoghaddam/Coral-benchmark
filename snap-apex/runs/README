@@ -1,0 +1,42 @@
+input files:
+input files, 3 runs, mpi only:
+in_gc
+in_l
+in_m
+in_s
+in_x
+
+input files, 3 runs, mpi + openmp:
+it_gc
+it_l
+it_m
+it_s
+it_x
+
+output files, 3 runs, mpi + openmp:
+ott_l_1
+ott_l_2
+ott_l_3
+ott_m_1
+ott_m_2
+ott_m_3
+ott_s_1
+ott_s_2
+ott_s_3
+ott_x_1
+ott_x_2
+ott_x_3
+
+output files, 3 runs, mpi only:
+out_l_1
+out_l_2
+out_l_3
+out_m_1
+out_m_2
+out_m_3
+out_s_1
+out_s_2
+out_s_3
+out_x_1
+out_x_2
+out_x_3

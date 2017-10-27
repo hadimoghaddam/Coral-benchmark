@@ -1,0 +1,11 @@
+#!/bin/bash -l
+#SBATCH -p regular
+#SBATCH -N 2592
+#SBATCH -t 01:00:00
+#SBATCH -J x
+#SBATCH -o x.o%j
+
+cd /global/homes/r/rzerr/runs
+srun -n 62208 /global/homes/r/rzerr/snap/src/isnap in_x out_x_1
+srun -n 62208 /global/homes/r/rzerr/snap/src/isnap in_x out_x_2
+srun -n 62208 /global/homes/r/rzerr/snap/src/isnap in_x out_x_3

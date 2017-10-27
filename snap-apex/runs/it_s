@@ -1,0 +1,34 @@
+! Input from namelist
+&invar
+  nthreads=6
+  nnested=1
+  npey=2
+  npez=2
+  ndimen=3
+  nx=160
+  lx=32.0
+  ny=16
+  ly=16.0
+  nz=24
+  lz=24.0
+  ichunk=16
+  nmom=4
+  nang=32
+  ng=42
+  mat_opt=1
+  src_opt=1
+  timedep=1
+  it_det=0
+  tf=1.0
+  nsteps=10
+  iitm=5
+  oitm=100
+  epsi=1.E-4
+  fluxp=0
+  scatp=0
+  fixup=1
+  soloutp=0
+  popout=0
+  swp_typ=0
+  angcpy=1
+/

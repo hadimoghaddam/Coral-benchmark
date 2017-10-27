@@ -1,0 +1,11 @@
+#!/bin/bash -l
+#SBATCH -p regular
+#SBATCH -N 36
+#SBATCH -t 01:00:00
+#SBATCH -J mt
+#SBATCH -o mt.o%j
+
+cd /global/homes/r/rzerr/runs
+srun -n 144 --ntasks-per-node 4 --ntasks-per-socket 2 -c 6 /global/homes/r/rzerr/snap/src/isnap it_m ott_m_1
+srun -n 144 --ntasks-per-node 4 --ntasks-per-socket 2 -c 6 /global/homes/r/rzerr/snap/src/isnap it_m ott_m_2
+srun -n 144 --ntasks-per-node 4 --ntasks-per-socket 2 -c 6 /global/homes/r/rzerr/snap/src/isnap it_m ott_m_3
